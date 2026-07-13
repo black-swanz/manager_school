@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Камелот — Школа менеджеров · Лучи</title>
+<meta name="description" content="Шесть уроков, чтобы перестать быть просто оператором и начать вести людей. Ценности, метрики, инициативы, команда, обратная связь, работа с руководством. Школа Лучи.">
+<meta name="theme-color" content="#FF7377">
+<style>
+/* ====== ШРИФТЫ БРЕНДА ====== */
+@font-face{font-family:'Cera Condensed';font-weight:900;font-style:normal;font-display:swap;
+  src:url('Cera/Cera%20Condensed-Black-Web.woff2') format('woff2'),url('Cera/Cera%20Condensed-Black-Web.woff') format('woff');}
+@font-face{font-family:'Cera Condensed';font-weight:500;font-style:normal;font-display:swap;
+  src:url('Cera/Cera%20Condensed-Medium-Web.woff2') format('woff2'),url('Cera/Cera%20Condensed-Medium-Web.woff') format('woff');}
+@font-face{font-family:'Cera Condensed';font-weight:300;font-style:normal;font-display:swap;
+  src:url('Cera/Cera%20Condensed-Light-Web.woff2') format('woff2'),url('Cera/Cera%20Condensed-Light-Web.woff') format('woff');}
+@font-face{font-family:'Styrene A';font-weight:400;font-style:normal;font-display:swap;
+  src:url('Styrene/Styrene%20A-Regular-Web.woff2') format('woff2'),url('Styrene/Styrene%20A-Regular-Web.woff') format('woff');}
+@font-face{font-family:'Styrene A';font-weight:500;font-style:normal;font-display:swap;
+  src:url('Styrene/Styrene%20A-Medium-Web.woff2') format('woff2'),url('Styrene/Styrene%20A-Medium-Web.woff') format('woff');}
+
+/* ====== ТОКЕНЫ (ровно 7 цветов брендбука) ====== */
+:root{
+  --coral:#FF7377; --sky:#078EFF; --teal:#026B83; --ice:#71D7FF;
+  --sand:#EFEBCC; --ink:#022028; --white:#FFFFFF;
+  --font-display:'Cera Condensed','Arial Narrow',sans-serif;
+  --font-body:'Styrene A','Helvetica Neue',Arial,sans-serif;
+  --wrap:1120px; --gap:clamp(20px,4vw,44px); --pill:100px; --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--white);font-family:var(--font-body);line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body.lesson-open,body.ov-open{overflow:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gap)}
+h1,h2,h3,.display{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:0;line-height:.9}
+a{color:inherit}
+.luchi-logo path{fill:currentColor}.luchi-logo{display:block;height:100%;width:auto}
+.section-label{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.16em;
+  font-size:13px;display:flex;gap:11px;align-items:center;margin-bottom:16px}
+.section-label::before{content:"";width:26px;height:2px;background:currentColor}
+:focus-visible{outline:3px solid var(--ice);outline-offset:2px;border-radius:4px}
+
+/* ====== КНОПКИ БРЕНДА ====== */
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:900;
+  text-transform:uppercase;letter-spacing:.02em;font-size:15px;padding:14px 26px;border-radius:var(--pill);
+  text-decoration:none;background:var(--coral);color:var(--white);border:2px solid var(--coral);cursor:pointer;transition:.2s}
+.btn:hover{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.btn--ghost{background:transparent;color:var(--coral);border-color:var(--coral)}
+.btn--ghost:hover{background:var(--coral);color:var(--white)}
+.btn--ice{background:var(--ice);border-color:var(--ice);color:var(--ink)}
+.btn--ice:hover{background:var(--white);border-color:var(--white)}
+.btn--sm{font-size:12px;padding:10px 16px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* ====== ПРОВАЛИВАНИЕ ====== */
+#collection{transform-origin:center 32%;transition:transform .55s cubic-bezier(.6,0,.3,1),opacity .45s,filter .55s}
+body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.6);opacity:0;pointer-events:none}
+
+/* ====== ШАПКА ====== */
+.topbar{position:sticky;top:0;z-index:40;background:var(--coral);border-bottom:1px solid rgba(2,32,40,.18)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;height:60px}
+.brand{display:flex;align-items:center;color:var(--sand)}.brand .luchi-logo{height:20px}
+.crumbs{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--ink);display:flex;gap:8px}
+.crumbs .sep{color:var(--white)}.crumbs .here{opacity:1}.crumbs a{opacity:.6;text-decoration:none}
+.top-right{display:flex;align-items:center;gap:14px}
+.top-hw{background:var(--ink);border-color:var(--ink);color:var(--sand)}
+.top-hw:hover{background:var(--white);border-color:var(--white);color:var(--ink)}
+.site{font-family:var(--font-body);font-size:14px;color:var(--ink);text-decoration:underline;text-underline-offset:3px;opacity:.85}
+@media(max-width:720px){.crumbs{display:none}}
+@media(max-width:520px){.site{display:none}.top-hw{font-size:11px;padding:9px 12px}}
+
+/* ====== HERO (коралл) ====== */
+.hero{background:var(--coral);color:var(--sand);position:relative;overflow:hidden;padding:clamp(46px,8vw,96px) 0 clamp(44px,7vw,80px)}
+.hero .ray-bg{position:absolute;inset:auto -6% -30% auto;width:44vw;max-width:540px;opacity:.15;color:var(--sand)}
+.hero .ray-bg svg{width:100%;display:block}
+.hero .kicker{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:13px;opacity:.92;margin-bottom:16px}
+.hero h1{font-size:clamp(60px,14vw,168px);color:var(--sand)}
+.hero .sub{font-family:var(--font-display);font-weight:500;text-transform:uppercase;line-height:1;font-size:clamp(19px,3.2vw,32px);margin-top:8px;color:var(--sand)}
+.hero .sub span{color:var(--ink)}
+.hero .lede{max-width:600px;margin-top:24px;font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:var(--sand)}
+.hero .lede b{font-family:var(--font-body);font-weight:500;color:var(--white)}
+.chips{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:12px;line-height:1;padding:9px 13px;border-radius:var(--pill);border:1.5px solid var(--sand);color:var(--sand)}
+.chip.solid{background:var(--ink);border-color:var(--ink);color:var(--sand)}
+.cue{margin-top:30px;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:14px;color:var(--ink)}
+
+/* ====== АЛЬБОМ ====== */
+.album-wrap{padding:clamp(56px,8vw,104px) 0 clamp(48px,7vw,84px);background:var(--ink)}
+.album-wrap .head{margin-bottom:26px}
+.album-wrap .section-label{color:var(--ice)}
+.album-wrap h2{font-size:clamp(32px,5vw,60px);color:var(--white)}
+.album-wrap .hint{font-size:15px;color:var(--ice);margin-top:12px}
+.album-status{display:flex;align-items:center;gap:14px;margin-bottom:30px;flex-wrap:wrap}
+.stat-pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--ink);background:var(--ice);border-radius:var(--pill);padding:8px 16px}
+.stat-track{flex:1;min-width:120px;max-width:280px;height:8px;border-radius:var(--pill);background:rgba(255,255,255,.12);overflow:hidden}
+.stat-track i{display:block;height:100%;background:var(--coral);transition:width .5s}
+.album{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,3vw,44px)}
+@media(max-width:860px){.album{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.album{grid-template-columns:1fr;max-width:340px;margin:0 auto}}
+
+/* финальная карточка */
+.final-card{background:var(--coral);color:var(--sand);border-radius:var(--radius);padding:clamp(28px,4vw,44px);margin-bottom:34px;position:relative;overflow:hidden}
+.final-h{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(26px,4vw,44px);line-height:.92;color:var(--sand)}
+.final-h span{color:var(--ink)}
+.final-p{margin-top:14px;max-width:56ch;color:var(--sand);font-size:16px;line-height:1.55}
+.final-card .btn{margin-top:20px;background:var(--ink);border-color:var(--ink);color:var(--sand)}
+.final-card .btn:hover{background:var(--white);color:var(--ink);border-color:var(--white)}
+
+/* — марка — */
+.stamp{--punch:var(--ink);appearance:none;border:0;background:transparent;cursor:pointer;font:inherit;color:inherit;text-align:left;display:block;width:100%;padding:0;transition:transform .25s}
+.stamp:nth-child(3n+1){transform:rotate(-1deg)}.stamp:nth-child(3n+2){transform:rotate(.7deg)}.stamp:nth-child(3n){transform:rotate(-.4deg)}
+.stamp:hover,.stamp:focus-visible{transform:translateY(-7px) rotate(0);outline:none}
+.stamp:focus-visible .paper{box-shadow:0 0 0 3px var(--ice),0 10px 24px rgba(2,32,40,.5)}
+.paper{position:relative;padding:13px;border-radius:3px;box-shadow:0 10px 24px rgba(2,32,40,.45);
+  background:
+    radial-gradient(circle 5px at 9px 0,var(--punch) 4.6px,#0000 5.4px) 0 0/18px 50% repeat-x,
+    radial-gradient(circle 5px at 9px 100%,var(--punch) 4.6px,#0000 5.4px) 0 100%/18px 50% repeat-x,
+    radial-gradient(circle 5px at 0 9px,var(--punch) 4.6px,#0000 5.4px) 0 0/50% 18px repeat-y,
+    radial-gradient(circle 5px at 100% 9px,var(--punch) 4.6px,#0000 5.4px) 100% 0/50% 18px repeat-y,
+    var(--white);}
+.stamp:hover .paper{box-shadow:0 18px 34px rgba(2,32,40,.6)}
+.inner{border:1px solid rgba(2,32,40,.28);border-radius:2px;padding:14px;color:var(--ink)}
+.s-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px}
+.s-country{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.06em;font-size:12px;line-height:1}
+.s-value{font-family:var(--font-display);font-weight:900;font-size:26px;line-height:.8;color:var(--coral)}
+.art{position:relative;aspect-ratio:1/.82;border-radius:2px;overflow:hidden;background:var(--sand);display:flex;align-items:center;justify-content:center}
+.art svg.emblem{width:84%;height:84%;display:block}
+.postmark{position:absolute;right:7px;bottom:7px;width:40px;height:40px;opacity:.45;transform:rotate(-13deg);mix-blend-mode:multiply}
+.postmark svg{width:100%;height:100%}
+.s-cap{margin-top:12px}
+.s-tema{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:11px;color:var(--teal);line-height:1.2}
+.s-title{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:24px;line-height:.92;margin-top:5px}
+.s-meta{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px 9px;align-items:center}
+.s-time{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:10px;color:var(--coral);border:1px solid var(--coral);border-radius:var(--pill);padding:3px 8px}
+.s-toc{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:10px;color:var(--teal)}
+.s-issuer{margin-top:12px;border-top:1px dashed rgba(2,32,40,.28);padding-top:9px;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.07em;font-size:10px;color:var(--teal);display:flex;justify-content:space-between}
+/* заблокированная марка */
+.stamp.locked .inner{filter:grayscale(1);opacity:.5}
+.s-lock{position:absolute;inset:0;display:flex;flex-direction:column;gap:9px;align-items:center;justify-content:center;background:rgba(2,32,40,.6);border-radius:3px;color:var(--sand);font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:12px;text-align:center;padding:12px}
+.s-lock .lock-ic{width:36px;height:36px}
+.s-lock .lock-ic svg{width:100%;height:100%}
+
+/* ====== ФУТЕР ====== */
+.foot{background:var(--ink);padding:40px 0 48px;border-top:1px solid rgba(255,255,255,.08)}
+.foot .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.foot .luchi-logo{height:24px;color:var(--coral)}
+.legal{font-family:var(--font-display);font-weight:300;font-size:13px;line-height:1.5;color:var(--ice);max-width:56ch;margin-top:14px}
+.foot .site{font-size:15px;color:var(--ice)}
+
+/* ====== СТРАНИЦА ЗАНЯТИЯ ====== */
+.lesson{position:fixed;inset:0;z-index:60;background:var(--ink);overflow-y:auto;opacity:0;transform:scale(.94) translateY(28px);pointer-events:none;transition:opacity .5s,transform .55s cubic-bezier(.2,.8,.2,1)}
+.lesson.show{opacity:1;transform:none;pointer-events:auto}
+.lesson__bar{position:sticky;top:0;z-index:5;background:rgba(2,32,40,.9);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px var(--gap)}
+.back{appearance:none;border:0;background:transparent;color:var(--ice);cursor:pointer;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:13px}
+.back:hover{color:var(--white)}
+.bar-mid{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+.bar-time{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:12px;color:var(--sand)}
+.counter{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.05em;font-size:13px;color:var(--coral)}
+.lesson__inner{max-width:var(--wrap);margin:0 auto;padding:clamp(28px,5vw,60px) var(--gap) 0;display:grid;grid-template-columns:320px 1fr;gap:clamp(30px,5vw,64px);align-items:start}
+@media(max-width:840px){.lesson__inner{grid-template-columns:1fr;gap:26px}}
+.lesson__cover{position:sticky;top:80px}
+@media(max-width:840px){.lesson__cover{position:static;max-width:300px}}
+.lesson__cover .paper{--punch:var(--ink);animation:dive .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes dive{from{transform:scale(.62) rotate(-5deg);opacity:0}to{transform:none;opacity:1}}
+.lesson__cover .art{aspect-ratio:1/1}
+.cover-tema{margin-top:14px;text-align:center;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:12px;color:var(--ice)}
+.l-hook{font-family:var(--font-display);font-weight:900;text-transform:uppercase;color:var(--coral);font-size:clamp(22px,3.4vw,34px);line-height:.95;margin-bottom:16px}
+.l-kicker{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--ice)}
+.l-meta{display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.l-time{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:12px;color:var(--sand);border:1px solid var(--ice);border-radius:var(--pill);padding:5px 12px}
+.l-toc{display:flex;gap:6px;flex-wrap:wrap}
+.l-toc button{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:11px;color:var(--ice);background:transparent;border:1px solid rgba(113,215,255,.4);border-radius:var(--pill);padding:5px 11px;cursor:pointer}
+.l-toc button:hover{background:var(--ice);color:var(--ink);border-color:var(--ice)}
+.l-title{font-size:clamp(40px,6.5vw,76px);color:var(--white);margin-top:14px}
+.l-epi{font-style:italic;color:var(--sand);font-size:clamp(17px,1.8vw,21px);margin-top:14px;max-width:34ch;line-height:1.4}
+.l-zachem{margin-top:22px;max-width:60ch}
+.l-zachem p{font-size:17px;line-height:1.65;color:var(--white);margin-bottom:14px}
+.l-nasbore{margin-top:20px;max-width:60ch;background:rgba(113,215,255,.1);border-left:3px solid var(--ice);border-radius:0 12px 12px 0;padding:14px 16px;font-size:15px;color:var(--sand)}
+.l-nasbore b{color:var(--ice);font-weight:500;font-family:var(--font-display);text-transform:uppercase;letter-spacing:.04em;font-size:12px;display:block;margin-bottom:4px}
+.toUrok{margin-top:28px}
+
+/* Плашки-главы */
+.chapter{margin-top:clamp(48px,7vw,88px);text-align:center;padding:clamp(38px,5vw,60px) var(--gap);position:relative;overflow:hidden}
+.chapter--urok{background:var(--coral);color:var(--sand)}
+.chapter--test{background:var(--ink);border-top:2px solid var(--coral);border-bottom:2px solid var(--coral)}
+.chapter .ray-bg{position:absolute;top:-36%;left:50%;transform:translateX(-50%);width:300px;opacity:.16}
+.chapter--urok .ray-bg{color:var(--sand)}.chapter--test .ray-bg{color:var(--coral)}
+.chapter .ray-bg svg{width:100%;display:block}
+.chapter .ttl{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,5vw,54px);line-height:.9;position:relative}
+.chapter--urok .ttl{color:var(--sand)}.chapter--urok .ttl span{color:var(--ink)}
+.chapter--test .ttl{color:var(--coral)}.chapter--test .ttl span{color:var(--ice)}
+.chapter .qach{margin-top:8px;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:13px;position:relative}
+.chapter--urok .qach{color:var(--ink)}.chapter--test .qach{color:var(--ice)}
+.chapter .chev{margin-top:14px;font-size:24px;position:relative;animation:bob 1.4s ease-in-out infinite}
+.chapter--urok .chev{color:var(--sand)}.chapter--test .chev{color:var(--coral)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.zone{background:var(--ink);padding:clamp(40px,5vw,72px) 0}
+.zone .wrap{max-width:720px}
+
+/* Урок */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.ublock{margin-bottom:20px}
+.ublock>.ul{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.04em;font-size:14px;color:var(--coral);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ublock>.ul::before{content:"";width:20px;height:2px;background:var(--coral)}
+.ublock>p{font-size:17px;line-height:1.65;color:var(--white)}
+.acc-h{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:15px 18px;cursor:pointer;color:var(--white);font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.04em;font-size:14px}
+.acc-h:hover{border-color:var(--ice)}
+.acc-i{color:var(--coral);font-size:24px;line-height:1;font-weight:900}
+.acc-b{padding:16px 2px 2px}
+.acc-b[hidden]{display:none}
+.ba{display:grid;gap:12px}
+.ba .card{border-radius:12px;padding:15px 17px;font-size:15px;line-height:1.5}
+.ba .card b{display:block;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:11px;margin-bottom:5px}
+.ba .bad{background:rgba(255,115,119,.14);border:1px solid rgba(255,115,119,.4);color:var(--sand)}
+.ba .bad b{color:var(--coral)}
+.ba .good{background:rgba(2,107,131,.3);border:1px solid rgba(113,215,255,.45);color:var(--white)}
+.ba .good b{color:var(--ice)}
+.tool{background:rgba(113,215,255,.08);border:1px dashed rgba(113,215,255,.5);border-radius:12px;padding:16px 18px}
+.tool .code{font-family:var(--font-display),'Courier New',monospace;font-weight:500;color:var(--white);font-size:15px;line-height:1.75;white-space:pre-wrap}
+.copyBtn{margin-top:12px}
+
+/* Интерактив */
+.p3-lead{font-style:italic;color:var(--sand);font-size:15px;margin-bottom:8px;opacity:.9}
+.p3-title{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(22px,3.4vw,32px);color:var(--white);margin-bottom:22px}
+.p3-input{width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.16);border-radius:10px;color:var(--white);font:inherit;font-size:15px;padding:12px 14px;resize:vertical}
+.p3-input:focus{outline:none;border-color:var(--ice)}
+.p3-fb{margin-top:16px;font-size:15px;line-height:1.55;border-left:3px solid var(--coral);padding-left:14px;color:var(--sand)}
+.p3-fb.good{border-color:var(--ice);color:var(--white)}
+.p3-fb[hidden]{display:none}
+.p3-note{margin-top:14px;font-size:13px;color:var(--ice);opacity:.85}
+.opt{display:block;width:100%;text-align:left;font:inherit;font-size:15px;line-height:1.4;cursor:pointer;background:var(--sand);color:var(--ink);border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;transition:.15s}
+.opt:hover:not(:disabled){border-color:var(--sky)}
+.opt.is-correct{background:var(--teal);color:var(--white);border-color:var(--teal)}
+.opt.is-wrong{background:var(--coral);color:var(--white);border-color:var(--coral)}
+.opt:disabled{cursor:default}
+.opt .badge{float:right;margin-left:10px;font-family:var(--font-display);font-weight:500;text-transform:uppercase;font-size:11px;letter-spacing:.04em}
+.gate{display:grid;justify-items:center;gap:14px}
+.gate-sword .swd{width:52px;height:148px;display:block;transition:transform .7s cubic-bezier(.2,.9,.2,1.2)}
+.gate-sword{transition:filter .5s}
+.gate-sword.free .swd{transform:translateY(-26px)}
+.gate-sword.free{filter:drop-shadow(0 0 14px rgba(113,215,255,.7))}
+.asm-row{display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:center;margin-bottom:9px}
+.asm-row>span{font-family:var(--font-display);font-weight:500;text-transform:uppercase;font-size:12px;letter-spacing:.04em;color:var(--ice)}
+@media(max-width:520px){.asm-row{grid-template-columns:1fr;gap:3px}}
+.asm-meter{margin-top:16px}
+.asm-meter>span{font-family:var(--font-display);font-weight:500;text-transform:uppercase;font-size:12px;letter-spacing:.04em;color:var(--sand)}
+.asm-meter .bar{height:8px;border-radius:6px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:6px}
+.asm-meter .bar i{display:block;height:100%;background:var(--coral);transition:width .3s}
+.asm-preview{margin-top:14px;background:rgba(239,235,204,.08);border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.5;color:var(--white);min-height:22px}
+.asm-preview b{color:var(--ice)}
+.dg-metric{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.03em;color:var(--sand);margin-bottom:14px}
+.dg-bars{display:grid;gap:8px;margin:14px 0}
+.dg-bar{display:grid;grid-template-columns:150px 1fr 36px;gap:10px;align-items:center;font-size:13px;color:var(--white)}
+@media(max-width:520px){.dg-bar{grid-template-columns:1fr 1fr;gap:3px}}
+.dg-bar .track{height:14px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
+.dg-bar .track i{display:block;height:100%;background:var(--coral);border-radius:4px}
+.dg-q{font-family:var(--font-display);font-weight:500;font-size:17px;color:var(--white);margin:16px 0 12px}
+.qst-scn{font-size:16px;line-height:1.55;color:var(--white);margin-bottom:14px}
+.qst-prog{display:flex;gap:6px;margin-top:16px}
+.qst-prog i{flex:1;height:5px;border-radius:5px;background:rgba(255,255,255,.12)}
+.qst-prog i.on{background:var(--ice)}
+.calc-row{display:grid;grid-template-columns:1fr 96px;gap:12px;align-items:center;margin-bottom:11px}
+.calc-row>span{font-size:15px;color:var(--white)}
+.calc-f{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.16);border-radius:10px;color:var(--white);font:inherit;font-size:16px;padding:10px 12px;text-align:center}
+.calc-f:focus{outline:none;border-color:var(--ice)}
+.calc-out{margin-top:22px;text-align:center;background:rgba(255,115,119,.12);border-radius:var(--radius);padding:26px}
+.calc-big{font-family:var(--font-display);font-weight:900;font-size:clamp(44px,9vw,80px);line-height:.85;color:var(--coral)}
+.calc-sub{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:13px;color:var(--sand);margin-top:8px}
+.calc-yr{margin-top:8px;font-size:15px;color:var(--ice)}
+.spot-it{display:block;width:100%;text-align:left;font:inherit;font-size:15px;line-height:1.4;cursor:pointer;background:var(--sand);color:var(--ink);border:2px solid transparent;border-radius:12px;padding:13px 15px 13px 46px;margin-bottom:9px;position:relative;transition:.15s}
+.spot-it:hover:not(:disabled){border-color:var(--sky)}
+.spot-it .fl{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:0;transition:.15s}
+.spot-it.on .fl{opacity:1}
+.spot-it.on{border-color:var(--coral)}
+.spot-it.sig{background:var(--teal);color:var(--white);border-color:var(--teal)}
+.spot-it.miss{background:var(--coral);color:var(--white);border-color:var(--coral)}
+.spot-it .mk{float:right;margin-left:10px;font-family:var(--font-display);font-weight:500;text-transform:uppercase;font-size:11px;letter-spacing:.04em}
+.spot-it:disabled{cursor:default}
+
+/* ДЗ */
+.dz{margin-top:34px;background:rgba(255,115,119,.1);border:1.5px solid var(--coral);border-radius:var(--radius);padding:22px 24px}
+.dz-h{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.04em;font-size:15px;color:var(--coral);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.dz-h .ray{width:20px;height:20px;color:var(--coral)}
+.dz-h .ray svg{width:100%;height:100%}
+.dz p{font-size:16px;line-height:1.6;color:var(--white)}
+.dz .p3-input{margin-top:14px}
+.dz-actions{margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.dz-st,.hw-st{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:12px;color:var(--ice)}
+
+.lesson__nav{max-width:var(--wrap);margin:0 auto;padding:clamp(34px,5vw,64px) var(--gap) clamp(48px,7vw,88px);display:flex;gap:12px}
+.lesson__nav button{flex:1;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:14px;padding:16px;border:1.5px solid var(--teal);background:transparent;color:var(--ice);border-radius:12px;cursor:pointer;display:flex;flex-direction:column;gap:3px;text-align:left}
+.lesson__nav button:hover:not(:disabled){background:var(--teal);color:var(--white)}
+.lesson__nav button:disabled{opacity:.25;cursor:not-allowed;background:transparent}
+.lesson__nav button span{font-family:var(--font-body);font-weight:400;text-transform:none;letter-spacing:0;font-size:13px;opacity:.8}
+.lesson__nav button.nx{text-align:right;align-items:flex-end}
+
+/* ====== ОВЕРЛЕИ (ДЗ-хаб, модалки) ====== */
+.ov{position:fixed;inset:0;z-index:80;display:none;background:rgba(2,32,40,.72);backdrop-filter:blur(4px)}
+.ov.open{display:block}
+.ov--modal.open{display:flex;align-items:center;justify-content:center;padding:24px}
+.ov--hub.open{display:block;overflow-y:auto}
+.modal{background:var(--ink);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);max-width:400px;width:100%;padding:26px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.modal-t{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:24px;color:var(--white)}
+.modal-p{margin-top:8px;font-size:14px;color:var(--ice);line-height:1.5}
+.modal-in{width:100%;margin-top:16px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.18);border-radius:10px;color:var(--white);font:inherit;font-size:18px;padding:12px 14px;text-align:center;letter-spacing:.1em}
+.modal-in:focus{outline:none;border-color:var(--ice)}
+.modal-err{margin-top:10px;font-size:13px;color:var(--coral);min-height:18px}
+.modal-actions{margin-top:18px;display:flex;gap:10px}
+.modal-actions .btn{flex:1;justify-content:center}
+.hub{min-height:100%;background:var(--ink)}
+.hub-bar{position:sticky;top:0;z-index:2;background:var(--coral);display:flex;justify-content:space-between;align-items:center;padding:16px var(--gap)}
+.hub-title{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(20px,3vw,30px);color:var(--sand)}
+.hub-bar .back{color:var(--ink)}.hub-bar .back:hover{color:var(--white)}
+.hub-body{padding:clamp(26px,4vw,44px) var(--gap) 80px}
+.hub-top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+.hub-fio{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:13px;color:var(--ice)}
+.hub-fio button{margin-left:8px;font:inherit;background:transparent;border:0;color:var(--sand);text-decoration:underline;cursor:pointer;text-transform:none;letter-spacing:0}
+.hub-top-actions{display:flex;gap:10px;flex-wrap:wrap}
+.hw-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:20px 22px;margin-bottom:16px}
+.hw-head{display:flex;gap:14px;align-items:flex-start}
+.hw-num{flex:none;width:38px;height:38px;border-radius:50%;background:var(--coral);color:var(--ink);font-family:var(--font-display);font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center}
+.hw-tema{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:12px;color:var(--ice)}
+.hw-task{font-size:15px;color:var(--white);line-height:1.5;margin-top:4px}
+.hw-done{flex:none;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:11px;color:var(--ink);background:var(--ice);border-radius:var(--pill);padding:5px 11px}
+.hw-item .p3-input{margin-top:14px}
+.hw-actions{margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ====== ДОРАБОТКИ: вращение эмблемы, Легенда, ценности, меч из камня ====== */
+@keyframes heroSpin{to{transform:rotate(360deg)}}
+.hero .ray-bg{animation:heroSpin 26s linear infinite}
+@keyframes chapSpin{to{transform:translateX(-50%) rotate(360deg)}}
+.chapter--test .ray-bg,.chapter--urok .ray-bg{animation:chapSpin 26s linear infinite}
+.l-part{display:inline-block;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--coral);border:1px solid var(--coral);border-radius:var(--pill);padding:5px 12px;margin-bottom:16px}
+.vals{display:grid;gap:10px}
+.val-card{display:block;width:100%;text-align:left;font:inherit;cursor:pointer;background:var(--sand);color:var(--ink);border:2px solid transparent;border-radius:12px;padding:15px 17px;transition:.15s}
+.val-card:hover{border-color:var(--sky)}
+.val-card[aria-expanded="true"]{border-color:var(--coral)}
+.val-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.val-name{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:18px;color:var(--ink)}
+.val-plus{font-family:var(--font-display);font-weight:900;font-size:24px;color:var(--coral);line-height:1}
+.val-body{margin-top:12px}
+.val-body[hidden]{display:none}
+.val-desc{font-size:15px;line-height:1.5;color:var(--ink)}
+.val-pr{margin-top:10px;list-style:none;display:flex;flex-wrap:wrap;gap:7px}
+.val-pr li{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:11px;color:var(--teal);background:var(--white);border:1px solid rgba(2,32,40,.15);border-radius:var(--pill);padding:6px 11px}
+.sworddz{max-width:540px}
+.stone-scene{position:relative;width:140px;height:200px;margin:0 auto 22px}
+.sword-el{position:absolute;left:50%;bottom:42px;transform:translateX(-50%) rotate(180deg);transform-origin:50% 50%;width:46px;height:auto;transition:transform 1.15s cubic-bezier(.2,.9,.2,1.3),filter .5s}
+.stone-scene.out .sword-el{transform:translateX(-50%) translateY(-78px) rotate(0deg);filter:drop-shadow(0 0 14px rgba(113,215,255,.8))}
+.stone-el{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:140px;z-index:2}
+.dz-task{font-size:16px;line-height:1.6;color:var(--white);margin-bottom:14px}
+.sworddz .p3-input{margin-bottom:14px}
+</style>
+</head>
+<body>
+
+<div id="collection">
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="#top" aria-label="Лучи, на главную"><span id="logoTop"></span></a>
+  <nav class="crumbs"><a href="#top">Лучи</a><span class="sep">/</span><span class="here">Камелот</span></nav>
+  <div class="top-right">
+    <button class="btn btn--sm top-hw" id="hwOpen" type="button" disabled title="Откроется после прохождения всех 6 уроков">Домашнее задание</button>
+    <a class="site" href="https://luchi.ru" target="_blank" rel="noopener">luchi.ru</a>
+  </div>
+</div></header>
+
+<section class="hero" id="top">
+  <div class="ray-bg" id="rayHero" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="kicker">Школа менеджеров · 6 уроков</div>
+    <h1>Камелот</h1>
+    <div class="sub">Школа менеджеров <span>клиентского сервиса</span></div>
+    <p class="lede"><b>Менеджер — это связующее звено между руководством и командой.</b> Шесть уроков по поиску собственного стиля работы с командой.</p>
+    <div class="chips">
+      <span class="chip solid">Ценности</span><span class="chip">Метрики</span><span class="chip">Инициативы</span>
+      <span class="chip">Команда</span><span class="chip">Обратная связь</span><span class="chip">Руководство</span>
+    </div>
+    <p class="cue">Пароль от урока даст Максим<br>провались внутрь ↓</p>
+  </div>
+</section>
+
+<section class="album-wrap"><div class="wrap">
+  <div class="head">
+    <div class="section-label">Альбом коллекции</div>
+    <h2>Шесть легенд о короле Артуре</h2>
+    <p class="hint">Разблокируй все легенды. Пароль от занятия спрашивай у Максима.</p>
+  </div>
+  <div id="finalCard"></div>
+  <div class="album-status" id="albumStatus"></div>
+  <div class="album" id="album"></div>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <div>
+    <span id="logoFoot" style="display:inline-block;height:24px"></span>
+    <p class="legal">Камелот — школа менеджеров клиентского сервиса. Шесть уроков · путь к роли тимлида или коуча обучения. Мир — легенда о Круглом столе; суть — реальные навыки менеджера.</p>
+  </div>
+  <a class="site" href="#top">Наверх ↑</a>
+</div></footer>
+</div>
+
+<section class="lesson" id="lesson" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="counter" tabindex="-1">
+  <div class="lesson__bar">
+    <button class="back" id="backBtn">← Назад к урокам</button>
+    <div class="bar-mid"><span class="bar-time" id="barTime"></span></div>
+    <span class="counter" id="counter"></span>
+  </div>
+  <div class="lesson__inner">
+    <aside class="lesson__cover" id="cover"></aside>
+    <div class="lesson__content" id="content"></div>
+  </div>
+  <div class="chapter chapter--urok" id="chapterU"><div class="ray-bg" id="rayU"></div><div class="ttl"><span>Урок</span></div><div class="qach" id="chapUq"></div><div class="chev" aria-hidden="true">↓</div></div>
+  <div class="zone"><div class="wrap" id="urokbox"></div></div>
+  <div class="chapter chapter--test" id="chapterT"><div class="ray-bg" id="rayT"></div><div class="ttl"><span>Испытание</span></div><div class="qach" id="chapTq"></div><div class="chev" aria-hidden="true">↓</div></div>
+  <div class="zone"><div class="wrap" id="p3box"></div></div>
+  <div class="lesson__nav">
+    <button id="prevBtn">← Предыдущий<span id="prevName"></span></button>
+    <button id="nextBtn" class="nx">Следующий →<span id="nextName"></span></button>
+  </div>
+</section>
+
+<!-- ДЗ-хаб -->
+<div class="ov ov--hub" id="hubOv" role="dialog" aria-modal="true" aria-label="Домашнее задание — все уроки">
+  <div class="hub">
+    <div class="hub-bar"><div class="hub-title">Домашнее задание</div><button class="back" id="hubClose">✕ Закрыть</button></div>
+    <div class="wrap hub-body">
+      <div class="hub-top">
+        <span class="hub-fio" id="hubFio"></span>
+        <div class="hub-top-actions"><button class="btn btn--sm" id="sendAll" type="button">Отправить всё</button><button class="btn btn--ghost btn--sm" id="csvBtn" type="button">Скачать CSV</button></div>
+      </div>
+      <div id="hubList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- модалка пароля -->
+<div class="ov ov--modal" id="passOv" role="dialog" aria-modal="true" aria-labelledby="passTitle">
+  <div class="modal">
+    <div class="modal-t" id="passTitle">Урок</div>
+    <p class="modal-p">Пароль выдаёт коуч на сборе — так курс идёт в нужном темпе. Введи 4 цифры.</p>
+    <input class="modal-in" id="passInput" inputmode="numeric" maxlength="4" placeholder="0000" aria-label="Пароль урока">
+    <div class="modal-err" id="passErr" aria-live="polite"></div>
+    <div class="modal-actions"><button class="btn" id="passSubmit" type="button">Открыть</button><button class="btn btn--ghost" id="passCancel" type="button">Отмена</button></div>
+  </div>
+</div>
+
+<!-- модалка ФИО -->
+<div class="ov ov--modal" id="fioOv" role="dialog" aria-modal="true" aria-labelledby="fioTitle">
+  <div class="modal">
+    <div class="modal-t" id="fioTitle">Как тебя зовут?</div>
+    <p class="modal-p">Имя и фамилия — чтобы коуч видел, чьё это задание. Спросим один раз.</p>
+    <input class="modal-in" id="fioInput" placeholder="Имя Фамилия" aria-label="Имя и фамилия" style="letter-spacing:0;text-align:left">
+    <div class="modal-err" id="fioErr" aria-live="polite"></div>
+    <div class="modal-actions"><button class="btn" id="fioSave" type="button">Сохранить</button><button class="btn btn--ghost" id="fioCancel" type="button">Позже</button></div>
+  </div>
+</div>
+
+<script>
+/* ====== КОНСТАНТЫ ОТПРАВКИ (Google-форма) ====== */
+var FORM_ACTION="https://docs.google.com/forms/d/e/1FAIpQLScKBkM0nhOYIrPzANAu9zjfxFiDeMYbDTNVSIsqBwCgBXrbHQ/formResponse";
+var ENTRY_FIO="entry.1925877073";
+var ENTRY_UROK="entry.579664312";
+var ENTRY_VOPROS="entry.252570359";
+var ENTRY_OTVET="entry.175993705";
+
+/* ====== ХРАНИЛИЩЕ ====== */
+var LS={get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+function getAns(n){return LS.get('luchi_ans_'+n,'')||''}
+function setAns(n,v){LS.set('luchi_ans_'+n,v)}
+function isDone(n){return !!LS.get('luchi_done_'+n,false)}
+function setDone(n,v){LS.set('luchi_done_'+n,!!v)}
+function getFio(){return LS.get('luchi_fio','')||''}
+function getOpenSet(){return LS.get('luchi_open',{})||{}}
+function isOpen(n){return !!getOpenSet()[n]}
+function setOpen(n){var o=getOpenSet();o[n]=true;LS.set('luchi_open',o)}
+function openCount(){return Object.keys(getOpenSet()).length}
+
+/* ====== БРЕНД-ГРАФИКА ====== */
+var CR="#FF7377",DB="#026B83",SB="#078EFF",LB="#71D7FF",SAND="#EFEBCC",INK="#022028",W="#FFFFFF";
+var LOGO='<svg class="luchi-logo" viewBox="0 0 2694 800" aria-label="Лучи"><path d="M1455.26 412.007H1353.3L1292.52 259.6H1198.89L1267.52 424.258C1286.63 469.833 1327.32 486.985 1392.52 486.985C1409.67 486.985 1422.42 486.005 1429.77 482.574V493.355C1414.58 516.388 1391.05 525.209 1345.95 525.209H1301.83V598.227H1358.2C1444.48 598.227 1490.56 552.162 1527.81 456.111L1605.26 259.6H1514.09L1455.26 412.007Z"/><path d="M1890.05 376.722H1712.11V260.089H1627.31V348.299C1627.31 421.807 1689.56 457.09 1770.94 457.09C1814.07 457.09 1858.19 451.7 1889.56 439.939V525.208H1974.37V260.089H1889.56V376.722H1890.05Z"/><path d="M2369.01 257.151C2335.18 257.151 2323.42 264.011 2292.05 293.414L2145.48 431.119H2133.22V259.601H2048.42V495.806C2048.42 522.269 2070.48 527.659 2104.79 527.659C2138.61 527.659 2154.3 520.799 2185.67 491.396L2328.32 357.611H2340.58V524.719H2425.38V289.004C2425.38 262.541 2402.83 257.151 2369.01 257.151Z"/><path d="M516.541 308.115L510.169 166H480.267L473.894 308.115L458.698 313.506L369.972 202.264L345.462 220.396L423.404 338.008C447.423 373.782 518.502 353.2 516.541 308.115Z"/><path d="M589.07 391.913L721.914 341.928L713.09 313.505L576.815 351.729L566.521 338.498L644.463 218.925L620.933 202.263L532.207 313.015C506.226 345.848 545.933 408.575 589.07 391.913Z"/><path d="M423.885 462.482L344.963 580.094L369.473 598.226L458.199 486.984L473.885 492.375L480.258 634H510.16L516.532 492.375C518.493 446.8 448.885 424.748 423.885 462.482Z"/><path d="M414.079 351.73L276.824 313.506L268 341.929L401.334 391.914L400.844 408.576L268 457.581L276.824 486.004L414.079 448.27C458.197 436.999 457.217 363.981 414.079 351.73Z"/><path d="M532.212 487.476L620.938 597.738L645.448 579.606L566.526 461.994L576.82 448.762L713.586 486.496L722.409 458.073L589.075 408.578C545.938 392.406 503.781 451.213 532.212 487.476Z"/><path d="M1019.96 253.228C970.448 253.228 939.076 258.619 924.86 285.572L798.389 525.207H896.428L993.488 335.557H1046.43L1143.49 524.717H1241.04L1116.53 287.042C1101.33 258.129 1069.47 253.228 1019.96 253.228Z"/></svg>';
+function ray(c){return '<g fill="'+c+'"><path d="M17.36 10.12L16.95 1h-1.91l-.41 9.12-.98.34L7.97 3.31 6.4 4.47l5 7.55c1.54 2.31 6.1.99 5.96-1.9Z"/><path d="M22.02 15.49l8.5-3.2-.58-1.84-8.74 2.45-.64-.86 5-7.64-1.5-1.09-5.68 7.11c-1.66 2.11.89 6.12 3.64 5.07Z"/><path d="M11.44 20.01l-5.06 7.55 1.56 1.16 5.68-7.14 1.02.34.41 9.08h1.9l.41-9.08c.14-2.93-4.32-4.32-5.92-1.91Z"/><path d="M10.8 12.9L2.02 10.46l-.58 1.83 8.54 3.2-.03 1.05-8.54 3.16.58 1.84 8.81-2.41c2.79-.75 2.76-5.44-.03-6.23Z"/><path d="M18.38 21.61l5.68 7.08 1.56-1.15-5.07-7.55.64-.86 8.78 2.42.58-1.84-8.54-3.16c-2.75-1.02-5.47 2.75-3.63 5.07Z"/></g>'}
+var RAY='<svg viewBox="0 0 32 32">'+ray('currentColor')+'</svg>';
+var LOCK='<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="11" rx="2" fill="'+SAND+'" stroke="'+SAND+'" stroke-width="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="'+SAND+'" stroke-width="2"/><circle cx="12" cy="15.5" r="1.6" fill="'+CR+'"/></svg>';
+function postmark(){return '<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="'+DB+'" stroke-width="1.4"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="'+DB+'" stroke-width=".7"/><g transform="translate(8,8)">'+ray(DB)+'</g></svg>'}
+function escq(s){return String(s).replace(/"/g,'&quot;')}
+var SWORDV='<svg viewBox="0 0 40 150" class="swd" aria-hidden="true"><rect x="17" y="6" width="6" height="92" rx="3" fill="'+W+'" stroke="'+INK+'" stroke-width="2"/><rect x="7" y="96" width="26" height="7" rx="3" fill="'+CR+'"/><rect x="17.5" y="102" width="5" height="32" rx="2" fill="'+DB+'"/><circle cx="20" cy="138" r="5" fill="'+CR+'"/></svg>';
+var SWORD_STONE='<svg class="sword-el" viewBox="0 0 46 150" aria-hidden="true"><rect x="20" y="4" width="6" height="98" rx="3" fill="'+W+'" stroke="'+INK+'" stroke-width="2"/><rect x="7" y="100" width="32" height="8" rx="4" fill="'+CR+'"/><rect x="20" y="106" width="6" height="30" rx="2" fill="'+DB+'"/><circle cx="23" cy="140" r="5" fill="'+CR+'"/></svg><svg class="stone-el" viewBox="0 0 120 70" aria-hidden="true"><path d="M6 66 L20 30 Q24 22 34 22 L86 22 Q96 22 100 30 L114 66 Z" fill="'+DB+'" stroke="'+INK+'" stroke-width="2"/><path d="M6 66 L114 66" stroke="'+INK+'" stroke-width="2"/><rect x="50" y="19" width="20" height="9" rx="2" fill="'+INK+'"/></svg>';
+
+var EMB={
+ sword:'<svg class="emblem" viewBox="0 0 120 120" aria-hidden="true"><rect x="18" y="78" width="84" height="30" rx="3" fill="'+DB+'"/><path d="M30 78l8-10h44l8 10z" fill="'+SB+'"/><path d="M55 84l-4-58 9-12 9 12-4 58z" fill="'+W+'" stroke="'+INK+'" stroke-width="2"/><rect x="42" y="42" width="36" height="9" rx="4" fill="'+CR+'"/><circle cx="60" cy="30" r="6" fill="'+CR+'"/><path d="M44 96h32" stroke="'+CR+'" stroke-width="3" stroke-linecap="round"/></svg>',
+ land:'<svg class="emblem" viewBox="0 0 120 120" aria-hidden="true"><rect x="10" y="92" width="100" height="14" fill="'+SAND+'" stroke="'+INK+'" stroke-width="2"/><path d="M22 92V52h14v40M44 92V40h20v52M72 92V58h16v34" fill="'+DB+'"/><path d="M44 40l4-10 4 10 4-9 4 9 4-9" fill="'+DB+'"/><path d="M30 60h6M52 56h6M52 72h6M78 70h6" stroke="'+SB+'" stroke-width="2.4" stroke-linecap="round"/><path d="M58 106l6-18 5 18" fill="none" stroke="'+CR+'" stroke-width="3" stroke-linejoin="round"/></svg>',
+ grail:'<svg class="emblem" viewBox="0 0 120 120" aria-hidden="true"><g transform="translate(46,4) scale(.9)">'+ray(CR)+'</g><path d="M36 40h48c0 22-12 30-24 32-12-2-24-10-24-32z" fill="'+CR+'" stroke="'+INK+'" stroke-width="2"/><path d="M44 46h32c-1 12-8 18-16 19-8-1-15-7-16-19z" fill="'+W+'"/><rect x="56" y="72" width="8" height="20" fill="'+DB+'"/><rect x="40" y="92" width="40" height="9" rx="4" fill="'+DB+'"/><circle cx="60" cy="55" r="4" fill="'+SB+'"/></svg>',
+ chapel:'<svg class="emblem" viewBox="0 0 120 120" aria-hidden="true"><path d="M30 108V52a30 30 0 0 1 60 0v56z" fill="'+INK+'"/><path d="M48 108V64a12 12 0 0 1 24 0v44z" fill="'+CR+'"/><path d="M54 108V72a6 6 0 0 1 12 0v36z" fill="'+INK+'"/><path d="M60 14v14M60 6l3 6-3 2-3-2z" fill="'+CR+'"/><path d="M52 30h16" stroke="'+SAND+'" stroke-width="3"/></svg>',
+ truth:'<svg class="emblem" viewBox="0 0 120 120" aria-hidden="true"><g stroke="'+SB+'" stroke-width="3" stroke-linecap="round"><path d="M60 8v12M86 18 78 28M34 18l8 10M16 46h12M92 46h12"/></g><path d="M55 96l-3-66 8-12 8 12-3 66z" fill="'+W+'" stroke="'+INK+'" stroke-width="2"/><rect x="40" y="86" width="40" height="9" rx="4" fill="'+CR+'"/><rect x="56" y="95" width="8" height="16" rx="3" fill="'+DB+'"/><circle cx="60" cy="44" r="5" fill="'+LB+'"/></svg>',
+ table:'<svg class="emblem" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="62" r="34" fill="none" stroke="'+DB+'" stroke-width="8"/><circle cx="60" cy="62" r="18" fill="'+DB+'"/><g transform="translate(45,47) scale(.95)">'+ray(SAND)+'</g><g fill="'+CR+'"><path d="M60 8c5 7 5 12 0 16-5-4-5-9 0-16zM104 38c-2 8-6 11-12 9 2-8 5-11 12-9zM16 38c7-2 10 1 12 9-6 2-10-1-12-9zM92 104c-7-3-8-8-5-13 6 3 8 7 5 13zM28 104c-3-6-1-10 5-13 3 5 2 10-5 13z"/></g></svg>'
+};
+
+/* ====== 6 УРОКОВ ====== */
+var L=[
+{n:1,r:'I',tema:'Ценности',title:'Меч в камне',emb:'sword',
+ epi:'К камню тянулись все. Меч вышел не за силу — за то, зачем ты за него взялся.',
+ zachem:['К мечу в камне тянулись и короли, и простолюдины. Выходил он не за силу и не за стаж — за причину, по которой ты за него взялся.','Сегодня этот меч — роль капитана. И первый честный вопрос не «смогу ли я вести», а «зачем мне это». Деньги — нормальная причина. Но если она единственная, на первом трудном месяце рука сорвётся. Капитан держит меч ещё и ради людей, дела и себя, который вырастет.'],
+ nasbore:'Найдём, где капитан приносит бизнесу деньги, — и твою причину крепче зарплаты.',
+ priem:'Капитан — не «начальник над операторами». Это тот, кто превращает работу линии в результат: удерживает клиентов, растит людей, чинит процессы. Оператор отвечает за свой тикет. Капитан — за то, как линия влияет на деньги и на команду.',
+ before:'«Хочу капитанство ради прибавки.»',after:'«Хочу вести, потому что мне не всё равно, как чувствуют себя мои и что получает клиент. А прибавка приходит следом.»',
+ tool:'ПРОВЕРКА МОТИВА\nЧто я даю бизнесу как капитан: ___\nЧто я даю людям: ___\nЧто останется, если убрать прибавку: ___',
+ p3:{type:'gate',lead:'Меч выходит за причину, а не за силу.',title:'Извлеки меч',ph:'Моя причина крепче денег…'},
+ dz:{text:'Ответь себе честно и письменно: я иду в капитаны только из-за денег — или есть причины крепче? Выпиши все. Если после «денег» пусто — это сигнал, не приговор.',ph:'Мои причины…'}},
+
+{n:2,r:'II',tema:'Метрики · читать землю прежде, чем менять',title:'Башня Мерлина',emb:'land',
+ epi:'Король слушал, как дышит его земля, прежде чем менять её.',
+ zachem:['Раненый король не бросался чинить королевство — сперва слушал землю.','Твоя земля говорит цифрами: время ответа, CSAT, повторные обращения, отток. Но метрика — это вопрос, а не приговор. За упавшим числом прячется причина: усталость, наплыв, кривой инструмент. Инициатива капитана начинается не с «давайте сделаем», а с «вот число, вот причина, вот что изменится».'],
+ nasbore:'Разберём несколько ситуаций с линии: что говорит метрика, где узкое место, какую инициативу предложить.',
+ priem:'Инициатива, которую примут, стоит на трёх опорах: метрика (что не так — в цифрах) → причина (почему, а не симптом) → изменение (что делаем и что улучшится). Нет первой опоры — это «мне кажется». Нет третьей — это жалоба.',
+ before:'«Клиенты злятся на возвраты.»',after:'«Возвраты: повторные обращения +30%, почти все — у новичков. Причина: нет шаблона. Инициатива: шаблон возврата, ждём минус половину повторных.»',
+ tool:'ИНИЦИАТИВА ПО МЕТРИКЕ\nМетрика (число): ___\nПричина (не симптом): ___\nЧто делаем: ___\nЧто улучшится: ___',
+ p3:{type:'diagnose',lead:'Сначала прочитай землю, потом меняй.',title:'Прочитай землю',metric:'CSAT упал за неделю на 9 пунктов',
+   bars:[['Опытные · общие темы',1],['Опытные · возвраты',2],['Новички · общие темы',3],['Новички · возвраты',17]],
+   q:'Где причина?',opts:[['Все стали хуже работать',false,'Цифра падает не везде ровно — это не «все». Смотри, где провал концентрируется.'],
+     ['Новички вязнут на возвратах',true,'Да. Узкое место одно: новичкам нужен шаблон возврата.'],
+     ['Случайность, само выправится',false,'Провал сосредоточен — у него есть адрес, а не «повезёт».']],
+   ok:'Земля ожила: ты нашёл узкое место, а не выжал всех подряд.'}},
+
+{n:3,r:'III',tema:'Инициативы · питч и цена идеи',title:'Чаша Грааля',emb:'grail',
+ epi:'Грааль звал не сильнейшего — того, кто спросит: кому ты служишь?',
+ zachem:['Рыцарю вручали квест, и путь его был виден всему Столу.','Твой квест — инициатива, которая чинит кусок сервиса: автоматизация, новый процесс, шаблон. Но идею мало придумать — её нужно продать за минуту и подкрепить деньгами. «Давайте сделаем удобнее» не пройдёт. «Это сэкономит 120 000 ₽ в год» — пройдёт.'],
+ nasbore:'Научимся питчить инициативу за минуту и грубо считать, сколько денег она сохранит.',
+ priem:'Питч инициативы = боль + решение + цена. Боль: что болит и у кого. Решение: что меняем. Цена: сколько это сохранит. Считать просто: сколько времени или ошибок убираем × сколько это стоит × как часто повторяется.',
+ before:'«Давайте сделаем шаблон возврата, будет удобнее.»',after:'«Возвраты съедают 2 лишние минуты у 40 обращений в день. Шаблон их убирает: ≈ 120 000 ₽ в год рабочего времени.»',
+ tool:'ПИТЧ ИНИЦИАТИВЫ\nБоль (у кого, в чём): ___\nРешение: ___\nЦена (₽ экономии): ___',
+ p3:{type:'calc',lead:'Идею продают деньги, а не «удобнее».',title:'Посчитай экономию',
+   inputs:[['Минут экономит на 1 обращении','2'],['Таких обращений в день','40'],['Стоимость минуты работы, ₽','8']],
+   note:'Грубая прикидка — но с ней инициативу услышат.'},
+ dz:{text:'Придумай инициативу — автоматизацию или изменение процесса, которое поможет сервису. Опиши её и посчитай, сколько денег она примерно сохранит.',ph:'Инициатива и расчёт…'}},
+
+{n:4,r:'IV',tema:'Команда · услышать выгорание на 1:1',title:'Рыцари круглого стола',emb:'chapel',
+ epi:'В Часовне рыцарь встречал не дракона, а себя.',
+ zachem:['В Часовню рыцарь входил один, в ночи, — и встречал там то, что скрывал от себя.','Выгорание в команде живёт так же — в тишине, за словами «да всё нормально». Метрика покажет его последней, когда человек уже собрался уходить. Капитан ловит раньше — в разговоре один на один. Не «как дела», а вопросы, на которые не ответишь дежурно.'],
+ nasbore:'Разберём признаки выгорания и как вести 1:1. Потом — по парам, вживую, по ролям.',
+ priem:'Выгорание — это не «устал». Это три вещи вместе: цинизм («мне уже всё равно»), истощение («нет сил даже на простое») и потеря смысла («какой в этом толк»). Ловится не в цифрах, а в словах. Задача 1:1 — не подбодрить, а услышать.',
+ before:'«Как дела?» — «Нормально.» — «Ну ок.»',after:'«Что за последний месяц забирало больше всего сил? А что ещё радует? Когда ты последний раз чувствовал, что твоя работа важна?»',
+ tool:'РАЗГОВОР 1:1\nЧто забирает силы: ___\nЧто ещё радует: ___\nГде потерялся смысл: ___\nЧем помогу конкретно: ___',
+ p3:{type:'spot',lead:'Выгорание прячется в словах, не в метрике.',title:'Услышь выгорание',
+   items:[['«В целом норм, просто устал немного»',false,'Само по себе — не флаг. Но если звучит каждый раз, копай глубже.'],
+     ['«Мне уже всё равно, ответит клиент или нет»',true,'Цинизм. Раньше было не всё равно — это сигнал.'],
+     ['«В выходные всё думаю о тикетах, не отпускает»',true,'Не восстанавливается. Топливо кончается.'],
+     ['«Хочу взять сложный проект, драйвит»',false,'Наоборот — вовлечён и в ресурсе.'],
+     ['«Раньше помогал новичкам, сейчас нет сил»',true,'Истощение: сил нет даже на то, что любил.'],
+     ['«Всё успеваю, планирую отпуск»',false,'Здоровый режим: успевает и восстанавливается.']],
+   check:'Проверить',done:'Выгорание = цинизм + истощение + «всё бессмысленно». Три сигнала вместе, а не «просто устал».',
+   note:'На сборе — по парам, по ролям: у одного выгорание, у другого нет. Задача — услышать.'}},
+
+{n:5,r:'V',tema:'Обратная связь · не закрывать глаза',title:'Дурная слава',emb:'truth',
+ epi:'Меч правды обнажали в полумраке — и берегли острее всего.',
+ zachem:['Меч правды обнажали в полумраке — и всё решало, как держишь клинок. Промолчать — самый дорогой промах капитана. Обратная связь не наказывает, а растит: с презрением человек закрывается, в мягкости — не опереться.'],
+ nasbore:'Соберём обратную связь, на которую можно опереться, — и разберём, как учить людей вдолгую.',
+ priem:'Рабочая ОС = факт + эффект + просьба, и рядом одна конкретная похвала. Не «ты невнимательный» (ярлык), а «в трёх тикетах нет срока (факт) — клиент пишет снова (эффект) — ставь срок в каждый ответ (просьба)». Обучение вдолгую — то же самое, только про рост, а не про промах.',
+ before:'«Ты вообще не вникаешь, соберись.»',after:'«В трёх тикетах не было срока — клиенты писали снова. Ставь срок в каждый ответ. А отказ вчера ты сформулировал отлично — мягко и ясно.»',
+ tool:'ФОРМУЛА ОС\nПохвала (конкретная): ___\nФакт (что вижу): ___\nЭффект (к чему ведёт): ___\nПросьба (как надо): ___',
+ p3:{type:'assemble',lead:'Заполни все четыре части.',title:'Собери обратную связь',
+   fields:['Похвала','Факт','Эффект','Просьба'],meter:'Заполнено',done:'Готово. Проверим на сборе.'},
+ dz:{text:'На сборе я дам тебе кейс. Сформулируй по нему обратную связь по формуле: похвала + факт + эффект + просьба.',ph:'Моя ОС по кейсу…'}},
+
+{n:6,r:'VI',tema:'Руководство · докладывать и инициировать',title:'Десница',emb:'table',
+ epi:'Стол слушал не громких — тех, кто вернулся с делом.',
+ zachem:['Стол ценил не громкость, а дело. Руководитель видит ровно то, что ты доносишь: молчишь — кажется, всё гладко; тащишь каждую мелочь — тонешь в шуме. Капитан несёт сигнал: что важно, что предлагаю, когда вмешаться.'],
+ nasbore:'Разберём, что нести руководству, что решать самому, когда инициировать. И соберём сводку.',
+ priem:'Хороший доклад — это сигнал, а не шум и не молчание. Правило простое: проблему неси вместе с предложением, мелочь, которую решил, — не неси, а рост людей и риски — инициируй сам, не жди вопроса.',
+ before:'«У нас там всё сложно, но вроде справляемся.»',after:'«Баг в CRM третий день, обходим руками, время ответа +15%. Предлагаю эскалировать в IT сегодня. И Саша готов к проекту — дал бы ему.»',
+ tool:'СВОДКА РУКОВОДСТВУ\nЧто важное происходит (сигнал): ___\nЧто предлагаю: ___\nКого стоит заметить и растить: ___',
+ p3:{type:'quest',lead:'Сигнал — не шум и не молчание.',title:'Что нести руководству',
+   steps:[{scn:'Баг в CRM третий день. Обходите руками, время ответа растёт.',
+     opts:[['Молчать, сами справимся',false,'Руководитель не читает мысли. Проблема без доклада всплывёт поздно и больно.'],
+           ['Доложить сейчас — вместе с предложением',true,'Проблема + твоё решение = то, что нужно нести наверх.']]},
+    {scn:'Поспорил с коллегой из-за смены. Уже помирились.',
+     opts:[['Внести в сводку руководителю',false,'Мелочь, которую решил, — не сводка. Не грузи шумом.'],
+           ['Решил сам — дальше не тащу',true,'Верно. В доклад идёт сигнал, а не каждый чих.']]},
+    {scn:'Видишь: новичок Саша перерос свой уровень, готов к большему.',
+     opts:[['Ждать, руководитель сам заметит',false,'Сам может и не заметить. Рост людей — то, что стоит инициировать.'],
+           ['Сказать и предложить дать ему проект',true,'Да. Инициатива про людей ценится выше всего.']]}],
+   done:'Сводка собрана: сигнал, предложение, люди. Ни шума, ни молчания.'},
+ dz:{text:'Напиши короткую сводку по обучению: что взял и что применишь. И назови, кто из ребят достоин стать тимлидом. Минимум двое — указывать только себя нельзя.',ph:'Сводка + кого номинирую…'}}
+];
+
+/* ---- пароли, тайминги, ДЗ для уроков 2 и 4, хуки, разбавка ритма ---- */
+var PASS=['0102','0305','0312','0311','0401','0603'];
+var TIME=['~6 мин','~7 мин','~8 мин','~7 мин','~6 мин','~7 мин'];
+L.forEach(function(l,i){l.pass=PASS[i];l.time=TIME[i];});
+L[1].dz={text:'Урок 2 — парный на сборе. Что берёшь на сбор: одну метрику своей линии для разбора и свою гипотезу причины.',ph:'Что беру на сбор…'};
+L[3].dz={text:'Урок 4 — парный разговор на сборе. Что берёшь на сбор: с кем проведёшь 1:1 и какие 2–3 вопроса задашь, чтобы услышать выгорание.',ph:'Что беру на сбор…'};
+L[0].hook='Ты идёшь в капитаны за деньгами?';
+L[2].hook='Сколько твоя идея стоит в рублях?';
+L[3].hook='«Да всё нормально» — правда или маска?';
+L[5].hook='Что нести наверх, а что решить самому?';
+
+/* --- Урок 1: кастомное наполнение строго из партитуры «Меч в камне» --- */
+L[0].custom='lesson1';
+L[0].hook='Зачем тебе это?';
+L[0].epi='Меч в камне ждал не сильнейшего. Он ждал достойного.';
+L[0].zachem=['Сотни рыцарей тянули меч силой, но удалось лишь безвестному оруженосцу. Не потому что по ночам качал руку — потому что мотивы его были чисты.','Для тебя меч — это ответственность и ценности, которые ты вытягиваешь и больше не кладёшь обратно под камень.'];
+L[0].nasbore='Разбираем четыре ценности без корпоративного глянца: почему это не «инфоцыганство», как пользоваться ими без искажений.';
+L[0].p3={type:'sworddz',title:''};
+L[0].dz={text:'<p><strong>Манифест для своей команды.</strong><br>Три пункта, своими словами, без ИИ:<br><br>1. Расскажи своей будущей команде, почему ты решил стать капитаном.<br><br>2. Одна вещь, которую добавишь в работу команды.<br><br>3. Что обязательно запретишь, когда станешь капитаном?</p><p><strong>Вопрос-бонус:</strong> придумай один ритуал для команды перед выходом на смену — маленький, повторяемый, только ваш.</p>',ph:'Твой манифест и ритуал…'};
+L[0].urokIntro='Представь: сегодня ночью «Лучи» стирает свои ценности — со стен, из презентаций, из онбординга. В понедельник на смене ты это заметишь? Если пользуешься ими по-настоящему — нет: они уже не на стене, а у тебя в руках.<br><br>Много кто при разговоре о «ценностях» думает: инфоцыганство, красивые лозунги, чтобы заставить меня больше смен и не просил прибавку. Претензия справедлива — к плохим ценностям.<br><br>Давай разберёмся, что за ценность «эксплуатирует» именно тебя?';
+L[0].urokAll='Ценности — не твоя личная опция. Они одни для всех: оператора, тимлида, руководителя. Их нельзя выкручивать под свою выгоду и нельзя использовать против коллег — «тебе же не всё равно, так возьми мою смену». Это уже не ценность, а манипуляция.';
+L[0].values=[
+ {name:'Нам не всё равно',desc:'Мы в медицине — тут по-другому нельзя. Важно помнить, что быть неравнодушным нужно не только с клиентом, но и друг с другом.',principles:['Делай как для себя','Можешь — поддержи','Нравится — скажи, не нравится — тоже']},
+ {name:'Всё зависит от меня',desc:'Мы не боимся ответственности. Делаем всё возможное для результата.',principles:['Бери, делай, отвечай','Знаешь, как исправить — исправь','Увидел проблему — не молчи','Тебе «больше всех надо»']},
+ {name:'Делаем общее дело',desc:'Команда единомышленников. Вместе вытягиваем больше. Требовательны к себе и друг к другу — и всегда готовы подставить плечо.',principles:['Победы общие, проблемы — тоже','Критикуешь — предлагай','Нет VS, только «и»','Фокусируйся на главном']},
+ {name:'Готовы к сложностям',desc:'Принимаем реальность как есть. Не ждём тепличных условий. Преодолеваем сложности, чтобы добиваться больших результатов.',principles:['Лучше «лучше» сейчас, чем «идеально» — никогда','Не жди других времён','Меняться не страшно, страшно — не меняться']}
+];
+
+/* ====== ОТПРАВКА + БУФЕР ====== */
+function postRec(rec){var b=new URLSearchParams();b.append(ENTRY_FIO,rec.fio);b.append(ENTRY_UROK,String(rec.urok));b.append(ENTRY_VOPROS,rec.vopros);b.append(ENTRY_OTVET,rec.otvet);
+  return fetch(FORM_ACTION,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:b.toString()});}
+function bufferAdd(rec){var buf=LS.get('luchi_buffer',[]);rec.id=Date.now()+'_'+rec.urok+'_'+Math.random().toString(36).slice(2,6);rec.sent=false;buf.push(rec);LS.set('luchi_buffer',buf);}
+function bufferFlush(){var buf=LS.get('luchi_buffer',[]);if(!buf.length||navigator.onLine===false)return;
+  buf.filter(function(r){return !r.sent}).forEach(function(r){postRec(r).then(function(){r.sent=true;LS.set('luchi_buffer',buf);}).catch(function(){});});}
+function sendRecord(rec,onStatus){if(navigator.onLine===false){bufferAdd(rec);onStatus&&onStatus('buffered');return;}
+  postRec(rec).then(function(){onStatus&&onStatus('sent');}).catch(function(){bufferAdd(rec);onStatus&&onStatus('buffered');});}
+function sendLesson(n,stEl){var ans=getAns(n);if(!ans||!ans.trim()){if(stEl)stEl.textContent='Пусто — сначала заполни';return;}
+  ensureFio(function(fio){if(!fio)return;if(stEl)stEl.textContent='Отправляю…';
+    sendRecord({fio:fio,urok:n,vopros:L[n-1].dz.text,otvet:ans},function(s){if(stEl)stEl.textContent=s==='sent'?'Отправлено ✓':'Сохранено, отправлю при сети';});});}
+function csvCell(s){s=String(s==null?'':s);if(/[",\r\n]/.test(s))s='"'+s.replace(/"/g,'""')+'"';return s;}
+function downloadCSV(){var rows=[['ФИО','Урок','Задание','Ответ']];
+  L.forEach(function(l){rows.push([getFio(),String(l.n),l.dz.text,getAns(l.n)]);});
+  var csv=rows.map(function(r){return r.map(csvCell).join(',')}).join('\r\n');
+  var blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});
+  var url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='kamelot_dz.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},1000);}
+
+/* ====== АЛЬБОМ (с замками) ====== */
+var album=document.getElementById('album'),albumStatus=document.getElementById('albumStatus'),finalCard=document.getElementById('finalCard');
+function stampHTML(l,op){
+  return '<div class="paper"><div class="inner">'
+    +'<div class="s-top"><span class="s-country">Камелот</span><span class="s-value">'+l.r+'</span></div>'
+    +'<div class="art">'+EMB[l.emb]+'<span class="postmark">'+postmark()+'</span></div>'
+    +'<div class="s-cap"><div class="s-tema">'+l.tema+'</div><div class="s-title">'+l.title+'</div>'
+    +'<div class="s-meta"><span class="s-toc">Легенда · Урок · Испытание</span></div></div>'
+    +'<div class="s-issuer"><span>Урок '+l.n+' · Лучи</span><span>№'+l.n+'</span></div></div>'
+    +(op?'':'<div class="s-lock"><span class="lock-ic">'+LOCK+'</span><span>Открыть<br>по паролю</span></div>')+'</div>';
+}
+function renderAlbum(){
+  album.innerHTML='';
+  L.forEach(function(l,i){
+    var op=isOpen(l.n);
+    var b=document.createElement('button');b.className='stamp'+(op?'':' locked');b.type='button';
+    b.setAttribute('aria-label',(op?'Урок ':'Заблокировано, урок ')+l.n+': '+l.title+', '+l.time);
+    b.innerHTML=stampHTML(l,op);
+    b.addEventListener('click',function(){ if(isOpen(l.n))openLesson(i); else openPass(i); });
+    album.appendChild(b);
+  });
+  var c=openCount();
+  albumStatus.innerHTML='<span class="stat-pill">Открыто '+c+' из 6</span><span class="stat-track"><i style="width:'+(c/6*100)+'%"></i></span>';
+  finalCard.innerHTML = c>=6
+    ? '<div class="final-card"><div class="final-h">Коллекция собрана — <span>ты капитан</span></div><p class="final-p">Все шесть уроков открыты: ценности, метрики, инициативы, команда, обратная связь, работа с руководством. Осталось довести домашние задания.</p><button class="btn" id="finalHw" type="button">Открыть домашние задания</button></div>'
+    : '';
+  var hw=document.getElementById('hwOpen');if(hw){hw.disabled=c<6;hw.title=c<6?'Откроется после прохождения всех 6 уроков':'Все уроки открыты — домашние задания доступны';}
+}
+
+/* ====== СТРАНИЦА ЗАНЯТИЯ ====== */
+var lesson=document.getElementById('lesson'),cover=document.getElementById('cover'),content=document.getElementById('content');
+var urokbox=document.getElementById('urokbox'),p3box=document.getElementById('p3box'),cur=0,lastFocus=null;
+
+function acc(title,inner){return '<div class="acc ublock reveal"><button class="acc-h" type="button" aria-expanded="false"><span>'+title+'</span><span class="acc-i" aria-hidden="true">+</span></button><div class="acc-b" hidden>'+inner+'</div></div>';}
+function renderUrok1(l){
+  var vals=l.values.map(function(v){return '<button class="val-card" type="button" aria-expanded="false"><span class="val-top"><span class="val-name">'+v.name+'</span><span class="val-plus" aria-hidden="true">+</span></span><div class="val-body" hidden><p class="val-desc">'+v.desc+'</p><ul class="val-pr">'+v.principles.map(function(p){return '<li>'+p+'</li>'}).join('')+'</ul></div></button>';}).join('');
+  return '<div class="ublock reveal"><div class="ul">Зачем это вообще</div><p>'+l.urokIntro+'</p></div>'
+    +'<div class="ublock reveal"><div class="ul">Четыре ценности — нажми, чтобы раскрыть</div><div class="vals">'+vals+'</div></div>'
+    +'<div class="ublock reveal"><div class="ul">Для всех и без подгонки под себя</div><p>'+l.urokAll+'</p></div>';
+}
+function dzHTML(l){return '<div class="dz reveal" id="dzCard"><div class="dz-h"><span class="ray">'+RAY+'</span>Домашнее задание</div><p>'+l.dz.text+'</p>'
+  +'<textarea class="p3-input" data-ans="'+l.n+'" rows="3" placeholder="'+escq(l.dz.ph)+'" aria-label="Ответ на домашнее задание урока '+l.n+'"></textarea>'
+  +'<div class="dz-actions"><button class="btn btn--ghost dzDone" type="button" data-n="'+l.n+'">Записал</button><button class="btn dzSend" type="button" data-n="'+l.n+'">Отправить коучу</button><span class="dz-st" data-st="'+l.n+'" role="status" aria-live="polite"></span></div></div>';}
+
+function fillLesson(i){
+  var l=L[i];
+  cover.innerHTML='<div class="paper"><div class="inner">'
+    +'<div class="s-top"><span class="s-country">Камелот</span><span class="s-value">'+l.r+'</span></div>'
+    +'<div class="art">'+EMB[l.emb]+'<span class="postmark">'+postmark()+'</span></div>'
+    +'<div class="s-cap"><div class="s-tema">'+l.tema+'</div><div class="s-title">'+l.title+'</div></div></div></div>'
+    +'<div class="cover-tema">Урок '+l.n+' из 6</div>';
+  content.innerHTML='<div class="l-part">Легенда</div>'+(l.hook?'<div class="l-hook">'+l.hook+'</div>':'')
+    +'<div class="l-kicker">Урок '+l.n+' · '+l.tema+'</div>'
+    +'<nav class="l-toc" aria-label="Части урока"><button type="button" data-go="l">Легенда</button><button type="button" data-go="u">Урок</button><button type="button" data-go="t">Испытание</button></nav>'
+    +'<h1 class="l-title" id="lTitle">'+l.title+'</h1>'
+    +'<p class="l-epi">«'+l.epi+'»</p>'
+    +'<div class="l-zachem">'+l.zachem.map(function(p){return '<p>'+p+'</p>'}).join('')+'</div>'
+    +'<div class="l-nasbore"><b>На встрече</b>'+l.nasbore+'</div>'
+    +'<button class="btn btn--ghost toUrok" type="button">↓ К уроку</button>';
+  urokbox.innerHTML=(l.custom==='lesson1')?renderUrok1(l)
+    :('<div class="ublock reveal"><div class="ul">Приём</div><p>'+l.priem+'</p></div>'
+      +acc('Как звучит','<div class="ba"><div class="card bad"><b>Оператор</b>'+l.before+'</div><div class="card good"><b>Капитан</b>'+l.after+'</div></div>')
+      +acc('Инструмент','<div class="tool"><div class="code">'+l.tool+'</div><button class="btn btn--ice copyBtn" type="button">Копировать</button></div>'));
+  p3box.innerHTML='<div class="reveal">'+renderP3(i)+'</div>'+(l.p3.type==='sworddz'?'':dzHTML(l));
+  setupP3(i);
+  // восстановить ответ ДЗ + статус «сделано»
+  p3box.querySelectorAll('[data-ans]').forEach(function(t){t.value=getAns(t.getAttribute('data-ans'))});
+  var dn=p3box.querySelector('.dzDone');if(dn&&isDone(l.n))dn.textContent='Готово ✓';
+
+  document.getElementById('chapUq').textContent=l.tema.split(' · ')[0];
+  document.getElementById('chapTq').textContent=l.p3.title||'';
+  document.getElementById('barTime').textContent='';
+  document.getElementById('counter').textContent='Урок '+l.n+' / 6';
+  var pv=document.getElementById('prevBtn'),nx=document.getElementById('nextBtn');
+  pv.disabled=(i===0||!isOpen(L[i-1].n));nx.disabled=(i===L.length-1||!isOpen(L[i+1].n));
+  document.getElementById('prevName').textContent=(i>0&&isOpen(L[i-1].n))?' · '+L[i-1].title:'';
+  document.getElementById('nextName').textContent=(i<L.length-1&&isOpen(L[i+1].n))?' · '+L[i+1].title:'';
+  initReveal();lesson.scrollTop=0;
+}
+function openLesson(i){cur=i;lastFocus=document.activeElement;fillLesson(i);document.body.classList.add('lesson-open');lesson.classList.add('show');lesson.setAttribute('aria-hidden','false');
+  requestAnimationFrame(function(){document.getElementById('backBtn').focus();});}
+function closeLesson(){document.body.classList.remove('lesson-open');lesson.classList.remove('show');lesson.setAttribute('aria-hidden','true');
+  if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+function reDive(i){if(!isOpen(L[i].n))return;cur=i;fillLesson(i);var pp=cover.querySelector('.paper');if(pp){pp.style.animation='none';void pp.offsetWidth;pp.style.animation='';}lesson.scrollTo({top:0,behavior:'smooth'});}
+
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{root:lesson,threshold:.12});
+function initReveal(){lesson.querySelectorAll('.reveal').forEach(function(el){el.classList.remove('in');io.observe(el)})}
+
+/* ====== ИНТЕРАКТИВ ====== */
+function renderSwordDz(i){var l=L[i];
+  return '<div class="p3-lead">В качестве домашнего задания — вытяни меч.</div>'
+    +'<div class="sworddz"><div class="stone-scene" id="stoneScene">'+SWORD_STONE+'</div>'
+    +'<div class="dz-task">'+l.dz.text+'</div>'
+    +'<textarea class="p3-input" data-ans="'+l.n+'" rows="4" placeholder="'+escq(l.dz.ph)+'" aria-label="Домашнее задание"></textarea>'
+    +'<button class="btn" id="swSend" type="button">Извлечь меч и отправить</button>'
+    +'<div class="p3-fb" id="swFb" role="status" aria-live="polite" hidden></div></div>';
+}
+function renderP3(i){
+  var p=L[i].p3;
+  if(p.type==='sworddz')return renderSwordDz(i);
+  var h='<div class="p3-lead">'+p.lead+'</div><h3 class="p3-title">'+p.title+'</h3>';
+  if(p.type==='gate'){
+    h+='<div class="gate"><div class="gate-sword" id="gSword">'+SWORDV+'</div><textarea class="p3-input" id="gIn" rows="2" placeholder="'+escq(p.ph)+'" aria-label="Твоя причина"></textarea><button class="btn" id="gBtn" type="button">Тянуть меч</button><div class="p3-fb" id="gFb" role="status" aria-live="polite" hidden></div></div>';
+  }else if(p.type==='diagnose'){
+    h+='<div class="dg-metric">'+p.metric+'</div><button class="btn" id="dgReveal" type="button">Разложить по сегментам</button><div id="dgBars" hidden></div><div id="dgQ" hidden><div class="dg-q">'+p.q+'</div>'
+      +p.opts.map(function(o){return '<button class="opt" type="button" data-ok="'+(o[1]?1:0)+'" data-fb="'+escq(o[2])+'">'+o[0]+'</button>'}).join('')+'<div class="p3-fb" id="dgFb" role="status" aria-live="polite" hidden></div></div>';
+  }else if(p.type==='calc'){
+    h+='<div>'+p.inputs.map(function(inp,k){return '<label class="calc-row"><span>'+inp[0]+'</span><input type="number" class="calc-f" data-k="'+k+'" value="'+inp[1]+'" min="0" aria-label="'+escq(inp[0])+'"></label>'}).join('')
+      +'<div class="calc-out" role="status" aria-live="polite"><div class="calc-big" id="calcMo">—</div><div class="calc-sub">₽ в месяц</div><div class="calc-yr" id="calcYr"></div></div><div class="p3-note">'+p.note+'</div></div>';
+  }else if(p.type==='spot'){
+    h+='<div>'+p.items.map(function(it,k){return '<button class="spot-it" type="button" data-k="'+k+'" data-flag="'+(it[1]?1:0)+'" data-fb="'+escq(it[2])+'" aria-pressed="false"><span class="fl" aria-hidden="true">🚩</span>'+it[0]+'</button>'}).join('')
+      +'<button class="btn" id="spotCheck" type="button">'+p.check+'</button><div class="p3-fb" id="spotRes" role="status" aria-live="polite" hidden></div><div class="p3-note">'+p.note+'</div></div>';
+  }else if(p.type==='assemble'){
+    h+='<div>'+p.fields.map(function(f,k){return '<label class="asm-row"><span>'+f+'</span><input class="p3-input asm-f" data-k="'+k+'" placeholder="…" aria-label="'+escq(f)+'"></label>'}).join('')
+      +'<div class="asm-meter"><span id="asmLbl">'+p.meter+': 0%</span><div class="bar"><i id="asmBar" style="width:0%"></i></div></div><div class="asm-preview" id="asmPrev">…</div><div class="p3-fb good" id="asmDone" role="status" aria-live="polite" hidden>'+p.done+'</div></div>';
+  }else if(p.type==='quest'){
+    h+='<div><div class="qst-scn" id="qstScn"></div><div id="qstOpts"></div><div class="p3-fb" id="qstFb" role="status" aria-live="polite" hidden></div><div class="qst-prog" id="qstProg" aria-hidden="true">'+p.steps.map(function(){return '<i></i>'}).join('')+'</div></div>';
+  }
+  return h;
+}
+function setupP3(i){
+  var p=L[i].p3,R=function(s){return p3box.querySelector(s)},RA=function(s){return p3box.querySelectorAll(s)};
+  if(p.type==='sworddz'){
+    R('#swSend').addEventListener('click',function(){
+      var ta=R('.sworddz [data-ans]'),ans=(ta?ta.value:'').trim(),fb=R('#swFb'),scene=R('#stoneScene');
+      if(!ans){fb.className='p3-fb';fb.textContent='Сначала впиши манифест — потом меч поддастся.';fb.hidden=false;return;}
+      ensureFio(function(fio){if(!fio)return;setDone(L[i].n,true);if(scene)scene.classList.add('out');
+        fb.className='p3-fb good';fb.textContent='Отправляю…';fb.hidden=false;
+        sendRecord({fio:fio,urok:L[i].n,vopros:L[i].dz.text,otvet:ans},function(s){fb.textContent=s==='sent'?'Меч извлечён. Отправлено ✓':'Меч извлечён. Сохранено, отправлю при сети.';});});
+    });
+  }else if(p.type==='gate'){
+    R('#gBtn').addEventListener('click',function(){var v=R('#gIn').value.trim(),fb=R('#gFb'),sw=R('#gSword');
+      if(v.length>0){sw.classList.add('free');fb.textContent='Записал. Обсуди свою причину с коучем на сборе.';}
+      else{sw.classList.remove('free');fb.textContent='Напиши причину — обсудим её на сборе.';}
+      fb.className='p3-fb';fb.hidden=false;});
+  }else if(p.type==='diagnose'){
+    R('#dgReveal').addEventListener('click',function(){var mx=Math.max.apply(null,p.bars.map(function(b){return b[1]}));
+      R('#dgBars').innerHTML='<div class="dg-bars">'+p.bars.map(function(b){return '<div class="dg-bar"><span>'+b[0]+'</span><div class="track"><i style="width:'+(b[1]/mx*100)+'%"></i></div><b>−'+b[1]+'</b></div>'}).join('')+'</div>';
+      R('#dgBars').hidden=false;R('#dgQ').hidden=false;this.style.display='none';});
+    RA('#dgQ .opt').forEach(function(b){b.addEventListener('click',function(){
+      RA('#dgQ .opt').forEach(function(o){o.disabled=true;if(o.getAttribute('data-ok')==='1'){o.classList.add('is-correct');o.insertAdjacentHTML('beforeend','<span class="badge">✓ верно</span>')}});
+      var ok=b.getAttribute('data-ok')==='1';if(!ok)b.insertAdjacentHTML('beforeend','<span class="badge">✗ не то</span>');if(!ok)b.classList.add('is-wrong');
+      var fb=R('#dgFb');fb.hidden=false;fb.className='p3-fb'+(ok?' good':'');fb.textContent=(ok?'✓ ':'✗ ')+b.getAttribute('data-fb')+(ok?' '+p.ok:'');});});
+  }else if(p.type==='calc'){
+    function cu(){var v=[];RA('.calc-f').forEach(function(f){v[+f.getAttribute('data-k')]=+f.value||0});
+      var mo=Math.round(v[0]*v[1]*v[2]*21),yr=Math.round(v[0]*v[1]*v[2]*252);
+      R('#calcMo').textContent='≈ '+mo.toLocaleString('ru-RU');R('#calcYr').textContent='≈ '+yr.toLocaleString('ru-RU')+' ₽ в год';}
+    RA('.calc-f').forEach(function(f){f.addEventListener('input',cu)});cu();
+  }else if(p.type==='spot'){
+    RA('.spot-it').forEach(function(b){b.addEventListener('click',function(){var on=b.classList.toggle('on');b.setAttribute('aria-pressed',on?'true':'false')})});
+    R('#spotCheck').addEventListener('click',function(){
+      RA('.spot-it').forEach(function(b){b.disabled=true;var flag=b.getAttribute('data-flag')==='1',on=b.classList.contains('on');b.classList.remove('on');
+        if(flag){b.classList.add('sig');b.insertAdjacentHTML('beforeend','<span class="mk">⚑ сигнал</span>');}else if(on){b.classList.add('miss');b.insertAdjacentHTML('beforeend','<span class="mk">✗ мимо</span>');}});
+      var res=R('#spotRes');res.hidden=false;res.className='p3-fb good';res.textContent=p.done;this.style.display='none';});
+  }else if(p.type==='assemble'){
+    var n=p.fields.length;
+    function au(){var vals=[],f=0;RA('.asm-f').forEach(function(inp){var t=inp.value.trim();vals.push(t);if(t)f++});
+      var fr=f/n;R('#asmLbl').textContent=p.meter+': '+Math.round(fr*100)+'%';R('#asmBar').style.width=fr*100+'%';
+      R('#asmPrev').innerHTML=p.fields.map(function(x,k){return vals[k]?('<b>'+x+':</b> '+vals[k]):''}).filter(Boolean).join(' · ')||'…';
+      R('#asmDone').hidden=(f!==n);}
+    RA('.asm-f').forEach(function(inp){inp.addEventListener('input',au)});
+  }else if(p.type==='quest'){
+    var idx=0,scn=R('#qstScn'),opts=R('#qstOpts'),fb=R('#qstFb'),prog=RA('.qst-prog i');
+    function rn(){var s=p.steps[idx];scn.textContent=s.scn;fb.hidden=true;
+      opts.innerHTML=s.opts.map(function(o){return '<button class="opt" type="button" data-ok="'+(o[1]?1:0)+'" data-fb="'+escq(o[2])+'">'+o[0]+'</button>'}).join('');
+      opts.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){fb.hidden=false;
+        if(b.getAttribute('data-ok')==='1'){b.classList.add('is-correct');b.insertAdjacentHTML('beforeend','<span class="badge">✓ верно</span>');fb.className='p3-fb good';fb.textContent='✓ '+b.getAttribute('data-fb');prog[idx].classList.add('on');
+          opts.querySelectorAll('.opt').forEach(function(o){o.disabled=true});idx++;if(idx>=p.steps.length){setTimeout(function(){opts.innerHTML='';fb.textContent=p.done;},700);}else setTimeout(rn,750);}
+        else{b.classList.add('is-wrong');b.insertAdjacentHTML('beforeend','<span class="badge">✗ не то</span>');b.disabled=true;fb.className='p3-fb';fb.textContent='✗ '+b.getAttribute('data-fb');}});});}
+    rn();
+  }
+}
+
+/* ====== ДЗ-ХАБ ====== */
+var hubOv=document.getElementById('hubOv'),hubList=document.getElementById('hubList'),hubFio=document.getElementById('hubFio'),hubLastFocus=null;
+function renderHubFio(){hubFio.innerHTML=getFio()?('ФИО: '+getFio()+'<button type="button" id="fioEdit">изменить</button>'):'ФИО ещё не указано <button type="button" id="fioEdit">указать</button>';}
+function openHub(){
+  renderHubFio();
+  hubList.innerHTML=L.map(function(l){var done=isDone(l.n);
+    return '<div class="hw-item"><div class="hw-head"><span class="hw-num">'+l.n+'</span><div style="flex:1"><div class="hw-tema">'+l.tema+'</div><div class="hw-task">'+l.dz.text+'</div></div>'+(done?'<span class="hw-done">Сделано ✓</span>':'')+'</div>'
+      +'<textarea class="p3-input" data-ans="'+l.n+'" rows="3" placeholder="'+escq(l.dz.ph)+'" aria-label="Ответ на ДЗ урока '+l.n+'"></textarea>'
+      +'<div class="hw-actions"><button class="btn btn--ghost btn--sm hwDone" type="button" data-n="'+l.n+'">'+(done?'Готово ✓':'Записал')+'</button><button class="btn btn--sm hwSend" type="button" data-n="'+l.n+'">Отправить коучу</button><span class="hw-st" data-st="'+l.n+'" role="status" aria-live="polite"></span></div></div>';
+  }).join('');
+  hubList.querySelectorAll('[data-ans]').forEach(function(t){t.value=getAns(t.getAttribute('data-ans'))});
+  hubLastFocus=document.activeElement;hubOv.classList.add('open');document.body.classList.add('ov-open');
+  requestAnimationFrame(function(){document.getElementById('hubClose').focus();});
+}
+function closeHub(){hubOv.classList.remove('open');document.body.classList.remove('ov-open');if(hubLastFocus&&hubLastFocus.focus)hubLastFocus.focus();}
+
+/* ====== МОДАЛКА ФИО ====== */
+var fioOv=document.getElementById('fioOv'),fioInput=document.getElementById('fioInput'),fioErr=document.getElementById('fioErr'),fioCb=null,fioForced=false;
+function openFioModal(cb,forced){fioForced=!!forced;fioCb=cb;fioInput.value=getFio();fioErr.textContent='';document.getElementById('fioCancel').style.display=forced?'none':'';fioOv.classList.add('open');document.body.classList.add('ov-open');requestAnimationFrame(function(){fioInput.focus();});}
+function closeFioModal(){fioOv.classList.remove('open');if(!hubOv.classList.contains('open'))document.body.classList.remove('ov-open');}
+function ensureFio(cb){var f=getFio();if(f)return cb(f);openFioModal(cb);}
+document.getElementById('fioSave').addEventListener('click',function(){var v=fioInput.value.trim();if(!v){fioErr.textContent='Впиши имя и фамилию';return;}LS.set('luchi_fio',v);fioForced=false;closeFioModal();renderHubFio();var c=fioCb;fioCb=null;if(c)c(v);});
+document.getElementById('fioCancel').addEventListener('click',function(){if(fioForced)return;closeFioModal();var c=fioCb;fioCb=null;if(c)c(null);});
+fioInput.addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('fioSave').click();});
+
+/* ====== МОДАЛКА ПАРОЛЯ ====== */
+var passOv=document.getElementById('passOv'),passInput=document.getElementById('passInput'),passErr=document.getElementById('passErr'),passTitle=document.getElementById('passTitle'),passIdx=-1,passLastFocus=null;
+function openPass(i){passIdx=i;passTitle.textContent='Урок '+L[i].n+' · '+L[i].title;passInput.value='';passErr.textContent='';passLastFocus=document.activeElement;passOv.classList.add('open');document.body.classList.add('ov-open');requestAnimationFrame(function(){passInput.focus();});}
+function closePass(){passOv.classList.remove('open');if(!hubOv.classList.contains('open'))document.body.classList.remove('ov-open');if(passLastFocus&&passLastFocus.focus)passLastFocus.focus();}
+function trySubmitPass(){var v=passInput.value.trim();if(v===L[passIdx].pass){setOpen(L[passIdx].n);var idx=passIdx;closePass();renderAlbum();openLesson(idx);}else{passErr.textContent='Пароль не подошёл. Попробуй ещё раз.';}}
+document.getElementById('passSubmit').addEventListener('click',trySubmitPass);
+document.getElementById('passCancel').addEventListener('click',closePass);
+passInput.addEventListener('keydown',function(e){if(e.key==='Enter')trySubmitPass();});
+
+/* ====== ОБЩИЕ ОБРАБОТЧИКИ ====== */
+// автосохранение + синхронизация полей ответов
+document.addEventListener('input',function(e){var t=e.target;if(t&&t.getAttribute&&t.hasAttribute('data-ans')){var n=t.getAttribute('data-ans');setAns(n,t.value);
+  document.querySelectorAll('[data-ans="'+n+'"]').forEach(function(o){if(o!==t)o.value=t.value});}});
+
+// клики внутри урока
+lesson.addEventListener('click',function(e){
+  var t=e.target;
+  var accH=t.closest&&t.closest('.acc-h');if(accH){var body=accH.nextElementSibling,hidden=body.hasAttribute('hidden');if(hidden){body.removeAttribute('hidden');accH.setAttribute('aria-expanded','true');accH.querySelector('.acc-i').textContent='−';}else{body.setAttribute('hidden','');accH.setAttribute('aria-expanded','false');accH.querySelector('.acc-i').textContent='+';}return;}
+  var go=t.closest&&t.closest('[data-go]');if(go){var m={l:'lTitle',u:'chapterU',t:'chapterT'},el=document.getElementById(m[go.getAttribute('data-go')]);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});return;}
+  var vc=t.closest&&t.closest('.val-card');if(vc){var vb=vc.querySelector('.val-body'),hid=vb.hasAttribute('hidden');if(hid){vb.removeAttribute('hidden');vc.setAttribute('aria-expanded','true');vc.querySelector('.val-plus').textContent='−';}else{vb.setAttribute('hidden','');vc.setAttribute('aria-expanded','false');vc.querySelector('.val-plus').textContent='+';}return;}
+  var b=t.closest&&t.closest('button');if(!b)return;
+  if(b.classList.contains('toUrok')){document.getElementById('chapterU').scrollIntoView({behavior:'smooth'});return;}
+  if(b.classList.contains('copyBtn')){var c=b.parentNode.querySelector('.code').textContent;try{navigator.clipboard.writeText(c)}catch(_){}b.textContent='Скопировано ✓';setTimeout(function(){b.textContent='Копировать'},1500);return;}
+  if(b.classList.contains('dzDone')){var n=+b.getAttribute('data-n');setDone(n,true);b.textContent='Готово ✓';return;}
+  if(b.classList.contains('dzSend')){var n2=+b.getAttribute('data-n');sendLesson(n2,p3box.querySelector('.dz-st[data-st="'+n2+'"]'));return;}
+});
+// клики внутри хаба
+hubOv.addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('button');if(!b)return;
+  if(b.id==='hubClose'){closeHub();return;}
+  if(b.id==='fioEdit'){openFioModal(function(){renderHubFio()});return;}
+  if(b.id==='csvBtn'){downloadCSV();return;}
+  if(b.id==='sendAll'){ensureFio(function(fio){if(!fio)return;L.forEach(function(l){var ans=getAns(l.n),st=hubList.querySelector('.hw-st[data-st="'+l.n+'"]');
+    if(ans&&ans.trim()){if(st)st.textContent='Отправляю…';sendRecord({fio:fio,urok:l.n,vopros:l.dz.text,otvet:ans},function(s){if(st)st.textContent=s==='sent'?'Отправлено ✓':'Сохранено, отправлю при сети';});}else if(st){st.textContent='пусто';}});});return;}
+  if(b.classList.contains('hwDone')){var n=+b.getAttribute('data-n');setDone(n,true);b.textContent='Готово ✓';var head=b.closest('.hw-item').querySelector('.hw-head');if(head&&!head.querySelector('.hw-done'))head.insertAdjacentHTML('beforeend','<span class="hw-done">Сделано ✓</span>');return;}
+  if(b.classList.contains('hwSend')){var n2=+b.getAttribute('data-n');sendLesson(n2,hubList.querySelector('.hw-st[data-st="'+n2+'"]'));return;}
+});
+finalCard.addEventListener('click',function(e){if(e.target.closest('#finalHw'))openHub();});
+document.getElementById('hwOpen').addEventListener('click',openHub);
+
+document.getElementById('backBtn').addEventListener('click',closeLesson);
+document.getElementById('prevBtn').addEventListener('click',function(){if(cur>0)reDive(cur-1)});
+document.getElementById('nextBtn').addEventListener('click',function(){if(cur<L.length-1)reDive(cur+1)});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){if(passOv.classList.contains('open')){closePass();return;}if(fioOv.classList.contains('open')){if(!fioForced)document.getElementById('fioCancel').click();return;}if(hubOv.classList.contains('open')){closeHub();return;}if(lesson.classList.contains('show')){closeLesson();return;}}
+  if(lesson.classList.contains('show')&&!hubOv.classList.contains('open')&&!passOv.classList.contains('open')){
+    if(e.key==='ArrowRight'&&cur<L.length-1&&isOpen(L[cur+1].n))reDive(cur+1);
+    if(e.key==='ArrowLeft'&&cur>0&&isOpen(L[cur-1].n))reDive(cur-1);}
+});
+
+/* ====== ИНИЦИАЛИЗАЦИЯ ====== */
+document.getElementById('logoTop').innerHTML=LOGO;
+document.getElementById('logoFoot').innerHTML=LOGO;
+document.getElementById('rayHero').innerHTML=RAY;
+document.getElementById('rayU').innerHTML=RAY;
+document.getElementById('rayT').innerHTML=RAY;
+renderAlbum();
+bufferFlush();
+window.addEventListener('online',bufferFlush);
+if(!getFio())openFioModal(null,true);
+</script>
+</body>
+</html>
