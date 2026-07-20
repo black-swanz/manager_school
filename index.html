@@ -331,8 +331,6 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
 /* ====== ДОРАБОТКИ: вращение эмблемы, Легенда, ценности, меч из камня ====== */
 @keyframes heroSpin{to{transform:rotate(360deg)}}
 .hero .ray-bg{animation:heroSpin 26s linear infinite}
-@keyframes chapSpin{to{transform:translateX(-50%) rotate(360deg)}}
-.chapter--test .ray-bg,.chapter--urok .ray-bg{animation:chapSpin 26s linear infinite}
 .l-part{display:inline-block;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--coral);border:1px solid var(--coral);border-radius:var(--pill);padding:5px 12px;margin-bottom:16px}
 .vals{display:grid;gap:10px}
 .val-card{display:block;width:100%;text-align:left;font:inherit;cursor:pointer;background:var(--sand);color:var(--ink);border:2px solid transparent;border-radius:12px;padding:15px 17px;transition:.15s}
@@ -348,11 +346,98 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
 .val-pr li{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:11px;color:var(--teal);background:var(--white);border:1px solid rgba(2,32,40,.15);border-radius:var(--pill);padding:6px 11px}
 .sworddz{max-width:540px}
 .stone-scene{position:relative;width:140px;height:200px;margin:0 auto 22px}
-.sword-el{position:absolute;left:50%;bottom:42px;transform:translateX(-50%) rotate(180deg);transform-origin:50% 50%;width:46px;height:auto;transition:transform 1.15s cubic-bezier(.2,.9,.2,1.3),filter .5s}
-.stone-scene.out .sword-el{transform:translateX(-50%) translateY(-78px) rotate(0deg);filter:drop-shadow(0 0 14px rgba(113,215,255,.8))}
+.sword-el{position:absolute;left:50%;bottom:56px;transform:translateX(-50%);width:46px;height:auto;transition:transform 1.1s cubic-bezier(.2,.9,.2,1.3)}
+.stone-scene.out .sword-el{transform:translateX(-50%) translateY(-58px);filter:drop-shadow(0 0 14px rgba(113,215,255,.8))}
 .stone-el{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:140px;z-index:2}
 .dz-task{font-size:16px;line-height:1.6;color:var(--white);margin-bottom:14px}
 .sworddz .p3-input{margin-bottom:14px}
+
+/* ====== ОТПРАВЛЕНО · РЮКЗАК · ТЕМА · ПИСЬМО ====== */
+.btn.sent{background:var(--teal);border-color:var(--teal);color:var(--white);cursor:default;opacity:1}
+.btn.sent:hover{background:var(--teal);border-color:var(--teal);color:var(--white)}
+.hw-float{position:absolute;top:16px;right:var(--gap);z-index:6;font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.02em;font-size:14px;padding:12px 20px;border-radius:var(--pill);background:var(--ink);color:var(--sand);border:2px solid var(--ink);cursor:pointer;box-shadow:0 8px 20px rgba(2,32,40,.25)}
+.hw-float:hover{background:var(--white);color:var(--ink);border-color:var(--white)}
+@media(max-width:520px){.hw-float{font-size:12px;padding:10px 14px;top:12px}}
+.theme-toggle{position:fixed;right:12px;top:50%;transform:translateY(-50%);z-index:9;width:50px;height:50px;border-radius:50%;border:2px solid var(--coral);background:var(--ink);color:var(--coral);cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(2,32,40,.4)}
+.theme-toggle:hover{background:var(--coral);color:var(--white)}
+.backpack{display:grid;grid-template-columns:1fr 320px;gap:clamp(24px,4vw,56px);padding:clamp(26px,4vw,44px) var(--gap) 80px;align-items:start}
+@media(max-width:760px){.backpack{grid-template-columns:1fr}.bp-right{order:-1}}
+.bp-head{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:20px;color:var(--white);margin-bottom:16px}
+.bp-lesson{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;margin-bottom:10px;cursor:pointer;color:var(--white);font:inherit;transition:.15s}
+.bp-lesson:hover:not(:disabled){border-color:var(--ice)}
+.bp-lesson:disabled{opacity:.55;cursor:default}
+.bp-lesson.hot{border-color:var(--coral);animation:hotpulse 1.6s ease-in-out infinite}
+@keyframes hotpulse{0%,100%{box-shadow:0 0 0 2px var(--coral)}50%{box-shadow:0 0 0 6px rgba(255,115,119,.35)}}
+.bp-n{flex:none;width:32px;height:32px;border-radius:50%;background:var(--coral);color:var(--ink);font-family:var(--font-display);font-weight:900;display:flex;align-items:center;justify-content:center}
+.bp-name{flex:1;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.02em;font-size:15px}
+.bp-status{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:11px}
+.bp-status.ok{color:var(--ice)}.bp-status.wait{color:var(--sand);opacity:.7}
+.bp-note{margin-top:12px;font-size:13px;color:var(--ice);opacity:.85}
+.bp-right{position:sticky;top:90px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.bp-avatar{position:relative;width:190px;height:190px}
+.xp-ring{width:100%;height:100%;display:block}
+.bp-face{position:absolute;inset:26px;border-radius:50%;background:var(--ink);border:2px solid rgba(255,255,255,.1);display:grid;place-items:center;overflow:hidden}
+.bp-face svg{width:80%;height:80%}
+.bp-hp{margin-top:16px;font-family:var(--font-display);font-weight:900;font-size:24px;color:var(--coral)}
+.bp-sub{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:12px;color:var(--ice);margin-top:4px}
+.bp-pick{display:flex;gap:12px;margin-top:20px}
+.bp-av{width:60px;height:60px;border-radius:50%;background:var(--sand);border:2px solid transparent;cursor:pointer;display:grid;place-items:center;padding:6px}
+.bp-av svg{width:100%;height:100%}
+.bp-av.on{border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,115,119,.3)}
+.letter{background:var(--sand);color:var(--ink);border-radius:10px;max-width:540px;width:100%;padding:30px;box-shadow:0 30px 70px rgba(0,0,0,.5);position:relative}
+.letter::before{content:"";position:absolute;left:0;top:0;right:0;height:6px;background:var(--coral);border-radius:10px 10px 0 0}
+.letter-h{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:20px;color:var(--teal);margin:6px 0 14px}
+.letter-body{font-size:16px;line-height:1.65;color:var(--ink);max-height:58vh;overflow-y:auto}
+.letter .modal-actions{margin-top:20px}
+.lesson.light{background:var(--sand)}
+.lesson.light .lesson__bar{background:rgba(239,235,204,.94);border-bottom-color:rgba(2,32,40,.15)}
+.lesson.light .back{color:var(--teal)}
+.lesson.light .l-kicker,.lesson.light .l-epi,.lesson.light .cover-tema{color:var(--teal)}
+.lesson.light .l-time,.lesson.light .l-toc button{color:var(--teal);border-color:var(--teal)}
+.lesson.light .l-title,.lesson.light .l-zachem p,.lesson.light .ublock>p,.lesson.light .dz-task,.lesson.light .qst-scn,.lesson.light .p3-title,.lesson.light .asm-preview,.lesson.light .calc-row>span,.lesson.light .dg-metric,.lesson.light .dg-q,.lesson.light .val-desc,.lesson.light .val-name,.lesson.light .dz p{color:var(--ink)}
+.lesson.light .l-nasbore{background:rgba(2,107,131,.12);color:var(--ink)}
+.lesson.light .l-nasbore b{color:var(--teal)}
+.lesson.light .zone,.lesson.light .chapter--test{background:var(--sand)}
+.lesson.light .chapter--test .qach{color:var(--teal)}
+.lesson.light .acc-h,.lesson.light .val-card,.lesson.light .opt,.lesson.light .spot-it{background:var(--white);color:var(--ink);border-color:rgba(2,32,40,.15)}
+.lesson.light .tool{background:rgba(2,107,131,.08);border-color:rgba(2,107,131,.4)}
+.lesson.light .tool .code{color:var(--ink)}
+.lesson.light .p3-input,.lesson.light .calc-f{background:var(--white);color:var(--ink);border-color:rgba(2,32,40,.25)}
+.lesson.light .p3-fb{color:var(--ink)}
+.lesson.light .p3-lead,.lesson.light .p3-note{color:var(--teal)}
+.lesson.light .lesson__nav button{color:var(--teal)}
+.lesson.light .theme-toggle{background:var(--sand);color:var(--ink);border-color:var(--ink)}
+
+/* ====== УРОК 2 · башня Мерлина ====== */
+.mrl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:560px){.mrl-grid{grid-template-columns:1fr}}
+.mrl-c{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px}
+.mrl-c .grp{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:10px;color:var(--ice)}
+.mrl-c .nm{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:17px;color:var(--white);margin-top:2px}
+.mrl-c .ds{font-size:13px;line-height:1.4;color:var(--sand);margin-top:6px}
+.mrl-c .fx{margin-top:8px;font-family:var(--font-display),'Courier New',monospace;font-weight:500;font-size:12px;color:var(--coral);background:rgba(255,115,119,.1);border-radius:8px;padding:6px 9px}
+.mrl-rule{margin-top:14px;font-size:14px;color:var(--ice)}
+.mrl-case{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px}
+.mrl-lead{font-size:15px;color:var(--sand);margin-bottom:12px}
+.mrl-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+@media(max-width:520px){.mrl-metrics{grid-template-columns:1fr}}
+.mrl-m{background:var(--ink);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px;text-align:center}
+.mrl-m span{display:block;font-size:12px;color:var(--white);margin-bottom:6px}
+.mrl-m b{font-family:var(--font-display);font-weight:900;font-size:15px}
+.mrl-m .up{color:var(--coral)}.mrl-m .eq{color:var(--ice)}.mrl-m .down{color:var(--sky)}
+.mrl-q{font-family:var(--font-display);font-weight:500;font-size:17px;color:var(--white);margin:6px 0 12px}
+.mrl-opts{display:grid;gap:9px}
+.mrl-ans{margin-top:14px;background:rgba(2,107,131,.22);border-left:3px solid var(--ice);border-radius:0 10px 10px 0;padding:14px 16px;font-size:15px;line-height:1.55;color:var(--white)}
+.mrl-ans:not([hidden]){animation:fadeUp .45s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.dzsend .dz-task{font-size:16px;line-height:1.6;color:var(--white);margin-bottom:14px}
+.dzsend .p3-input{margin-bottom:14px}
+.lesson.light .mrl-c,.lesson.light .mrl-case{background:var(--white);border-color:rgba(2,32,40,.12)}
+.lesson.light .mrl-c .nm,.lesson.light .mrl-q,.lesson.light .mrl-ans,.lesson.light .dzsend .dz-task{color:var(--ink)}
+.lesson.light .mrl-c .ds,.lesson.light .mrl-lead,.lesson.light .mrl-c .grp,.lesson.light .mrl-rule{color:var(--teal)}
+.lesson.light .mrl-m{background:var(--sand);border-color:rgba(2,32,40,.15)}
+.lesson.light .mrl-m span{color:var(--ink)}.lesson.light .mrl-m .eq{color:var(--teal)}
+.lesson.light .mrl-ans{background:rgba(2,107,131,.12)}
 </style>
 </head>
 <body>
@@ -362,13 +447,13 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
   <a class="brand" href="#top" aria-label="Лучи, на главную"><span id="logoTop"></span></a>
   <nav class="crumbs"><a href="#top">Лучи</a><span class="sep">/</span><span class="here">Камелот</span></nav>
   <div class="top-right">
-    <button class="btn btn--sm top-hw" id="hwOpen" type="button" disabled title="Откроется после прохождения всех 6 уроков">Домашнее задание</button>
     <a class="site" href="https://luchi.ru" target="_blank" rel="noopener">luchi.ru</a>
   </div>
 </div></header>
 
 <section class="hero" id="top">
   <div class="ray-bg" id="rayHero" aria-hidden="true"></div>
+  <button class="hw-float" id="hwOpen" type="button">🎒 Домашнее задание</button>
   <div class="wrap">
     <div class="kicker">Школа менеджеров · 6 уроков</div>
     <h1>Камелот</h1>
@@ -408,6 +493,7 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
     <div class="bar-mid"><span class="bar-time" id="barTime"></span></div>
     <span class="counter" id="counter"></span>
   </div>
+  <button class="theme-toggle" id="themeBtn" type="button" aria-label="Светлая или тёмная тема" title="Светлая/тёмная тема">☀</button>
   <div class="lesson__inner">
     <aside class="lesson__cover" id="cover"></aside>
     <div class="lesson__content" id="content"></div>
@@ -423,16 +509,22 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
 </section>
 
 <!-- ДЗ-хаб -->
-<div class="ov ov--hub" id="hubOv" role="dialog" aria-modal="true" aria-label="Домашнее задание — все уроки">
+<div class="ov ov--hub" id="hubOv" role="dialog" aria-modal="true" aria-label="Рюкзак — твой персонаж и занятия">
   <div class="hub">
-    <div class="hub-bar"><div class="hub-title">Домашнее задание</div><button class="back" id="hubClose">✕ Закрыть</button></div>
-    <div class="wrap hub-body">
-      <div class="hub-top">
-        <span class="hub-fio" id="hubFio"></span>
-        <div class="hub-top-actions"><button class="btn btn--sm" id="sendAll" type="button">Отправить всё</button><button class="btn btn--ghost btn--sm" id="csvBtn" type="button">Скачать CSV</button></div>
-      </div>
-      <div id="hubList"></div>
+    <div class="hub-bar"><div class="hub-title">Рюкзак</div><button class="back" id="hubClose">✕ Закрыть</button></div>
+    <div class="wrap backpack">
+      <div class="bp-left"><div class="bp-head">Твои занятия</div><div id="bpLessons"></div><p class="bp-note">Подсвеченные проверены коучем. Нажми, чтобы прочитать письмо с проверкой.</p></div>
+      <div class="bp-right" id="bpChar"></div>
     </div>
+  </div>
+</div>
+
+<!-- письмо-проверка -->
+<div class="ov ov--modal" id="letterOv" role="dialog" aria-modal="true" aria-labelledby="letterH">
+  <div class="letter">
+    <div class="letter-h" id="letterH">Проверка</div>
+    <div class="letter-body" id="letterBody"></div>
+    <div class="modal-actions"><button class="btn" id="letterClose" type="button">Закрыть</button></div>
   </div>
 </div>
 
@@ -478,6 +570,38 @@ function getOpenSet(){return LS.get('luchi_open',{})||{}}
 function isOpen(n){return !!getOpenSet()[n]}
 function setOpen(n){var o=getOpenSet();o[n]=true;LS.set('luchi_open',o)}
 function openCount(){return Object.keys(getOpenSet()).length}
+function isSent(n){return !!LS.get('luchi_sent_'+n,false)} function setSent(n,v){LS.set('luchi_sent_'+n,!!v)}
+function isSeen(n){return !!LS.get('luchi_seen_'+n,false)} function setSeen(n,v){LS.set('luchi_seen_'+n,!!v)}
+function getAvatar(){var a=LS.get('luchi_avatar','armor')||'armor';return (typeof AVA!=='undefined'&&AVA[a])?a:'armor'} function setAvatar(a){LS.set('luchi_avatar',a)}
+function getTheme(){return LS.get('luchi_theme','dark')||'dark'} function setTheme(t){LS.set('luchi_theme',t)}
+/* Проверки коуча — читаются из опубликованного CSV листа ответов (заполни ссылку). */
+var REVIEW_CSV="";
+var REVIEWS={};
+function reviewKey(fio,n){return String(fio||'').trim().toLowerCase()+'|||'+n}
+function getReview(n){var t=REVIEWS[reviewKey(getFio(),n)];return (t&&String(t).trim())?t:null}
+function csvParse(txt){var rows=[],row=[],f='',q=false,i,c;for(i=0;i<txt.length;i++){c=txt[i];
+  if(q){if(c=='"'){if(txt[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
+  else{if(c=='"')q=true;else if(c==',' ){row.push(f);f=''}else if(c=='\n'){row.push(f);rows.push(row);row=[];f=''}else if(c=='\r'){}else f+=c}}
+  if(f.length||row.length){row.push(f);rows.push(row)}return rows;}
+function parseReviews(txt){try{var rows=csvParse(txt);if(!rows.length)return;var head=rows[0].map(function(s){return String(s).toLowerCase()});
+  var iF=head.findIndex(function(h){return h.indexOf('фио')>=0||h.indexOf('имя')>=0});
+  var iU=head.findIndex(function(h){return h.indexOf('урок')>=0});
+  var iR=head.findIndex(function(h){return h.indexOf('провер')>=0||h.indexOf('коммент')>=0||h.indexOf('отзыв')>=0});
+  if(iF<0||iU<0||iR<0)return;
+  REVIEWS={};rows.slice(1).forEach(function(r){var fio=r[iF],ur=String(r[iU]||'').replace(/\D/g,''),rev=r[iR];if(fio&&ur&&rev&&String(rev).trim())REVIEWS[reviewKey(fio,ur)]=rev;});
+}catch(e){}}
+function loadReviews(){if(!REVIEW_CSV)return;fetch(REVIEW_CSV).then(function(r){return r.text()}).then(function(txt){parseReviews(txt);renderAlbum();if(hubOv&&hubOv.classList.contains('open'))renderBackpack();}).catch(function(){});}
+var AVA={
+ knight:'<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 6l5 13h-10z" fill="'+DB+'"/><rect x="30" y="19" width="40" height="52" rx="15" fill="'+CR+'"/><rect x="44" y="27" width="12" height="30" rx="5" fill="'+INK+'"/><rect x="34" y="40" width="32" height="5" rx="2" fill="'+INK+'"/><rect x="33" y="70" width="34" height="9" rx="3" fill="'+DB+'"/></svg>',
+ princess:'<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 L67 40 H33 Z" fill="'+CR+'"/><circle cx="50" cy="60" r="21" fill="'+SAND+'" stroke="'+INK+'" stroke-width="2"/><path d="M67 41q-17 9-34 0l2 8q15 7 30 0z" fill="'+LB+'"/><circle cx="43" cy="58" r="2.6" fill="'+INK+'"/><circle cx="57" cy="58" r="2.6" fill="'+INK+'"/><path d="M44 66q6 5 12 0" fill="none" stroke="'+INK+'" stroke-width="2" stroke-linecap="round"/></svg>',
+ dragon:'<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M46 26l-6-12 3 13zM58 26l7-13-4 13z" fill="'+CR+'"/><path d="M24 66q0-28 28-28 24 0 24 22 0 15-16 18l-16 9v-11q-20-2-20-10z" fill="'+DB+'"/><path d="M24 66l-11 5 9 4z" fill="'+CR+'"/><circle cx="42" cy="54" r="3.2" fill="'+SAND+'"/><path d="M30 60q6 3 12 0" fill="none" stroke="'+SAND+'" stroke-width="2" stroke-linecap="round"/></svg>'
+};
+AVA={
+ armor:'<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 16l-9 8 9 4 9-4z" fill="'+DB+'"/><path d="M28 26l22-6 22 6q3 30-22 60Q25 56 28 26z" fill="'+CR+'" stroke="'+INK+'" stroke-width="3" stroke-linejoin="round"/><path d="M50 24v54M37 42h26M35 56h30" stroke="'+INK+'" stroke-width="3" stroke-linecap="round"/></svg>',
+ wizard:'<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 12 L70 74 H30 Z" fill="'+CR+'" stroke="'+INK+'" stroke-width="3" stroke-linejoin="round"/><path d="M20 74q30-9 60 0l0 7q-30-9-60 0z" fill="'+DB+'" stroke="'+INK+'" stroke-width="3" stroke-linejoin="round"/><path d="M50 32l2.4 5.6 5.6 2.4-5.6 2.4L50 48l-2.4-5.6L42 40l5.6-2.4z" fill="'+SAND+'"/><circle cx="43" cy="54" r="2.4" fill="'+SAND+'"/><circle cx="58" cy="50" r="2" fill="'+SAND+'"/></svg>',
+ ring:'<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="62" r="23" fill="none" stroke="'+CR+'" stroke-width="8"/><path d="M50 26l11 13-11 11-11-11z" fill="'+SB+'" stroke="'+INK+'" stroke-width="2.5" stroke-linejoin="round"/><path d="M41 31h18" stroke="'+SAND+'" stroke-width="2.5" stroke-linecap="round"/></svg>'
+};
+var AVA_NAME={armor:'Броня рыцаря',wizard:'Шляпа волшебника',ring:'Колечко принцессы'};
 
 /* ====== БРЕНД-ГРАФИКА ====== */
 var CR="#FF7377",DB="#026B83",SB="#078EFF",LB="#71D7FF",SAND="#EFEBCC",INK="#022028",W="#FFFFFF";
@@ -501,7 +625,7 @@ var EMB={
 
 /* ====== 6 УРОКОВ ====== */
 var L=[
-{n:1,r:'I',tema:'Ценности',title:'Меч в камне',emb:'sword',
+{n:1,r:'I',tema:'Ценности · зачем ты берёшься за меч',title:'Меч в камне',emb:'sword',
  epi:'К камню тянулись все. Меч вышел не за силу — за то, зачем ты за него взялся.',
  zachem:['К мечу в камне тянулись и короли, и простолюдины. Выходил он не за силу и не за стаж — за причину, по которой ты за него взялся.','Сегодня этот меч — роль капитана. И первый честный вопрос не «смогу ли я вести», а «зачем мне это». Деньги — нормальная причина. Но если она единственная, на первом трудном месяце рука сорвётся. Капитан держит меч ещё и ради людей, дела и себя, который вырастет.'],
  nasbore:'Найдём, где капитан приносит бизнесу деньги, — и твою причину крепче зарплаты.',
@@ -599,20 +723,30 @@ L[5].hook='Что нести наверх, а что решить самому?'
 
 /* --- Урок 1: кастомное наполнение строго из партитуры «Меч в камне» --- */
 L[0].custom='lesson1';
-L[0].hook='Зачем тебе это?';
-L[0].epi='Меч в камне ждал не сильнейшего. Он ждал достойного.';
-L[0].zachem=['Сотни рыцарей тянули меч силой, но удалось лишь безвестному оруженосцу. Не потому что по ночам качал руку — потому что мотивы его были чисты.','Для тебя меч — это ответственность и ценности, которые ты вытягиваешь и больше не кладёшь обратно под камень.'];
-L[0].nasbore='Разбираем четыре ценности без корпоративного глянца: почему это не «инфоцыганство», как пользоваться ими без искажений.';
-L[0].p3={type:'sworddz',title:''};
-L[0].dz={text:'<p><strong>Манифест для своей команды.</strong><br>Три пункта, своими словами, без ИИ:<br><br>1. Расскажи своей будущей команде, почему ты решил стать капитаном.<br><br>2. Одна вещь, которую добавишь в работу команды.<br><br>3. Что обязательно запретишь, когда станешь капитаном?</p><p><strong>Вопрос-бонус:</strong> придумай один ритуал для команды перед выходом на смену — маленький, повторяемый, только ваш.</p>',ph:'Твой манифест и ритуал…'};
-L[0].urokIntro='Представь: сегодня ночью «Лучи» стирает свои ценности — со стен, из презентаций, из онбординга. В понедельник на смене ты это заметишь? Если пользуешься ими по-настоящему — нет: они уже не на стене, а у тебя в руках.<br><br>Много кто при разговоре о «ценностях» думает: инфоцыганство, красивые лозунги, чтобы заставить меня больше смен и не просил прибавку. Претензия справедлива — к плохим ценностям.<br><br>Давай разберёмся, что за ценность «эксплуатирует» именно тебя?';
-L[0].urokAll='Ценности — не твоя личная опция. Они одни для всех: оператора, тимлида, руководителя. Их нельзя выкручивать под свою выгоду и нельзя использовать против коллег — «тебе же не всё равно, так возьми мою смену». Это уже не ценность, а манипуляция.';
+L[0].hook='Заметишь, если ценности сотрут со стен?';
+L[0].epi='Меч в камне ждал не сильнейшего. Он ждал своего.';
+L[0].zachem=['Сотни рыцарей тянули меч силой — камень не отпускал. Вынул безвестный оруженосец. Не потому что качал руку — потому что меч был его.','На линии меч — это не гарнитура и не должность: их выдают в первый день. Меч — это ответственность и ценности, которые ты берёшь как свои и больше не кладёшь. Первая марка — про то, что это за меч и зачем его брать.'];
+L[0].nasbore='Разберём четыре ценности без корпоративного глянца: почему это не «инфоцыганство», как пользоваться ими к себе и коллегам не коверкая, и почему единственное мерило — клиент.';
+L[0].p3={type:'sworddz',title:'Извлеки меч из камня'};
+L[0].dz={text:'Манифест для своей команды, коротко и своими словами: 1) почему ты хочешь стать капитаном — честно; 2) одна вещь, которую добавишь в работу команды; 3) что поставишь под жёсткий запрет. Плюс придумай один ритуал для операторов перед сменой — маленький, повторяемый, твой.',ph:'Твой манифест и ритуал…'};
+L[0].urokIntro='Представь: сегодня ночью «Лучи» стирает свои ценности — со стен, из презентаций, из онбординга. В понедельник на смене ты это заметишь? Если пользуешься ими по-настоящему — нет: они уже не на стене, а у тебя в руках. У части людей на слове «ценности» щёлкает: инфоцыганство, красивые плакаты, чтобы брал больше смен и не просил прибавку. Претензия справедлива — к плохим ценностям. Так посмотри, какими именно тут «разводят». Их четыре. Вопрос на засыпку: какая из них тебя эксплуатирует — забота о клиенте, ответственность за свой результат, плечо коллеге или готовность к трудному? Это не корпоративная религия, а описание человека, с которым хочется работать бок о бок. И которым выгодно быть: с таким набором растут, а не выгорают в ноль.';
+L[0].urokAll='Ценности — не твоя личная опция. Они одни для всех: оператора, тимлида, руководителя. Их нельзя гнуть под удобство и нельзя лупить ими коллегу — «ты же за общее дело, возьми мою смену» это не ценность, а манипуляция. Требовательность — да, шантаж ценностью — нет. Мерило одно и простое: клиент. Всё, что помогает клиенту, — по ценностям. Всё, что ты прикрываешь ценностью во вред клиенту, — не ценность, а отмазка.';
 L[0].values=[
- {name:'Нам не всё равно',desc:'Мы в медицине — тут по-другому нельзя. Важно помнить, что быть неравнодушным нужно не только с клиентом, но и друг с другом.',principles:['Делай как для себя','Можешь — поддержи','Нравится — скажи, не нравится — тоже']},
- {name:'Всё зависит от меня',desc:'Мы не боимся ответственности. Делаем всё возможное для результата.',principles:['Бери, делай, отвечай','Знаешь, как исправить — исправь','Увидел проблему — не молчи','Тебе «больше всех надо»']},
+ {name:'Нам не всё равно',desc:'Неравнодушие к работе. Мы в медицине и страховании — тут по-другому нельзя. Делаем больше, чем должны: для клиента и друг для друга.',principles:['Делай как для себя','Можешь — поддержи','Нравится — скажи, не нравится — тоже']},
+ {name:'Всё зависит от меня',desc:'Не боимся ответственности. Делаем всё возможное для результата, а не ищем, на кого свалить.',principles:['Бери, делай, отвечай','Знаешь, как исправить — исправь','Увидел проблему — не молчи','Тебе «больше всех надо»']},
  {name:'Делаем общее дело',desc:'Команда единомышленников. Вместе вытягиваем больше. Требовательны к себе и друг к другу — и всегда готовы подставить плечо.',principles:['Победы общие, проблемы — тоже','Критикуешь — предлагай','Нет VS, только «и»','Фокусируйся на главном']},
- {name:'Готовы к сложностям',desc:'Принимаем реальность как есть. Не ждём тепличных условий. Преодолеваем сложности, чтобы добиваться больших результатов.',principles:['Лучше «лучше» сейчас, чем «идеально» — никогда','Не жди других времён','Меняться не страшно, страшно — не меняться']}
+ {name:'Готовы к сложностям',desc:'Принимаем реальность как есть. Не ждём тепличных условий. Проходим через трудное, чтобы получить большое.',principles:['Лучше «лучше» сейчас, чем «идеально» — никогда','Не жди других времён','Меняться не страшно, страшно — не меняться']}
 ];
+
+/* --- Урок 2: Башня Мерлина, строго из презентации --- */
+L[1].custom='lesson2';
+L[1].tema='Метрики · читать приметы линии';
+L[1].hook='Смена кончилась — а «стало лучше или нет?» непонятно?';
+L[1].epi='Мерлин не колдовал будущее. Он читал приметы — и говорил: «готовься сейчас».';
+L[1].zachem=['Мерлин был силён не заклинанием, а наблюдением: видел на ход вперёд и предупреждал беду заранее. Артур побеждал не потому, что бил сильнее, — рядом был тот, кто читал знаки.','Метрики — не дар волшебников, а приметы твоей линии. Кто их читает, управляет заранее, а не тушит пожар. Капитан без метрик — король без советника: слепой храбрец.'];
+L[1].nasbore='Разберём шесть метрик капитана, научимся читать их в связке — одна цифра врёт, три вместе говорят правду — и увидим, какой прибор падает первым.';
+L[1].p3={type:'dzsend',title:'Прочитай приборы башни',lead:'Готового «правильного ответа» нет — есть чтение цифр в связке и решение.'};
+L[1].dz={text:'Отчёт капитана. 1) Прочитай 4 показателя (дам выгрузку) в связке и дай оценку — сообщением для руководителя: что происходит, что будет дальше, что предлагаешь. 2) Придумай автоматизацию, которую соберёшь своими руками; если нельзя — за счёт каких своих действий (без других отделов) поднимешь цифры. 3) Оператор со стабильно низким CSAT: как будешь действовать по шагам — цифры, разговор, план. Формат: коротко и по делу, как сообщение в рабочий чат.',ph:'Отчёт капитана…'};
 
 /* ====== ОТПРАВКА + БУФЕР ====== */
 function postRec(rec){var b=new URLSearchParams();b.append(ENTRY_FIO,rec.fio);b.append(ENTRY_UROK,String(rec.urok));b.append(ENTRY_VOPROS,rec.vopros);b.append(ENTRY_OTVET,rec.otvet);
@@ -658,7 +792,7 @@ function renderAlbum(){
   finalCard.innerHTML = c>=6
     ? '<div class="final-card"><div class="final-h">Коллекция собрана — <span>ты капитан</span></div><p class="final-p">Все шесть уроков открыты: ценности, метрики, инициативы, команда, обратная связь, работа с руководством. Осталось довести домашние задания.</p><button class="btn" id="finalHw" type="button">Открыть домашние задания</button></div>'
     : '';
-  var hw=document.getElementById('hwOpen');if(hw){hw.disabled=c<6;hw.title=c<6?'Откроется после прохождения всех 6 уроков':'Все уроки открыты — домашние задания доступны';}
+  /* кнопка «рюкзак» всегда активна — прогресс и проверки видны по ходу курса */
 }
 
 /* ====== СТРАНИЦА ЗАНЯТИЯ ====== */
@@ -671,6 +805,24 @@ function renderUrok1(l){
   return '<div class="ublock reveal"><div class="ul">Зачем это вообще</div><p>'+l.urokIntro+'</p></div>'
     +'<div class="ublock reveal"><div class="ul">Четыре ценности — нажми, чтобы раскрыть</div><div class="vals">'+vals+'</div></div>'
     +'<div class="ublock reveal"><div class="ul">Для всех и без подгонки под себя</div><p>'+l.urokAll+'</p></div>';
+}
+var MET2=[
+ ['Клиентский опыт','CSAT','Оценка обслуживания сразу после решения обращения. «Клиент доволен?»','оценки 4–5 ÷ все × 100%'],
+ ['Клиентский опыт','NPS','Готовность рекомендовать сервис. Медленная метрика лояльности.','% промоутеров − % критиков'],
+ ['Скорость','SLA','Доля обращений, закрытых в срок. Ориентир: 80% в 60 минут.','в срок ÷ все × 100%'],
+ ['Скорость','Объём тикетов','Сколько обращений пришло. Контекст для всех остальных цифр.','сумма обращений за период'],
+ ['Эффективность','Стоимость обращения','Во сколько компании обходится одно решённое обращение.','затраты ÷ число обращений'],
+ ['Эффективность','Производительность','Сколько обращений в час закрывает оператор.','закрытые ÷ рабочие часы']
+];
+function renderUrok2(l){
+  var grid=MET2.map(function(m){return '<div class="mrl-c"><div class="grp">'+m[0]+'</div><div class="nm">'+m[1]+'</div><div class="ds">'+m[2]+'</div><div class="fx">'+m[3]+'</div></div>'}).join('');
+  return '<div class="ublock reveal"><div class="ul">Мерлин читал приметы</div><p>Мерлин не колдовал будущее — он его <b>считывал</b>. Пока рыцари смотрели на сегодняшний бой, он смотрел на знаки: погоду, настроение баронов, слабое место в союзе. Артур побеждал не потому, что бил сильнее, а потому, что рядом был тот, кто говорил «здесь будет беда, готовься сейчас».</p><p>Башня Мерлина — это твой дашборд. Цифры на экране — те самые приметы. Кто умеет их читать, управляет заранее, а не тушит пожар.</p></div>'
+    +acc('Слепой гигант и тот, кто читал знаки','<div class="ba"><div class="card bad"><b>Blockbuster</b>9 000 прокатов, история аренды каждого клиента в базе. Но решали «на чутьё»: штрафы злили людей, отток рос — на цифры не смотрели. 2010 — банкротство.</div><div class="card good"><b>Netflix</b>Те же данные — что смотрят, когда бросают — сделал основой стратегии. Рекомендации дают 80%+ просмотров, удержание 90%+. Данные превратились в деньги.</div></div><p style="margin-top:12px;color:inherit">Проигрывает не тот, у кого нет данных, а тот, кто в них не смотрит.</p>')
+    +'<div class="ublock reveal"><div class="ul">Шесть метрик капитана</div><div class="mrl-grid">'+grid+'</div><p class="mrl-rule">Правило Мерлина: одна метрика — полуправда. Цифра значит разное в зависимости от остальных.</p></div>'
+    +'<div class="ublock reveal"><div class="ul">Головоломка: читаем в связке</div><div class="mrl-case"><p class="mrl-lead">Понедельник. Приборы показывают:</p><div class="mrl-metrics"><div class="mrl-m"><span>CSAT</span><b class="up">↑ вырос</b></div><div class="mrl-m"><span>Стоимость</span><b class="up">↑ выросла</b></div><div class="mrl-m"><span>Производительность</span><b class="eq">= без изменений</b></div></div><div class="mrl-q">Хорошо это или плохо?</div><div class="mrl-opts"><button class="opt mrl-opt" type="button" data-ok="0">Отлично — CSAT вырос</button><button class="opt mrl-opt" type="button" data-ok="1">Плохо — «купили метрику»</button><button class="opt mrl-opt" type="button" data-ok="0">Само пройдёт</button></div><div class="mrl-ans" role="status" aria-live="polite" hidden><b>«Купили метрику».</b> CSAT красивый, но вырос за счёт денег: стоимость подскочила, производительность не сдвинулась — просто залили штатом. Радоваться нечему. Правило: смотришь одну цифру — сразу смотри остальные.</div></div></div>'
+    +acc('SLA — примета, которая приходит первой','<p>Метрики не равны по скорости. SLA — ведущая, падает <b>первой</b>. Дальше домино: SLA↓ сейчас → через 1–2 недели CSAT↓ → через ~квартал NPS↓ и отток. Когда CSAT уже упал — ты опоздал на пару недель. Мерлин смотрит SLA <b>еженедельно</b>, а не ждёт квартального отчёта.</p>')
+    +acc('Что двигаешь сам — без других отделов','<p><b>Разгрузить рутину:</b> шаблоны для частых ситуаций, чек-листы по типовым обращениям, удобная база знаний, меньше ручных кликов.</p><p><b>Поднять цифры руками:</b> разбор CSAT-негативов точечно по диалогам, микрообучение 15 минут на смене, умное распределение (сложное — опытным, простое — новичкам), плотная работа в час пик ради SLA.</p><p>Производительность растят не кнутом, а тем, что убирают лишнюю работу. Разгрузил рутину — люди успевают больше и не горят.</p>')
+    +'<div class="ublock reveal"><div class="ul">Метрика, которую контролируешь только ты</div><p>На CSAT, SLA, NPS влияет куча факторов. А обратная связь от команды — целиком твоя зона. Собирай просто: 1:1 раз в две недели («что мешает? что делаю хорошо? что бы изменил?»), анонимно раз в месяц («как я справляюсь как капитан, 1–10»), наблюдение. <b>Тревожный сигнал — тишина.</b> Молчащая команда — не благополучие, а дистанция. Спрашивай сам, не жди опроса.</p></div>';
 }
 function dzHTML(l){return '<div class="dz reveal" id="dzCard"><div class="dz-h"><span class="ray">'+RAY+'</span>Домашнее задание</div><p>'+l.dz.text+'</p>'
   +'<textarea class="p3-input" data-ans="'+l.n+'" rows="3" placeholder="'+escq(l.dz.ph)+'" aria-label="Ответ на домашнее задание урока '+l.n+'"></textarea>'
@@ -689,20 +841,21 @@ function fillLesson(i){
     +'<h1 class="l-title" id="lTitle">'+l.title+'</h1>'
     +'<p class="l-epi">«'+l.epi+'»</p>'
     +'<div class="l-zachem">'+l.zachem.map(function(p){return '<p>'+p+'</p>'}).join('')+'</div>'
-    +'<div class="l-nasbore"><b>На встрече</b>'+l.nasbore+'</div>'
+    +'<div class="l-nasbore"><b>На сборе</b>'+l.nasbore+'</div>'
     +'<button class="btn btn--ghost toUrok" type="button">↓ К уроку</button>';
-  urokbox.innerHTML=(l.custom==='lesson1')?renderUrok1(l)
+  urokbox.innerHTML=(l.custom==='lesson1')?renderUrok1(l):(l.custom==='lesson2')?renderUrok2(l)
     :('<div class="ublock reveal"><div class="ul">Приём</div><p>'+l.priem+'</p></div>'
       +acc('Как звучит','<div class="ba"><div class="card bad"><b>Оператор</b>'+l.before+'</div><div class="card good"><b>Капитан</b>'+l.after+'</div></div>')
       +acc('Инструмент','<div class="tool"><div class="code">'+l.tool+'</div><button class="btn btn--ice copyBtn" type="button">Копировать</button></div>'));
-  p3box.innerHTML='<div class="reveal">'+renderP3(i)+'</div>'+(l.p3.type==='sworddz'?'':dzHTML(l));
+  p3box.innerHTML='<div class="reveal">'+renderP3(i)+'</div>'+((l.p3.type==='sworddz'||l.p3.type==='dzsend')?'':dzHTML(l));
   setupP3(i);
   // восстановить ответ ДЗ + статус «сделано»
   p3box.querySelectorAll('[data-ans]').forEach(function(t){t.value=getAns(t.getAttribute('data-ans'))});
   var dn=p3box.querySelector('.dzDone');if(dn&&isDone(l.n))dn.textContent='Готово ✓';
+  var _sb=p3box.querySelector('#swSend, #dzSendBtn, .dzSend');if(_sb&&isSent(l.n))markSent(_sb);
 
   document.getElementById('chapUq').textContent=l.tema.split(' · ')[0];
-  document.getElementById('chapTq').textContent=l.p3.title||'';
+  document.getElementById('chapTq').textContent=l.p3.title||'Испытание';
   document.getElementById('barTime').textContent='';
   document.getElementById('counter').textContent='Урок '+l.n+' / 6';
   var pv=document.getElementById('prevBtn'),nx=document.getElementById('nextBtn');
@@ -711,7 +864,7 @@ function fillLesson(i){
   document.getElementById('nextName').textContent=(i<L.length-1&&isOpen(L[i+1].n))?' · '+L[i+1].title:'';
   initReveal();lesson.scrollTop=0;
 }
-function openLesson(i){cur=i;lastFocus=document.activeElement;fillLesson(i);document.body.classList.add('lesson-open');lesson.classList.add('show');lesson.setAttribute('aria-hidden','false');
+function openLesson(i){cur=i;lastFocus=document.activeElement;fillLesson(i);applyTheme();document.body.classList.add('lesson-open');lesson.classList.add('show');lesson.setAttribute('aria-hidden','false');
   requestAnimationFrame(function(){document.getElementById('backBtn').focus();});}
 function closeLesson(){document.body.classList.remove('lesson-open');lesson.classList.remove('show');lesson.setAttribute('aria-hidden','true');
   if(lastFocus&&lastFocus.focus)lastFocus.focus();}
@@ -722,16 +875,24 @@ function initReveal(){lesson.querySelectorAll('.reveal').forEach(function(el){el
 
 /* ====== ИНТЕРАКТИВ ====== */
 function renderSwordDz(i){var l=L[i];
-  return '<div class="p3-lead">В качестве домашнего задания — вытяни меч.</div>'
+  return '<div class="p3-lead">Меч тянул не сильнейший — а тот, чей он.</div><h3 class="p3-title">Извлеки меч из камня</h3>'
     +'<div class="sworddz"><div class="stone-scene" id="stoneScene">'+SWORD_STONE+'</div>'
-    +'<div class="dz-task">'+l.dz.text+'</div>'
+    +'<p class="dz-task">'+l.dz.text+'</p>'
     +'<textarea class="p3-input" data-ans="'+l.n+'" rows="4" placeholder="'+escq(l.dz.ph)+'" aria-label="Домашнее задание"></textarea>'
     +'<button class="btn" id="swSend" type="button">Извлечь меч и отправить</button>'
     +'<div class="p3-fb" id="swFb" role="status" aria-live="polite" hidden></div></div>';
 }
+function renderDzSend(i){var l=L[i];
+  return '<div class="p3-lead">'+(l.p3.lead||'')+'</div><h3 class="p3-title">'+(l.p3.title||'Испытание')+'</h3>'
+    +'<div class="dzsend"><p class="dz-task">'+l.dz.text+'</p>'
+    +'<textarea class="p3-input" data-ans="'+l.n+'" rows="5" placeholder="'+escq(l.dz.ph)+'" aria-label="Домашнее задание"></textarea>'
+    +'<button class="btn" id="dzSendBtn" type="button">Отправить отчёт коучу</button>'
+    +'<div class="p3-fb" id="dzsFb" role="status" aria-live="polite" hidden></div></div>';
+}
 function renderP3(i){
   var p=L[i].p3;
   if(p.type==='sworddz')return renderSwordDz(i);
+  if(p.type==='dzsend')return renderDzSend(i);
   var h='<div class="p3-lead">'+p.lead+'</div><h3 class="p3-title">'+p.title+'</h3>';
   if(p.type==='gate'){
     h+='<div class="gate"><div class="gate-sword" id="gSword">'+SWORDV+'</div><textarea class="p3-input" id="gIn" rows="2" placeholder="'+escq(p.ph)+'" aria-label="Твоя причина"></textarea><button class="btn" id="gBtn" type="button">Тянуть меч</button><div class="p3-fb" id="gFb" role="status" aria-live="polite" hidden></div></div>';
@@ -758,9 +919,15 @@ function setupP3(i){
     R('#swSend').addEventListener('click',function(){
       var ta=R('.sworddz [data-ans]'),ans=(ta?ta.value:'').trim(),fb=R('#swFb'),scene=R('#stoneScene');
       if(!ans){fb.className='p3-fb';fb.textContent='Сначала впиши манифест — потом меч поддастся.';fb.hidden=false;return;}
-      ensureFio(function(fio){if(!fio)return;setDone(L[i].n,true);if(scene)scene.classList.add('out');
+      ensureFio(function(fio){if(!fio)return;setDone(L[i].n,true);setSent(L[i].n,true);markSent(R('#swSend'));if(scene)scene.classList.add('out');
         fb.className='p3-fb good';fb.textContent='Отправляю…';fb.hidden=false;
         sendRecord({fio:fio,urok:L[i].n,vopros:L[i].dz.text,otvet:ans},function(s){fb.textContent=s==='sent'?'Меч извлечён. Отправлено ✓':'Меч извлечён. Сохранено, отправлю при сети.';});});
+    });
+  }else if(p.type==='dzsend'){
+    R('#dzSendBtn').addEventListener('click',function(){var ta=R('.dzsend [data-ans]'),ans=(ta?ta.value:'').trim(),fb=R('#dzsFb');
+      if(!ans){fb.className='p3-fb';fb.textContent='Сначала впиши отчёт.';fb.hidden=false;return;}
+      ensureFio(function(fio){if(!fio)return;setDone(L[i].n,true);setSent(L[i].n,true);markSent(R('#dzSendBtn'));fb.className='p3-fb good';fb.textContent='Отправляю…';fb.hidden=false;
+        sendRecord({fio:fio,urok:L[i].n,vopros:L[i].dz.text,otvet:ans},function(s){fb.textContent=s==='sent'?'Отчёт отправлен ✓':'Сохранено, отправлю при сети.';});});
     });
   }else if(p.type==='gate'){
     R('#gBtn').addEventListener('click',function(){var v=R('#gIn').value.trim(),fb=R('#gFb'),sw=R('#gSword');
@@ -806,19 +973,20 @@ function setupP3(i){
 }
 
 /* ====== ДЗ-ХАБ ====== */
-var hubOv=document.getElementById('hubOv'),hubList=document.getElementById('hubList'),hubFio=document.getElementById('hubFio'),hubLastFocus=null;
-function renderHubFio(){hubFio.innerHTML=getFio()?('ФИО: '+getFio()+'<button type="button" id="fioEdit">изменить</button>'):'ФИО ещё не указано <button type="button" id="fioEdit">указать</button>';}
-function openHub(){
-  renderHubFio();
-  hubList.innerHTML=L.map(function(l){var done=isDone(l.n);
-    return '<div class="hw-item"><div class="hw-head"><span class="hw-num">'+l.n+'</span><div style="flex:1"><div class="hw-tema">'+l.tema+'</div><div class="hw-task">'+l.dz.text+'</div></div>'+(done?'<span class="hw-done">Сделано ✓</span>':'')+'</div>'
-      +'<textarea class="p3-input" data-ans="'+l.n+'" rows="3" placeholder="'+escq(l.dz.ph)+'" aria-label="Ответ на ДЗ урока '+l.n+'"></textarea>'
-      +'<div class="hw-actions"><button class="btn btn--ghost btn--sm hwDone" type="button" data-n="'+l.n+'">'+(done?'Готово ✓':'Записал')+'</button><button class="btn btn--sm hwSend" type="button" data-n="'+l.n+'">Отправить коучу</button><span class="hw-st" data-st="'+l.n+'" role="status" aria-live="polite"></span></div></div>';
+var hubOv=document.getElementById('hubOv'),bpLessons=null,bpChar=null,hubLastFocus=null;
+function markSent(btn){if(!btn)return;btn.classList.add('sent');btn.disabled=true;btn.textContent='Отправлено ✓';}
+function renderBackpack(){
+  bpLessons=document.getElementById('bpLessons');bpChar=document.getElementById('bpChar');
+  bpLessons.innerHTML=L.map(function(l){var rev=getReview(l.n),sent=isSent(l.n),seen=isSeen(l.n),hot=rev&&!seen;
+    var status=rev?'проверено':(sent?'на проверке':'не сдано');
+    return '<button class="bp-lesson'+(hot?' hot':'')+'" type="button" data-n="'+l.n+'"'+(rev?'':' disabled')+'><span class="bp-n">'+l.n+'</span><span class="bp-name">'+l.title+'</span><span class="bp-status '+(rev?'ok':'wait')+'">'+status+'</span></button>';
   }).join('');
-  hubList.querySelectorAll('[data-ans]').forEach(function(t){t.value=getAns(t.getAttribute('data-ans'))});
-  hubLastFocus=document.activeElement;hubOv.classList.add('open');document.body.classList.add('ov-open');
-  requestAnimationFrame(function(){document.getElementById('hubClose').focus();});
+  var oc=openCount(),hp=oc*50,pct=oc/6,circ=339.292,off=circ*(1-pct),av=getAvatar();
+  bpChar.innerHTML='<div class="bp-avatar"><svg class="xp-ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="9"/><circle cx="60" cy="60" r="54" fill="none" stroke="'+CR+'" stroke-width="9" stroke-linecap="round" stroke-dasharray="'+circ+'" stroke-dashoffset="'+off+'" transform="rotate(-90 60 60)"/></svg><div class="bp-face">'+AVA[av]+'</div></div>'
+    +'<div class="bp-hp">'+hp+' / 300 HP</div><div class="bp-sub">Открыто '+oc+' из 6 занятий</div>'
+    +'<div class="bp-pick" role="group" aria-label="Выбор аватара">'+['armor','wizard','ring'].map(function(a){return '<button class="bp-av'+(a===av?' on':'')+'" type="button" data-av="'+a+'" title="'+AVA_NAME[a]+'" aria-label="'+AVA_NAME[a]+'">'+AVA[a]+'</button>'}).join('')+'</div>';
 }
+function openHub(){renderBackpack();hubLastFocus=document.activeElement;hubOv.classList.add('open');document.body.classList.add('ov-open');requestAnimationFrame(function(){document.getElementById('hubClose').focus();});}
 function closeHub(){hubOv.classList.remove('open');document.body.classList.remove('ov-open');if(hubLastFocus&&hubLastFocus.focus)hubLastFocus.focus();}
 
 /* ====== МОДАЛКА ФИО ====== */
@@ -826,7 +994,7 @@ var fioOv=document.getElementById('fioOv'),fioInput=document.getElementById('fio
 function openFioModal(cb,forced){fioForced=!!forced;fioCb=cb;fioInput.value=getFio();fioErr.textContent='';document.getElementById('fioCancel').style.display=forced?'none':'';fioOv.classList.add('open');document.body.classList.add('ov-open');requestAnimationFrame(function(){fioInput.focus();});}
 function closeFioModal(){fioOv.classList.remove('open');if(!hubOv.classList.contains('open'))document.body.classList.remove('ov-open');}
 function ensureFio(cb){var f=getFio();if(f)return cb(f);openFioModal(cb);}
-document.getElementById('fioSave').addEventListener('click',function(){var v=fioInput.value.trim();if(!v){fioErr.textContent='Впиши имя и фамилию';return;}LS.set('luchi_fio',v);fioForced=false;closeFioModal();renderHubFio();var c=fioCb;fioCb=null;if(c)c(v);});
+document.getElementById('fioSave').addEventListener('click',function(){var v=fioInput.value.trim();if(!v){fioErr.textContent='Впиши имя и фамилию';return;}LS.set('luchi_fio',v);fioForced=false;closeFioModal();if(hubOv.classList.contains('open'))renderBackpack();var c=fioCb;fioCb=null;if(c)c(v);});
 document.getElementById('fioCancel').addEventListener('click',function(){if(fioForced)return;closeFioModal();var c=fioCb;fioCb=null;if(c)c(null);});
 fioInput.addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('fioSave').click();});
 
@@ -850,31 +1018,41 @@ lesson.addEventListener('click',function(e){
   var accH=t.closest&&t.closest('.acc-h');if(accH){var body=accH.nextElementSibling,hidden=body.hasAttribute('hidden');if(hidden){body.removeAttribute('hidden');accH.setAttribute('aria-expanded','true');accH.querySelector('.acc-i').textContent='−';}else{body.setAttribute('hidden','');accH.setAttribute('aria-expanded','false');accH.querySelector('.acc-i').textContent='+';}return;}
   var go=t.closest&&t.closest('[data-go]');if(go){var m={l:'lTitle',u:'chapterU',t:'chapterT'},el=document.getElementById(m[go.getAttribute('data-go')]);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});return;}
   var vc=t.closest&&t.closest('.val-card');if(vc){var vb=vc.querySelector('.val-body'),hid=vb.hasAttribute('hidden');if(hid){vb.removeAttribute('hidden');vc.setAttribute('aria-expanded','true');vc.querySelector('.val-plus').textContent='−';}else{vb.setAttribute('hidden','');vc.setAttribute('aria-expanded','false');vc.querySelector('.val-plus').textContent='+';}return;}
+  var mo=t.closest&&t.closest('.mrl-opt');if(mo){var wrap=mo.closest('.mrl-case');wrap.querySelectorAll('.mrl-opt').forEach(function(o){o.disabled=true;if(o.getAttribute('data-ok')==='1'){o.classList.add('is-correct');o.insertAdjacentHTML('beforeend','<span class="badge">✓ верно</span>')}});if(mo.getAttribute('data-ok')!=='1'){mo.classList.add('is-wrong');mo.insertAdjacentHTML('beforeend','<span class="badge">✗ не то</span>')}var ma=wrap.querySelector('.mrl-ans');if(ma)ma.hidden=false;return;}
   var b=t.closest&&t.closest('button');if(!b)return;
   if(b.classList.contains('toUrok')){document.getElementById('chapterU').scrollIntoView({behavior:'smooth'});return;}
   if(b.classList.contains('copyBtn')){var c=b.parentNode.querySelector('.code').textContent;try{navigator.clipboard.writeText(c)}catch(_){}b.textContent='Скопировано ✓';setTimeout(function(){b.textContent='Копировать'},1500);return;}
   if(b.classList.contains('dzDone')){var n=+b.getAttribute('data-n');setDone(n,true);b.textContent='Готово ✓';return;}
-  if(b.classList.contains('dzSend')){var n2=+b.getAttribute('data-n');sendLesson(n2,p3box.querySelector('.dz-st[data-st="'+n2+'"]'));return;}
+  if(b.classList.contains('dzSend')){var n2=+b.getAttribute('data-n');var st=p3box.querySelector('.dz-st[data-st="'+n2+'"]');var an=getAns(n2);if(!an||!an.trim()){if(st)st.textContent='Сначала заполни ответ';return;}
+    ensureFio(function(fio){if(!fio)return;setSent(n2,true);setDone(n2,true);markSent(b);if(st)st.textContent='Отправляю…';sendRecord({fio:fio,urok:n2,vopros:L[n2-1].dz.text,otvet:an},function(s){if(st)st.textContent=s==='sent'?'Отправлено ✓':'Сохранено, отправлю при сети';});});return;}
 });
-// клики внутри хаба
+// клики внутри рюкзака
 hubOv.addEventListener('click',function(e){
   var b=e.target.closest&&e.target.closest('button');if(!b)return;
   if(b.id==='hubClose'){closeHub();return;}
-  if(b.id==='fioEdit'){openFioModal(function(){renderHubFio()});return;}
-  if(b.id==='csvBtn'){downloadCSV();return;}
-  if(b.id==='sendAll'){ensureFio(function(fio){if(!fio)return;L.forEach(function(l){var ans=getAns(l.n),st=hubList.querySelector('.hw-st[data-st="'+l.n+'"]');
-    if(ans&&ans.trim()){if(st)st.textContent='Отправляю…';sendRecord({fio:fio,urok:l.n,vopros:l.dz.text,otvet:ans},function(s){if(st)st.textContent=s==='sent'?'Отправлено ✓':'Сохранено, отправлю при сети';});}else if(st){st.textContent='пусто';}});});return;}
-  if(b.classList.contains('hwDone')){var n=+b.getAttribute('data-n');setDone(n,true);b.textContent='Готово ✓';var head=b.closest('.hw-item').querySelector('.hw-head');if(head&&!head.querySelector('.hw-done'))head.insertAdjacentHTML('beforeend','<span class="hw-done">Сделано ✓</span>');return;}
-  if(b.classList.contains('hwSend')){var n2=+b.getAttribute('data-n');sendLesson(n2,hubList.querySelector('.hw-st[data-st="'+n2+'"]'));return;}
+  var av=b.closest('.bp-av');if(av){setAvatar(av.getAttribute('data-av'));renderBackpack();return;}
+  var bl=b.closest('.bp-lesson');if(bl&&!bl.disabled){var n=+bl.getAttribute('data-n'),rev=getReview(n);if(rev){setSeen(n,true);openLetter(n,rev);renderBackpack();}return;}
 });
 finalCard.addEventListener('click',function(e){if(e.target.closest('#finalHw'))openHub();});
 document.getElementById('hwOpen').addEventListener('click',openHub);
+
+/* тема урока */
+function applyTheme(){var light=getTheme()==='light';lesson.classList.toggle('light',light);var tb=document.getElementById('themeBtn');if(tb)tb.textContent=light?'☾':'☀';}
+document.getElementById('themeBtn').addEventListener('click',function(){setTheme(getTheme()==='light'?'dark':'light');applyTheme();});
+
+/* письмо-проверка */
+var letterOv=document.getElementById('letterOv'),letterLastFocus=null;
+function openLetter(n,text){document.getElementById('letterH').textContent='Проверка · Урок '+n+' · '+L[n-1].title;
+  document.getElementById('letterBody').innerHTML=String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n/g,'<br>');
+  letterLastFocus=document.activeElement;letterOv.classList.add('open');document.body.classList.add('ov-open');requestAnimationFrame(function(){document.getElementById('letterClose').focus();});}
+function closeLetter(){letterOv.classList.remove('open');if(!hubOv.classList.contains('open'))document.body.classList.remove('ov-open');if(letterLastFocus&&letterLastFocus.focus)letterLastFocus.focus();}
+document.getElementById('letterClose').addEventListener('click',closeLetter);
 
 document.getElementById('backBtn').addEventListener('click',closeLesson);
 document.getElementById('prevBtn').addEventListener('click',function(){if(cur>0)reDive(cur-1)});
 document.getElementById('nextBtn').addEventListener('click',function(){if(cur<L.length-1)reDive(cur+1)});
 document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'){if(passOv.classList.contains('open')){closePass();return;}if(fioOv.classList.contains('open')){if(!fioForced)document.getElementById('fioCancel').click();return;}if(hubOv.classList.contains('open')){closeHub();return;}if(lesson.classList.contains('show')){closeLesson();return;}}
+  if(e.key==='Escape'){if(letterOv.classList.contains('open')){closeLetter();return;}if(passOv.classList.contains('open')){closePass();return;}if(fioOv.classList.contains('open')){if(!fioForced)document.getElementById('fioCancel').click();return;}if(hubOv.classList.contains('open')){closeHub();return;}if(lesson.classList.contains('show')){closeLesson();return;}}
   if(lesson.classList.contains('show')&&!hubOv.classList.contains('open')&&!passOv.classList.contains('open')){
     if(e.key==='ArrowRight'&&cur<L.length-1&&isOpen(L[cur+1].n))reDive(cur+1);
     if(e.key==='ArrowLeft'&&cur>0&&isOpen(L[cur-1].n))reDive(cur-1);}
@@ -887,6 +1065,7 @@ document.getElementById('rayHero').innerHTML=RAY;
 document.getElementById('rayU').innerHTML=RAY;
 document.getElementById('rayT').innerHTML=RAY;
 renderAlbum();
+loadReviews();
 bufferFlush();
 window.addEventListener('online',bufferFlush);
 if(!getFio())openFioModal(null,true);
