@@ -574,8 +574,10 @@ function isSent(n){return !!LS.get('luchi_sent_'+n,false)} function setSent(n,v)
 function isSeen(n){return !!LS.get('luchi_seen_'+n,false)} function setSeen(n,v){LS.set('luchi_seen_'+n,!!v)}
 function getAvatar(){var a=LS.get('luchi_avatar','armor')||'armor';return (typeof AVA!=='undefined'&&AVA[a])?a:'armor'} function setAvatar(a){LS.set('luchi_avatar',a)}
 function getTheme(){return LS.get('luchi_theme','dark')||'dark'} function setTheme(t){LS.set('luchi_theme',t)}
-/* Проверки коуча — читаются из опубликованного CSV листа ответов (заполни ссылку). */
-var REVIEW_CSV="";
+/* Проверки коуча — читаются из CSV листа ответов.
+   ВАЖНО: таблица должна быть открыта «Всем, у кого есть ссылка (Читатель)»,
+   иначе браузер оператора получит 401 и обратная связь не подтянется. */
+var REVIEW_CSV="https://docs.google.com/spreadsheets/d/1r3zGQCflf6ouK9z21ZWrlTbwxNtOPa5tYZ4n6QQpfaM/gviz/tq?tqx=out:csv&gid=367940806";
 var REVIEWS={};
 function reviewKey(fio,n){return String(fio||'').trim().toLowerCase()+'|||'+n}
 function getReview(n){var t=REVIEWS[reviewKey(getFio(),n)];return (t&&String(t).trim())?t:null}
@@ -586,9 +588,9 @@ function csvParse(txt){var rows=[],row=[],f='',q=false,i,c;for(i=0;i<txt.length;
 function parseReviews(txt){try{var rows=csvParse(txt);if(!rows.length)return;var head=rows[0].map(function(s){return String(s).toLowerCase()});
   var iF=head.findIndex(function(h){return h.indexOf('фио')>=0||h.indexOf('имя')>=0});
   var iU=head.findIndex(function(h){return h.indexOf('урок')>=0});
-  var iR=head.findIndex(function(h){return h.indexOf('провер')>=0||h.indexOf('коммент')>=0||h.indexOf('отзыв')>=0});
+  var iR=head.findIndex(function(h){return h.indexOf('обратн')>=0||h.indexOf('связь')>=0||h.indexOf('провер')>=0||h.indexOf('коммент')>=0||h.indexOf('отзыв')>=0;});
   if(iF<0||iU<0||iR<0)return;
-  REVIEWS={};rows.slice(1).forEach(function(r){var fio=r[iF],ur=String(r[iU]||'').replace(/\D/g,''),rev=r[iR];if(fio&&ur&&rev&&String(rev).trim())REVIEWS[reviewKey(fio,ur)]=rev;});
+  REVIEWS={};rows.slice(1).forEach(function(r){var fio=r[iF],ur=(String(r[iU]||'').match(/\d+/)||[''])[0],rev=r[iR];if(fio&&ur&&rev&&String(rev).trim())REVIEWS[reviewKey(fio,ur)]=rev;});
 }catch(e){}}
 function loadReviews(){if(!REVIEW_CSV)return;fetch(REVIEW_CSV).then(function(r){return r.text()}).then(function(txt){parseReviews(txt);renderAlbum();if(hubOv&&hubOv.classList.contains('open'))renderBackpack();}).catch(function(){});}
 var AVA={
