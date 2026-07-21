@@ -713,9 +713,13 @@ var L=[
 ];
 
 /* ---- пароли, тайминги, ДЗ для уроков 2 и 4, хуки, разбавка ритма ---- */
-var PASS=['0102','0305','0312','0311','0401','0603'];
+/* Пароли уроков хранятся в виде хэшей, чтобы их нельзя было прочитать в исходнике.
+   Сам код по хэшу не восстанавливается. Проверка идёт по хэшу введённого значения. */
+function cyrb53(str,seed){seed=seed||0;var h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(var i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677);}h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return(4294967296*(2097151&h2)+(h1>>>0)).toString();}
+function passHash(c){return cyrb53('luchi§'+String(c).trim(),1917);}
+var PASS_H=["6947966351209691","5399934497481950","2145653435759225","2075509033212164","8109747740760542","8560331290460845"];
 var TIME=['~6 мин','~7 мин','~8 мин','~7 мин','~6 мин','~7 мин'];
-L.forEach(function(l,i){l.pass=PASS[i];l.time=TIME[i];});
+L.forEach(function(l,i){l.passh=PASS_H[i];l.time=TIME[i];});
 L[1].dz={text:'Урок 2 — парный на сборе. Что берёшь на сбор: одну метрику своей линии для разбора и свою гипотезу причины.',ph:'Что беру на сбор…'};
 L[3].dz={text:'Урок 4 — парный разговор на сборе. Что берёшь на сбор: с кем проведёшь 1:1 и какие 2–3 вопроса задашь, чтобы услышать выгорание.',ph:'Что беру на сбор…'};
 L[0].hook='Ты идёшь в капитаны за деньгами?';
@@ -1004,7 +1008,7 @@ fioInput.addEventListener('keydown',function(e){if(e.key==='Enter')document.getE
 var passOv=document.getElementById('passOv'),passInput=document.getElementById('passInput'),passErr=document.getElementById('passErr'),passTitle=document.getElementById('passTitle'),passIdx=-1,passLastFocus=null;
 function openPass(i){passIdx=i;passTitle.textContent='Урок '+L[i].n+' · '+L[i].title;passInput.value='';passErr.textContent='';passLastFocus=document.activeElement;passOv.classList.add('open');document.body.classList.add('ov-open');requestAnimationFrame(function(){passInput.focus();});}
 function closePass(){passOv.classList.remove('open');if(!hubOv.classList.contains('open'))document.body.classList.remove('ov-open');if(passLastFocus&&passLastFocus.focus)passLastFocus.focus();}
-function trySubmitPass(){var v=passInput.value.trim();if(v===L[passIdx].pass){setOpen(L[passIdx].n);var idx=passIdx;closePass();renderAlbum();openLesson(idx);}else{passErr.textContent='Пароль не подошёл. Попробуй ещё раз.';}}
+function trySubmitPass(){var v=passInput.value.trim();if(v&&passHash(v)===L[passIdx].passh){setOpen(L[passIdx].n);var idx=passIdx;closePass();renderAlbum();openLesson(idx);}else{passErr.textContent='Пароль не подошёл. Попробуй ещё раз.';}}
 document.getElementById('passSubmit').addEventListener('click',trySubmitPass);
 document.getElementById('passCancel').addEventListener('click',closePass);
 passInput.addEventListener('keydown',function(e){if(e.key==='Enter')trySubmitPass();});
