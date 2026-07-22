@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
+<html lang="ru"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Камелот — Школа менеджеров · Лучи</title>
@@ -127,7 +126,7 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
 .art{position:relative;aspect-ratio:1/.82;border-radius:2px;overflow:hidden;background:var(--sand);display:flex;align-items:center;justify-content:center}
 .art svg.emblem{width:84%;height:84%;display:block}
 .postmark{position:absolute;right:7px;bottom:7px;width:40px;height:40px;opacity:.45;transform:rotate(-13deg);mix-blend-mode:multiply}
-.postmark svg{width:100%;height:100%}
+.postmark svg{width:100%;height:100%;animation:heroSpin 18s linear infinite;transform-origin:50% 50%}
 .s-cap{margin-top:12px}
 .s-tema{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:11px;color:var(--teal);line-height:1.2}
 .s-title{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:24px;line-height:.92;margin-top:5px}
@@ -186,7 +185,8 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
 .chapter--test{background:var(--ink);border-top:2px solid var(--coral);border-bottom:2px solid var(--coral)}
 .chapter .ray-bg{position:absolute;top:-36%;left:50%;transform:translateX(-50%);width:300px;opacity:.16}
 .chapter--urok .ray-bg{color:var(--sand)}.chapter--test .ray-bg{color:var(--coral)}
-.chapter .ray-bg svg{width:100%;display:block}
+.chapter .ray-bg svg{width:100%;display:block;transform-origin:50% 50%;animation:heroSpin 22s linear infinite}
+@media(prefers-reduced-motion:reduce){.chapter .ray-bg svg{animation:none}}
 .chapter .ttl{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,5vw,54px);line-height:.9;position:relative}
 .chapter--urok .ttl{color:var(--sand)}.chapter--urok .ttl span{color:var(--ink)}
 .chapter--test .ttl{color:var(--coral)}.chapter--test .ttl span{color:var(--ice)}
@@ -196,7 +196,9 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
 .chapter--urok .chev{color:var(--sand)}.chapter--test .chev{color:var(--coral)}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 .zone{background:var(--ink);padding:clamp(40px,5vw,72px) 0}
-.zone .wrap{max-width:720px}
+.zone .wrap{max-width:960px}
+/* прозу держим в комфортной мере, а карточки/инфографике даём всю ширину */
+.zone .ublock>p,.zone .l-nasbore,.nvb-moral,.slad-note,.fbctl p,.fbctl-warn,.mrl-lead,.qtext,.mrl-rule{max-width:70ch}
 
 /* Урок */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1)}
@@ -360,6 +362,8 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
 @media(max-width:520px){.hw-float{font-size:12px;padding:10px 14px;top:12px}}
 .theme-toggle{position:fixed;right:12px;top:50%;transform:translateY(-50%);z-index:9;width:50px;height:50px;border-radius:50%;border:2px solid var(--coral);background:var(--ink);color:var(--coral);cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(2,32,40,.4)}
 .theme-toggle:hover{background:var(--coral);color:var(--white)}
+@keyframes rayPulse{0%,100%{transform:translateY(-50%) scale(1);box-shadow:0 0 0 0 rgba(255,115,119,.5)}50%{transform:translateY(-50%) scale(1.08);box-shadow:0 0 0 8px rgba(255,115,119,0)}}
+.theme-toggle{animation:rayPulse 2.6s ease-in-out infinite}
 .backpack{display:grid;grid-template-columns:1fr 320px;gap:clamp(24px,4vw,56px);padding:clamp(26px,4vw,44px) var(--gap) 80px;align-items:start}
 @media(max-width:760px){.backpack{grid-template-columns:1fr}.bp-right{order:-1}}
 .bp-head{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:20px;color:var(--white);margin-bottom:16px}
@@ -417,15 +421,32 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
 .mrl-c .ds{font-size:13px;line-height:1.4;color:var(--sand);margin-top:6px}
 .mrl-c .fx{margin-top:8px;font-family:var(--font-display),'Courier New',monospace;font-weight:500;font-size:12px;color:var(--coral);background:rgba(255,115,119,.1);border-radius:8px;padding:6px 9px}
 .mrl-rule{margin-top:14px;font-size:14px;color:var(--ice)}
-.mrl-case{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px}
-.mrl-lead{font-size:15px;color:var(--sand);margin-bottom:12px}
-.mrl-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.mrl-band{margin:6px 0 4px;background:rgba(2,107,131,.16);border-left:4px solid var(--coral);border-radius:0 14px 14px 0;padding:16px 16px 14px;position:relative}
+.mrl-band .band-lab{display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--coral);margin-bottom:12px}
+.mrl-band .band-hint{color:var(--ice);letter-spacing:.06em}
+.mrl-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.mrl-track::-webkit-scrollbar{display:none}
+.mrl-band .mrl-c{flex:0 0 100%;scroll-snap-align:center;background:transparent;border:0;border-radius:0;padding:8px 2px 4px;min-height:150px}
+.mrl-band .mrl-c .nm{font-size:24px}
+.mrl-band .mrl-c .ds{font-size:15px}
+.mrl-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:12px}
+.mrl-arrow{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--coral);background:transparent;color:var(--coral);cursor:pointer;font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s}
+.mrl-arrow:hover{background:var(--coral);color:var(--white)}
+.mrl-dots{display:flex;gap:7px}
+.mrl-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);border:0;padding:0;cursor:pointer;transition:width .2s,background .2s}
+.mrl-dot.on{background:var(--coral);width:22px;border-radius:5px}
+.lesson.light .mrl-band{background:rgba(2,107,131,.1)}
+.lesson.light .mrl-band .mrl-c .nm{color:var(--ink)}
+.lesson.light .mrl-dot{background:rgba(2,32,40,.2)}
+.mrl-case{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:clamp(22px,3vw,30px)}
+.mrl-lead{font-size:16px;color:var(--sand);margin-bottom:16px}
+.mrl-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
 @media(max-width:520px){.mrl-metrics{grid-template-columns:1fr}}
-.mrl-m{background:var(--ink);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px;text-align:center}
-.mrl-m span{display:block;font-size:12px;color:var(--white);margin-bottom:6px}
-.mrl-m b{font-family:var(--font-display);font-weight:900;font-size:15px}
+.mrl-m{background:var(--ink);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px 14px;text-align:center}
+.mrl-m span{display:block;font-size:13px;color:var(--white);margin-bottom:8px}
+.mrl-m b{font-family:var(--font-display);font-weight:900;font-size:20px;line-height:1}
 .mrl-m .up{color:var(--coral)}.mrl-m .eq{color:var(--ice)}.mrl-m .down{color:var(--sky)}
-.mrl-q{font-family:var(--font-display);font-weight:500;font-size:17px;color:var(--white);margin:6px 0 12px}
+.mrl-q{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(19px,2.6vw,24px);color:var(--white);margin:8px 0 14px}
 .mrl-opts{display:grid;gap:9px}
 .mrl-ans{margin-top:14px;background:rgba(2,107,131,.22);border-left:3px solid var(--ice);border-radius:0 10px 10px 0;padding:14px 16px;font-size:15px;line-height:1.55;color:var(--white)}
 .mrl-ans:not([hidden]){animation:fadeUp .45s ease}
@@ -438,9 +459,196 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
 .lesson.light .mrl-m{background:var(--sand);border-color:rgba(2,32,40,.15)}
 .lesson.light .mrl-m span{color:var(--ink)}.lesson.light .mrl-m .eq{color:var(--teal)}
 .lesson.light .mrl-ans{background:rgba(2,107,131,.12)}
+/* — Урок 2: шесть метрик, крупная читаемая сетка (парами по группам) — */
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:640px){.met-grid{grid-template-columns:1fr}}
+.met{background:var(--sand);color:var(--ink);border-radius:16px;padding:22px 24px 20px;display:flex;flex-direction:column;border-top:5px solid var(--teal)}
+.met.a-coral{border-top-color:var(--coral)}
+.met.a-sky{border-top-color:var(--sky)}
+.met-grp{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--teal)}
+.met.a-coral .met-grp{color:var(--coral)}.met.a-sky .met-grp{color:var(--sky)}
+.met-nm{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(28px,4vw,34px);line-height:.9;color:var(--ink);margin-top:7px}
+.met-ds{font-size:15px;line-height:1.5;color:var(--ink);margin-top:11px;flex:1}
+.met-fx{margin-top:15px;background:var(--ink);border-radius:11px;padding:13px 15px}
+.met-fx-lbl{display:block;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:10px;color:var(--ice);margin-bottom:6px}
+.met-fx-body{font-size:15px;line-height:1.45;color:var(--white);display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.met-fx-body b{font-family:var(--font-display);font-weight:900;color:var(--coral);text-transform:uppercase;letter-spacing:.02em}
+.fr-eq{opacity:.85}
+.frac{display:inline-flex;flex-direction:column;text-align:center;line-height:1.12}
+.fr-n{padding:0 11px 3px;border-bottom:2px solid currentColor}
+.fr-d{padding:3px 11px 0}
+.fr-x{white-space:nowrap}
+.q3send.zapped{animation:zapGlow 1.6s ease-in-out}
+@keyframes zapGlow{0%,100%{box-shadow:0 0 0 0 rgba(113,215,255,0)}30%{box-shadow:0 0 24px 5px rgba(113,215,255,.85)}}
+.lesson.light .met{background:var(--white)}
+.lesson.light .met-fx{background:rgba(2,32,40,.06)}
+.lesson.light .met-fx-lbl{color:var(--teal)}
+.lesson.light .met-fx-body{color:var(--ink)}
+/* — Урок 2: воздух + контраст шрифтов — */
+.zone .ublock{margin-bottom:clamp(38px,5vw,60px)}
+.u-lead{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(26px,4vw,44px);line-height:.92;color:var(--white);margin:2px 0 16px;max-width:18ch}
+.u-lead .hl{color:var(--coral)}
+.u-sub{font-size:16px;line-height:1.65;color:var(--sand);max-width:58ch}
+.u-sub+.u-sub{margin-top:12px}
+.u-sub b{color:var(--white);font-weight:500}
+.lesson.light .u-lead{color:var(--ink)}.lesson.light .u-sub{color:var(--teal)}.lesson.light .u-sub b{color:var(--ink)}
+/* — интерактивный разбор учебного примера — */
+.mrl-verdict{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(22px,3vw,30px);color:var(--coral);line-height:.95;margin-bottom:10px}
+.mrl-proof{display:grid;gap:11px;margin:16px 0}
+.mp-row{display:grid;grid-template-columns:180px 1fr 56px;gap:12px;align-items:center;font-size:14px;color:var(--white)}
+@media(max-width:520px){.mp-row{grid-template-columns:1fr 1fr;gap:4px}}
+.mp-bar{height:14px;background:rgba(255,255,255,.1);border-radius:5px;overflow:hidden}
+.mp-bar b{display:block;height:100%;width:0;border-radius:5px}
+.mp-bar.coral b{background:var(--coral)}.mp-bar.ice b{background:var(--ice)}
+.mrl-ans:not([hidden]) .mp-bar b{animation:mpGrow 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes mpGrow{to{width:var(--w)}}
+.mp-row em{font-family:var(--font-display);font-weight:900;font-style:normal;text-align:right}
+.mp-row.up em{color:var(--coral)}.mp-row.flat em{color:var(--ice)}
+.mrl-rulez{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:14px;color:var(--ice);border-left:3px solid var(--ice);padding-left:13px;margin-top:8px}
+.lesson.light .mp-row,.lesson.light .mrl-verdict{color:var(--ink)}.lesson.light .mrl-verdict{color:var(--coral)}
+/* ====== УРОК 2 · просторные полноэкранные секции (референс «компас заботы») ====== */
+.lesson{overflow-x:hidden}
+.m2{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:clamp(64px,12vh,150px) clamp(22px,6vw,64px)}
+.m2+.m2{margin-top:0}
+.m2-in{max-width:1040px;margin:0 auto}
+.m2--ink{background:var(--ink);color:var(--white)}
+.m2--sand{background:var(--sand);color:var(--ink)}
+.m2--coral{background:var(--coral);color:var(--sand)}
+.m2-kick{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.18em;font-size:clamp(13px,1.3vw,15px)}
+.m2--ink .m2-kick{color:var(--ice)}.m2--sand .m2-kick{color:var(--teal)}.m2--coral .m2-kick{color:var(--ink)}
+.m2-rule{height:1px;margin:clamp(16px,2vw,24px) 0 clamp(24px,3.4vw,40px);background:currentColor;opacity:.22}
+.m2-h{font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:.84;font-size:clamp(48px,9vw,124px);letter-spacing:-.01em}
+.m2--ink .m2-h{color:var(--sand)}.m2--sand .m2-h{color:var(--coral)}.m2--coral .m2-h{color:var(--sand)}
+.m2-h .hl{color:var(--ice)}.m2--sand .m2-h .hl{color:var(--teal)}.m2--coral .m2-h .hl{color:var(--ink)}
+.m2-lede{font-family:var(--font-body);font-size:clamp(21px,2.4vw,30px);line-height:1.34;max-width:20ch;margin-top:clamp(24px,3vw,38px)}
+.m2--ink .m2-lede{color:var(--white)}.m2--sand .m2-lede{color:var(--ink)}.m2--coral .m2-lede{color:var(--sand)}
+.m2-body{font-family:var(--font-body);font-size:clamp(17px,1.7vw,21px);line-height:1.62;max-width:54ch;margin-top:clamp(20px,2.4vw,30px)}
+.m2--ink .m2-body{color:var(--white)}.m2--sand .m2-body{color:var(--ink)}.m2--coral .m2-body{color:var(--sand)}
+.m2-body b{font-weight:500}
+.m2-viz{margin-top:clamp(36px,5vw,64px)}
+/* белая карточка-правило */
+.m2-note{background:var(--white);border-radius:22px;padding:clamp(28px,4vw,48px);max-width:760px;box-shadow:0 26px 64px rgba(2,32,40,.14)}
+.m2-note-lbl{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--teal);margin-bottom:16px}
+.m2-note p{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(24px,3.6vw,42px);line-height:1;color:var(--ink)}
+.m2-note p .hl{color:var(--coral)}
+/* метрики и подсказки — на коралловой секции белые карточки */
+.m2--coral .met{background:var(--white)}
+.m2--coral .fbctl-how .fh{background:var(--white);color:var(--ink);font-size:16px}
+.m2--coral .fbctl-how .fh b{color:var(--teal)}
+.m2--coral .fbctl-warn{color:var(--ink);border-left-color:var(--ink);font-size:17px;max-width:60ch}
+/* крупнее мелкие тексты внутри секций */
+.met-ds{font-size:16px;line-height:1.55}
+.met-fx-body{font-size:16px}
+.sd-w{font-size:14px}.slad-note{font-size:17px}
+.auto-list .al{font-size:15px}.fbctl-how .fh{font-size:15px}
+
+/* — Урок 2: доработка теории — */
+.mrl-c .fx{display:inline-flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.mrl-c .fx .fx-lbl{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:var(--ice);opacity:.85}
+.mrl-band .mrl-c{flex:0 0 100%;scroll-snap-align:center;background:transparent;border:0;border-radius:0;padding:8px 4px 6px;min-height:180px}
+.mrl-band .mrl-c .grp{font-size:12px}
+.mrl-band .mrl-c .nm{font-size:30px;margin-top:6px}
+.mrl-band .mrl-c .ds{font-size:16px;line-height:1.5;margin-top:10px;max-width:52ch}
+.mrl-band .mrl-c .fx{font-size:16px;padding:11px 15px;margin-top:14px}
+/* Netflix vs Blockbuster — полноразмерный блок */
+.nvb{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;margin:6px 0 12px}
+@media(max-width:640px){.nvb{grid-template-columns:1fr;gap:10px}.nvb-vs{justify-self:center;padding:4px 0}}
+.nvb-card{border-radius:16px;padding:20px;display:flex;flex-direction:column}
+.nvb-bad{background:rgba(255,115,119,.12);border:1px solid rgba(255,115,119,.4)}
+.nvb-good{background:rgba(2,107,131,.3);border:1px solid rgba(113,215,255,.45)}
+.nvb-tag{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.03em;font-size:15px;margin-bottom:10px}
+.nvb-bad .nvb-tag{color:var(--coral)}.nvb-good .nvb-tag{color:var(--ice)}
+.nvb-card p{font-size:15px;line-height:1.55;color:var(--white);flex:1;margin:0}
+.nvb-end{margin-top:14px;font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:16px}
+.nvb-bad .nvb-end{color:var(--coral)}.nvb-good .nvb-end{color:var(--ice)}
+.nvb-vs{display:flex;align-items:center;font-family:var(--font-display);font-weight:900;text-transform:uppercase;color:var(--sand);opacity:.55;font-size:13px;letter-spacing:.1em}
+.nvb-moral{font-size:16px;line-height:1.5;color:var(--sand);border-left:3px solid var(--coral);padding-left:14px}
+/* SLA домино */
+.slad{display:flex;align-items:stretch;gap:8px;margin:14px 0}
+@media(max-width:600px){.slad{flex-direction:column}.slad-ar{transform:rotate(90deg);align-self:center}}
+.slad-step{flex:1;background:var(--ink);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:15px 14px;text-align:center}
+.slad-step.lead{border-color:var(--coral);background:rgba(255,115,119,.12)}
+.sd-t{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:19px;color:var(--white)}
+.slad-step.lead .sd-t{color:var(--coral)}
+.sd-w{font-size:13px;color:var(--sand);margin-top:5px}
+.sd-time{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:11px;color:var(--ice);margin-top:9px}
+.slad-ar{display:flex;align-items:center;justify-content:center;color:var(--ice);font-size:24px;flex:none}
+.slad-note{font-size:15px;line-height:1.5;color:var(--sand)}
+/* автоматизация */
+.auto-fx{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+@media(max-width:520px){.auto-fx{grid-template-columns:1fr}}
+.auto-card{background:var(--ink);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px}
+.ac-lbl{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:12px;color:var(--ice);margin-bottom:12px}
+.ac-row{display:grid;grid-template-columns:40px 1fr 54px;gap:8px;align-items:center;margin-bottom:8px;font-size:12px;color:var(--sand)}
+.ac-bar{height:12px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden}
+.ac-bar b{display:block;height:100%;background:var(--sky);border-radius:4px}
+.ac-row.good .ac-bar b{background:var(--coral)}
+.ac-v{font-family:var(--font-display);font-weight:900;color:var(--white);text-align:right}
+.ac-delta{margin-top:8px;font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:15px}
+.ac-delta.down{color:var(--ice)}.ac-delta.up{color:var(--coral)}
+.auto-list{display:grid;gap:8px;margin-top:6px}
+.auto-list .al{background:rgba(113,215,255,.08);border:1px dashed rgba(113,215,255,.4);border-radius:10px;padding:12px 15px;font-size:14px;line-height:1.5;color:var(--white)}
+.auto-list .al b{color:var(--ice);font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:12px;display:block;margin-bottom:3px}
+/* обратная связь — твоя зона */
+.fbctl{background:rgba(255,115,119,.1);border:1.5px solid var(--coral);border-radius:16px;padding:22px 24px}
+.fbctl-h{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.03em;font-size:17px;color:var(--coral);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.fbctl-h .ray{width:22px;height:22px}.fbctl-h .ray svg{width:100%;height:100%}
+.fbctl p{font-size:16px;line-height:1.6;color:var(--white);margin-bottom:12px}
+.fbctl-how{display:grid;gap:8px;margin-bottom:12px}
+.fbctl-how .fh{background:rgba(255,255,255,.05);border-radius:10px;padding:11px 15px;font-size:14px;line-height:1.5;color:var(--white)}
+.fbctl-how .fh b{color:var(--ice);font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:12px;display:block;margin-bottom:3px}
+.fbctl-warn{font-size:15px;line-height:1.5;color:var(--sand);border-left:3px solid var(--coral);padding-left:14px;margin-bottom:0}
+/* — Урок 2: испытание из 3 вопросов — */
+.q3q{display:grid;gap:22px}
+.qcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px 22px}
+.qhd{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.02em;font-size:18px;color:var(--white);display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.qn{font-family:var(--font-display);font-weight:900;font-size:12px;letter-spacing:.05em;color:var(--ink);background:var(--coral);border-radius:100px;padding:5px 12px}
+.qtext{font-size:16px;line-height:1.55;color:var(--white);margin-bottom:14px}
+.q1grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+@media(max-width:600px){.q1grid{grid-template-columns:1fr}}
+.q1item{background:var(--ink);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px}
+.q1top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.q1nm{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:12px;color:var(--ice)}
+.q1val{font-family:var(--font-display);font-weight:900;font-size:20px;color:var(--coral);white-space:nowrap}
+.q1hint{font-size:12px;color:var(--sand);opacity:.75;margin-top:3px}
+.q1item .q1a{margin-top:10px}
+.q1item .q1add{margin-top:10px}
+.q1r-lbl{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:12px;color:var(--ice);margin-bottom:6px}
+.qfoot{display:flex;align-items:flex-end;gap:20px;margin-top:16px;flex-wrap:wrap}
+.qfoot-l{flex:1;min-width:220px;display:flex;flex-direction:column;gap:10px}
+.qfoot .p3-fb{margin-top:0}
+/* посох и эффекты */
+.staff-stage{position:relative;width:120px;height:190px;flex:none;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.staff-svg{width:64px;height:190px;position:relative;z-index:2;transition:filter .6s,opacity .6s;opacity:.5}
+.staff-stage.go .staff-svg{opacity:1;filter:drop-shadow(0 0 16px rgba(113,215,255,.85))}
+.staff-stage .glow{position:absolute;left:50%;top:6px;width:78px;height:78px;border-radius:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(113,215,255,.85),transparent 68%);opacity:0;transition:opacity .5s;z-index:1;pointer-events:none}
+.staff-stage.go .glow{opacity:1;animation:glowPulse 1.8s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{transform:translateX(-50%) scale(1);opacity:.6}50%{transform:translateX(-50%) scale(1.3);opacity:1}}
+.snowf{position:absolute;top:-12px;width:7px;height:7px;border-radius:50%;background:var(--white);opacity:0;z-index:3;box-shadow:0 0 5px rgba(255,255,255,.7)}
+.staff-stage.go.fx-snow .snowf{animation:snowFall 2.6s linear infinite}
+@keyframes snowFall{0%{transform:translateY(0);opacity:0}12%{opacity:1}100%{transform:translateY(200px);opacity:0}}
+.flame{position:absolute;left:50%;top:0;transform:translateX(-50%);border-radius:50% 50% 48% 52%/62% 62% 38% 38%;background:radial-gradient(circle at 50% 78%,var(--sand),var(--coral) 55%,transparent 74%);opacity:0;z-index:3;filter:blur(.6px)}
+.flame.f1{width:44px;height:66px}
+.flame.f2{width:30px;height:48px;top:8px}
+.flame.f3{width:18px;height:32px;top:16px}
+.staff-stage.go.fx-fire .flame{opacity:1;animation:flick .5s ease-in-out infinite alternate}
+.staff-stage.go.fx-fire .flame.f2{animation-duration:.42s}
+.staff-stage.go.fx-fire .flame.f3{animation-duration:.34s}
+@keyframes flick{0%{transform:translateX(-50%) scaleY(1) scaleX(1)}100%{transform:translateX(-53%) scaleY(1.16) scaleX(.9)}}
+.staff-stage.fx-bolt{align-items:center}
+.bolt-svg{width:60px;height:150px;opacity:0;filter:drop-shadow(0 0 10px rgba(113,215,255,.85))}
+.staff-stage.go.fx-bolt .bolt-svg{animation:boltFlash 1.5s ease-in-out infinite}
+@keyframes boltFlash{0%,100%{opacity:0}4%{opacity:1}9%{opacity:.15}14%{opacity:1}22%{opacity:0}}
+/* светлая тема — новые блоки */
+.lesson.light .qcard,.lesson.light .q1item,.lesson.light .slad-step,.lesson.light .auto-card{background:var(--white);border-color:rgba(2,32,40,.14)}
+.lesson.light .qtext,.lesson.light .qhd,.lesson.light .nvb-card p,.lesson.light .ac-v,.lesson.light .sd-t,.lesson.light .fbctl p,.lesson.light .fbctl-how .fh,.lesson.light .auto-list .al{color:var(--ink)}
+.lesson.light .nvb-moral,.lesson.light .slad-note,.lesson.light .fbctl-warn{color:var(--teal)}
+.lesson.light .slad-step.lead,.lesson.light .fbctl{background:rgba(255,115,119,.1)}
+.lesson.light .fh,.lesson.light .auto-list .al{background:rgba(2,107,131,.06)}
 </style>
 </head>
 <body>
+
 
 <div id="collection">
 <header class="topbar"><div class="wrap">
@@ -574,10 +782,8 @@ function isSent(n){return !!LS.get('luchi_sent_'+n,false)} function setSent(n,v)
 function isSeen(n){return !!LS.get('luchi_seen_'+n,false)} function setSeen(n,v){LS.set('luchi_seen_'+n,!!v)}
 function getAvatar(){var a=LS.get('luchi_avatar','armor')||'armor';return (typeof AVA!=='undefined'&&AVA[a])?a:'armor'} function setAvatar(a){LS.set('luchi_avatar',a)}
 function getTheme(){return LS.get('luchi_theme','dark')||'dark'} function setTheme(t){LS.set('luchi_theme',t)}
-/* Проверки коуча — читаются из CSV листа ответов.
-   ВАЖНО: таблица должна быть открыта «Всем, у кого есть ссылка (Читатель)»,
-   иначе браузер оператора получит 401 и обратная связь не подтянется. */
-var REVIEW_CSV="https://docs.google.com/spreadsheets/d/1r3zGQCflf6ouK9z21ZWrlTbwxNtOPa5tYZ4n6QQpfaM/gviz/tq?tqx=out:csv&gid=367940806";
+/* Проверки коуча — читаются из опубликованного CSV листа ответов (заполни ссылку). */
+var REVIEW_CSV="";
 var REVIEWS={};
 function reviewKey(fio,n){return String(fio||'').trim().toLowerCase()+'|||'+n}
 function getReview(n){var t=REVIEWS[reviewKey(getFio(),n)];return (t&&String(t).trim())?t:null}
@@ -588,9 +794,9 @@ function csvParse(txt){var rows=[],row=[],f='',q=false,i,c;for(i=0;i<txt.length;
 function parseReviews(txt){try{var rows=csvParse(txt);if(!rows.length)return;var head=rows[0].map(function(s){return String(s).toLowerCase()});
   var iF=head.findIndex(function(h){return h.indexOf('фио')>=0||h.indexOf('имя')>=0});
   var iU=head.findIndex(function(h){return h.indexOf('урок')>=0});
-  var iR=head.findIndex(function(h){return h.indexOf('обратн')>=0||h.indexOf('связь')>=0||h.indexOf('провер')>=0||h.indexOf('коммент')>=0||h.indexOf('отзыв')>=0;});
+  var iR=head.findIndex(function(h){return h.indexOf('провер')>=0||h.indexOf('коммент')>=0||h.indexOf('отзыв')>=0});
   if(iF<0||iU<0||iR<0)return;
-  REVIEWS={};rows.slice(1).forEach(function(r){var fio=r[iF],ur=(String(r[iU]||'').match(/\d+/)||[''])[0],rev=r[iR];if(fio&&ur&&rev&&String(rev).trim())REVIEWS[reviewKey(fio,ur)]=rev;});
+  REVIEWS={};rows.slice(1).forEach(function(r){var fio=r[iF],ur=String(r[iU]||'').replace(/\D/g,''),rev=r[iR];if(fio&&ur&&rev&&String(rev).trim())REVIEWS[reviewKey(fio,ur)]=rev;});
 }catch(e){}}
 function loadReviews(){if(!REVIEW_CSV)return;fetch(REVIEW_CSV).then(function(r){return r.text()}).then(function(txt){parseReviews(txt);renderAlbum();if(hubOv&&hubOv.classList.contains('open'))renderBackpack();}).catch(function(){});}
 var AVA={
@@ -616,6 +822,11 @@ function escq(s){return String(s).replace(/"/g,'&quot;')}
 var SWORDV='<svg viewBox="0 0 40 150" class="swd" aria-hidden="true"><rect x="17" y="6" width="6" height="92" rx="3" fill="'+W+'" stroke="'+INK+'" stroke-width="2"/><rect x="7" y="96" width="26" height="7" rx="3" fill="'+CR+'"/><rect x="17.5" y="102" width="5" height="32" rx="2" fill="'+DB+'"/><circle cx="20" cy="138" r="5" fill="'+CR+'"/></svg>';
 var SWORD_STONE='<svg class="sword-el" viewBox="0 0 46 150" aria-hidden="true"><rect x="20" y="4" width="6" height="98" rx="3" fill="'+W+'" stroke="'+INK+'" stroke-width="2"/><rect x="7" y="100" width="32" height="8" rx="4" fill="'+CR+'"/><rect x="20" y="106" width="6" height="30" rx="2" fill="'+DB+'"/><circle cx="23" cy="140" r="5" fill="'+CR+'"/></svg><svg class="stone-el" viewBox="0 0 120 70" aria-hidden="true"><path d="M6 66 L20 30 Q24 22 34 22 L86 22 Q96 22 100 30 L114 66 Z" fill="'+DB+'" stroke="'+INK+'" stroke-width="2"/><path d="M6 66 L114 66" stroke="'+INK+'" stroke-width="2"/><rect x="50" y="19" width="20" height="9" rx="2" fill="'+INK+'"/></svg>';
 
+var STAFF='<svg class="staff-svg" viewBox="0 0 70 210" aria-hidden="true"><rect x="32" y="46" width="6" height="158" rx="3" fill="'+DB+'" stroke="'+INK+'" stroke-width="1.5"/><path d="M35 8 C21 17 21 38 35 48 C49 38 49 17 35 8 Z" fill="'+CR+'" stroke="'+INK+'" stroke-width="2" stroke-linejoin="round"/><circle cx="31" cy="24" r="4" fill="'+SAND+'" opacity=".85"/><path d="M20 46 Q35 58 50 46" fill="none" stroke="'+DB+'" stroke-width="5" stroke-linecap="round"/></svg>';
+var BOLT='<svg class="bolt-svg" viewBox="0 0 70 150" aria-hidden="true"><path d="M40 6 L16 78 H34 L26 144 L56 60 H36 Z" fill="'+LB+'" stroke="'+W+'" stroke-width="2.5" stroke-linejoin="round"/></svg>';
+var FLAMES='<div class="flame f1"></div><div class="flame f2"></div><div class="flame f3"></div>';
+function snowSpans(){var s='';for(var i=0;i<9;i++){s+='<span class="snowf" style="left:'+(8+i*10)+'%;animation-delay:'+(i*0.22).toFixed(2)+'s"></span>';}return s;}
+var VOP2={1:'Урок 2 · Вопрос 1. Прочитай 4 показателя в связке и дай аналитику по каждому — сообщением для руководителя.',2:'Урок 2 · Вопрос 2. Придумай автоматизацию, которую соберёшь своими руками. Если не умеешь — какие действия (без других отделов) поднимут метрики.',3:'Урок 2 · Вопрос 3. Оператор со стабильно низким CSAT — как действуешь по шагам: цифры, разговор, план.'};
 var EMB={
  sword:'<svg class="emblem" viewBox="0 0 120 120" aria-hidden="true"><rect x="18" y="78" width="84" height="30" rx="3" fill="'+DB+'"/><path d="M30 78l8-10h44l8 10z" fill="'+SB+'"/><path d="M55 84l-4-58 9-12 9 12-4 58z" fill="'+W+'" stroke="'+INK+'" stroke-width="2"/><rect x="42" y="42" width="36" height="9" rx="4" fill="'+CR+'"/><circle cx="60" cy="30" r="6" fill="'+CR+'"/><path d="M44 96h32" stroke="'+CR+'" stroke-width="3" stroke-linecap="round"/></svg>',
  land:'<svg class="emblem" viewBox="0 0 120 120" aria-hidden="true"><rect x="10" y="92" width="100" height="14" fill="'+SAND+'" stroke="'+INK+'" stroke-width="2"/><path d="M22 92V52h14v40M44 92V40h20v52M72 92V58h16v34" fill="'+DB+'"/><path d="M44 40l4-10 4 10 4-9 4 9 4-9" fill="'+DB+'"/><path d="M30 60h6M52 56h6M52 72h6M78 70h6" stroke="'+SB+'" stroke-width="2.4" stroke-linecap="round"/><path d="M58 106l6-18 5 18" fill="none" stroke="'+CR+'" stroke-width="3" stroke-linejoin="round"/></svg>',
@@ -713,13 +924,9 @@ var L=[
 ];
 
 /* ---- пароли, тайминги, ДЗ для уроков 2 и 4, хуки, разбавка ритма ---- */
-/* Пароли уроков хранятся в виде хэшей, чтобы их нельзя было прочитать в исходнике.
-   Сам код по хэшу не восстанавливается. Проверка идёт по хэшу введённого значения. */
-function cyrb53(str,seed){seed=seed||0;var h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(var i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677);}h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return(4294967296*(2097151&h2)+(h1>>>0)).toString();}
-function passHash(c){return cyrb53('luchi§'+String(c).trim(),1917);}
-var PASS_H=["6947966351209691","5399934497481950","2145653435759225","2075509033212164","8109747740760542","8560331290460845"];
+var PASS=['0102','8264','0312','0311','0401','0603'];
 var TIME=['~6 мин','~7 мин','~8 мин','~7 мин','~6 мин','~7 мин'];
-L.forEach(function(l,i){l.passh=PASS_H[i];l.time=TIME[i];});
+L.forEach(function(l,i){l.pass=PASS[i];l.time=TIME[i];});
 L[1].dz={text:'Урок 2 — парный на сборе. Что берёшь на сбор: одну метрику своей линии для разбора и свою гипотезу причины.',ph:'Что беру на сбор…'};
 L[3].dz={text:'Урок 4 — парный разговор на сборе. Что берёшь на сбор: с кем проведёшь 1:1 и какие 2–3 вопроса задашь, чтобы услышать выгорание.',ph:'Что беру на сбор…'};
 L[0].hook='Ты идёшь в капитаны за деньгами?';
@@ -747,12 +954,14 @@ L[0].values=[
 /* --- Урок 2: Башня Мерлина, строго из презентации --- */
 L[1].custom='lesson2';
 L[1].tema='Метрики · читать приметы линии';
-L[1].hook='Смена кончилась — а «стало лучше или нет?» непонятно?';
-L[1].epi='Мерлин не колдовал будущее. Он читал приметы — и говорил: «готовься сейчас».';
-L[1].zachem=['Мерлин был силён не заклинанием, а наблюдением: видел на ход вперёд и предупреждал беду заранее. Артур побеждал не потому, что бил сильнее, — рядом был тот, кто читал знаки.','Метрики — не дар волшебников, а приметы твоей линии. Кто их читает, управляет заранее, а не тушит пожар. Капитан без метрик — король без советника: слепой храбрец.'];
+L[1].hook='«Стало лучше или нет?»';
+L[1].epi='Мерлин не колдовал будущее. Он считывал намёки от вселенной';
+L[1].zachem=['Его сила заключалась не в заклинаниях, а в наблюдении: видел на ход вперёд и предупреждал беду заранее. Артур побеждал не потому что сильнее, — рядом был тот, кто правильно анализировал ситуацию.','Метрики — не дар волшебников. Это расчёты, которые показывают, что будет с линией. Кто их читает, управляет спокойно, без регулярных пожаров.'];
 L[1].nasbore='Разберём шесть метрик капитана, научимся читать их в связке — одна цифра врёт, три вместе говорят правду — и увидим, какой прибор падает первым.';
-L[1].p3={type:'dzsend',title:'Прочитай приборы башни',lead:'Готового «правильного ответа» нет — есть чтение цифр в связке и решение.'};
-L[1].dz={text:'Отчёт капитана. 1) Прочитай 4 показателя (дам выгрузку) в связке и дай оценку — сообщением для руководителя: что происходит, что будет дальше, что предлагаешь. 2) Придумай автоматизацию, которую соберёшь своими руками; если нельзя — за счёт каких своих действий (без других отделов) поднимешь цифры. 3) Оператор со стабильно низким CSAT: как будешь действовать по шагам — цифры, разговор, план. Формат: коротко и по делу, как сообщение в рабочий чат.',ph:'Отчёт капитана…'};
+L[1].p3={type:'mrl3q',title:'Отчёт капитана',lead:'Готового «правильного ответа» нет — есть чтение цифр в связке и три решения. Каждый ответ уходит руководителю отдельно.'};
+L[1].q1data=[['SLA','82% → 67%','норма 80% — просели ниже'],['CSAT','4.6 → 4.4','клиент начал замечать'],['Стоимость обращения','195 ₽ → 232 ₽','ползёт вверх'],['Производительность','6.4 → 5.6 /час','падает']];
+L[1].q3text='Оператор со стабильно низким CSAT. Как будешь действовать по шагам: какие цифры поднимешь, как построишь разговор, какой план дашь.';
+L[1].dz={text:'Отчёт капитана из трёх частей: 1) разбор 4 показателей в связке для руководителя; 2) автоматизация своими руками или действия без других отделов; 3) план по оператору со стабильно низким CSAT.',ph:'Отчёт капитана…'};
 
 /* ====== ОТПРАВКА + БУФЕР ====== */
 function postRec(rec){var b=new URLSearchParams();b.append(ENTRY_FIO,rec.fio);b.append(ENTRY_UROK,String(rec.urok));b.append(ENTRY_VOPROS,rec.vopros);b.append(ENTRY_OTVET,rec.otvet);
@@ -820,15 +1029,88 @@ var MET2=[
  ['Эффективность','Стоимость обращения','Во сколько компании обходится одно решённое обращение.','затраты ÷ число обращений'],
  ['Эффективность','Производительность','Сколько обращений в час закрывает оператор.','закрытые ÷ рабочие часы']
 ];
+function initMrlCarousel(){
+  var band=urokbox.querySelector('.mrl-band');if(!band)return;
+  var track=band.querySelector('.mrl-track'),dots=[].slice.call(band.querySelectorAll('.mrl-dot')),
+      ind=band.querySelector('.band-i'),n=dots.length;
+  function cardW(){var c=track.querySelector('.mrl-c');return c?c.offsetWidth:track.clientWidth;}
+  function cur(){return Math.max(0,Math.min(n-1,Math.round(track.scrollLeft/cardW())));}
+  function sync(){var k=cur();dots.forEach(function(d,i){d.classList.toggle('on',i===k)});if(ind)ind.textContent=(k+1);}
+  track.addEventListener('scroll',function(){window.requestAnimationFrame(sync);});
+  dots.forEach(function(d){d.addEventListener('click',function(){track.scrollTo({left:cardW()*(+d.getAttribute('data-i')),behavior:'smooth'});});});
+  band.querySelectorAll('.mrl-arrow').forEach(function(a){a.addEventListener('click',function(){track.scrollTo({left:cardW()*(cur()+(+a.getAttribute('data-dir'))),behavior:'smooth'});});});
+  sync();
+}
+function fxHTML(s){var i=s.indexOf('÷');if(i>-1){var num=s.slice(0,i).trim(),rest=s.slice(i+1).trim(),mult='';var x=rest.indexOf('×');if(x>-1){mult=rest.slice(x).trim();rest=rest.slice(0,x).trim();}return '<span class="frac"><span class="fr-n">'+num+'</span><span class="fr-d">'+rest+'</span></span>'+(mult?'<span class="fr-x">'+mult+'</span>':'');}return '<span class="fr-plain">'+s+'</span>';}
 function renderUrok2(l){
-  var grid=MET2.map(function(m){return '<div class="mrl-c"><div class="grp">'+m[0]+'</div><div class="nm">'+m[1]+'</div><div class="ds">'+m[2]+'</div><div class="fx">'+m[3]+'</div></div>'}).join('');
-  return '<div class="ublock reveal"><div class="ul">Мерлин читал приметы</div><p>Мерлин не колдовал будущее — он его <b>считывал</b>. Пока рыцари смотрели на сегодняшний бой, он смотрел на знаки: погоду, настроение баронов, слабое место в союзе. Артур побеждал не потому, что бил сильнее, а потому, что рядом был тот, кто говорил «здесь будет беда, готовься сейчас».</p><p>Башня Мерлина — это твой дашборд. Цифры на экране — те самые приметы. Кто умеет их читать, управляет заранее, а не тушит пожар.</p></div>'
-    +acc('Слепой гигант и тот, кто читал знаки','<div class="ba"><div class="card bad"><b>Blockbuster</b>9 000 прокатов, история аренды каждого клиента в базе. Но решали «на чутьё»: штрафы злили людей, отток рос — на цифры не смотрели. 2010 — банкротство.</div><div class="card good"><b>Netflix</b>Те же данные — что смотрят, когда бросают — сделал основой стратегии. Рекомендации дают 80%+ просмотров, удержание 90%+. Данные превратились в деньги.</div></div><p style="margin-top:12px;color:inherit">Проигрывает не тот, у кого нет данных, а тот, кто в них не смотрит.</p>')
-    +'<div class="ublock reveal"><div class="ul">Шесть метрик капитана</div><div class="mrl-grid">'+grid+'</div><p class="mrl-rule">Правило Мерлина: одна метрика — полуправда. Цифра значит разное в зависимости от остальных.</p></div>'
-    +'<div class="ublock reveal"><div class="ul">Головоломка: читаем в связке</div><div class="mrl-case"><p class="mrl-lead">Понедельник. Приборы показывают:</p><div class="mrl-metrics"><div class="mrl-m"><span>CSAT</span><b class="up">↑ вырос</b></div><div class="mrl-m"><span>Стоимость</span><b class="up">↑ выросла</b></div><div class="mrl-m"><span>Производительность</span><b class="eq">= без изменений</b></div></div><div class="mrl-q">Хорошо это или плохо?</div><div class="mrl-opts"><button class="opt mrl-opt" type="button" data-ok="0">Отлично — CSAT вырос</button><button class="opt mrl-opt" type="button" data-ok="1">Плохо — «купили метрику»</button><button class="opt mrl-opt" type="button" data-ok="0">Само пройдёт</button></div><div class="mrl-ans" role="status" aria-live="polite" hidden><b>«Купили метрику».</b> CSAT красивый, но вырос за счёт денег: стоимость подскочила, производительность не сдвинулась — просто залили штатом. Радоваться нечему. Правило: смотришь одну цифру — сразу смотри остальные.</div></div></div>'
-    +acc('SLA — примета, которая приходит первой','<p>Метрики не равны по скорости. SLA — ведущая, падает <b>первой</b>. Дальше домино: SLA↓ сейчас → через 1–2 недели CSAT↓ → через ~квартал NPS↓ и отток. Когда CSAT уже упал — ты опоздал на пару недель. Мерлин смотрит SLA <b>еженедельно</b>, а не ждёт квартального отчёта.</p>')
-    +acc('Что двигаешь сам — без других отделов','<p><b>Разгрузить рутину:</b> шаблоны для частых ситуаций, чек-листы по типовым обращениям, удобная база знаний, меньше ручных кликов.</p><p><b>Поднять цифры руками:</b> разбор CSAT-негативов точечно по диалогам, микрообучение 15 минут на смене, умное распределение (сложное — опытным, простое — новичкам), плотная работа в час пик ради SLA.</p><p>Производительность растят не кнутом, а тем, что убирают лишнюю работу. Разгрузил рутину — люди успевают больше и не горят.</p>')
-    +'<div class="ublock reveal"><div class="ul">Метрика, которую контролируешь только ты</div><p>На CSAT, SLA, NPS влияет куча факторов. А обратная связь от команды — целиком твоя зона. Собирай просто: 1:1 раз в две недели («что мешает? что делаю хорошо? что бы изменил?»), анонимно раз в месяц («как я справляюсь как капитан, 1–10»), наблюдение. <b>Тревожный сигнал — тишина.</b> Молчащая команда — не благополучие, а дистанция. Спрашивай сам, не жди опроса.</p></div>';
+  var acc=['','a-coral','a-sky'];
+  var grid=MET2.map(function(m,i){return '<div class="met '+acc[Math.floor(i/2)]+'"><div class="met-grp">'+m[0]+'</div><div class="met-nm">'+m[1]+'</div><div class="met-ds">'+m[2]+'</div><div class="met-fx"><span class="met-fx-lbl">Формула</span><span class="met-fx-body"><b>'+m[1]+'</b><span class="fr-eq">=</span>'+fxHTML(m[3])+'</span></div></div>'}).join('');
+  return ''
+    +'<section class="m2 m2--ink"><div class="m2-in reveal">'
+      +'<div class="m2-kick">Приём · как читать башню</div><div class="m2-rule"></div>'
+      +'<h2 class="m2-h">Мерлин читал <span class="hl">приметы</span></h2>'
+      +'<p class="m2-lede">Он не колдовал будущее. Он его читал.</p>'
+      +'<p class="m2-body">Артур побеждал не потому, что бил сильнее. Рядом был тот, кто видел знаки заранее: «здесь будет беда — готовься сейчас». Башня Мерлина — твой дашборд. Цифры на экране и есть приметы: читаешь их — управляешь заранее, а не тушишь пожар.</p>'
+    +'</div></section>'
+    +'<section class="m2 m2--sand"><div class="m2-in reveal">'
+      +'<div class="m2-kick">Правило первое</div><div class="m2-rule"></div>'
+      +'<h2 class="m2-h">Одна цифра <span class="hl">врёт</span></h2>'
+      +'<p class="m2-body">CSAT вырос — это хорошо? Не факт. Если рядом взлетела стоимость обращения — метрику просто «купили» переработками.</p>'
+      +'<div class="m2-viz"><div class="m2-note"><div class="m2-note-lbl">Запомни</div><p>Три цифры рядом говорят правду.<br><span class="hl">Одна — обманывает.</span></p></div></div>'
+    +'</div></section>'
+    +'<section class="m2 m2--ink"><div class="m2-in reveal">'
+      +'<div class="m2-kick">Пример из жизни</div><div class="m2-rule"></div>'
+      +'<h2 class="m2-h">Слепой гигант</h2>'
+      +'<p class="m2-body">Данные были у обоих. Победил тот, кто в них смотрел.</p>'
+      +'<div class="m2-viz"><div class="nvb">'
+        +'<div class="nvb-card nvb-bad"><div class="nvb-tag">Blockbuster · смотрел мимо</div><p>9 000 прокатов. История каждого клиента — в базе. Но решали на чутьё. Штрафы за просрочку злили людей, отток рос — а в цифры не смотрел никто.</p><div class="nvb-end">2010 — банкротство</div></div>'
+        +'<div class="nvb-vs">против</div>'
+        +'<div class="nvb-card nvb-good"><div class="nvb-tag">Netflix · читал знаки</div><p>Те же данные: что смотрят, где бросают, что пересматривают. Netflix сделал их стратегией. Сегодня рекомендации дают больше 80% просмотров.</p><div class="nvb-end">Данные стали деньгами</div></div>'
+      +'</div><p class="nvb-moral">Проигрывает не тот, у кого нет данных. А тот, кто в них не смотрит.</p></div>'
+    +'</div></section>'
+    +'<section class="m2 m2--coral"><div class="m2-in reveal">'
+      +'<div class="m2-kick">Инструмент капитана</div><div class="m2-rule"></div>'
+      +'<h2 class="m2-h">Шесть метрик</h2>'
+      +'<p class="m2-body">Читай их группами, не поштучно: клиентский опыт, скорость, эффективность. Формула — под каждой цифрой.</p>'
+      +'<div class="m2-viz"><div class="met-grid">'+grid+'</div></div>'
+    +'</div></section>'
+    +'<section class="m2 m2--ink"><div class="m2-in reveal">'
+      +'<div class="m2-kick">Проверь себя</div><div class="m2-rule"></div>'
+      +'<h2 class="m2-h">Собери <span class="hl">картину</span></h2>'
+      +'<div class="m2-viz"><div class="mrl-case">'
+        +'<p class="mrl-lead">Понедельник, сводка за неделю. Три прибора башни:</p>'
+        +'<div class="mrl-metrics"><div class="mrl-m"><span>CSAT</span><b class="up">4.3 → 4.7 ↑</b></div><div class="mrl-m"><span>Стоимость обращения</span><b class="up">180 → 250 ₽ ↑</b></div><div class="mrl-m"><span>Производительность</span><b class="eq">6.0 → 6.0 /час =</b></div></div>'
+        +'<div class="mrl-q">CSAT вырос. Радуемся?</div>'
+        +'<div class="mrl-opts"><button class="opt mrl-opt" type="button" data-ok="0">Да, клиенты довольнее</button><button class="opt mrl-opt" type="button" data-ok="1">Нет — метрику «купили»</button><button class="opt mrl-opt" type="button" data-ok="0">Само выправится</button></div>'
+        +'<div class="mrl-ans" role="status" aria-live="polite" hidden>'
+          +'<div class="mrl-verdict">Метрику «купили»</div>'
+          +'<p>CSAT красивее на 0.4. Но за красоту заплатили — смотри соседние приборы:</p>'
+          +'<div class="mrl-proof"><div class="mp-row up"><span>Стоимость обращения</span><i class="mp-bar coral"><b style="--w:82%"></b></i><em>+39%</em></div><div class="mp-row flat"><span>Производительность</span><i class="mp-bar ice"><b style="--w:4%"></b></i><em>0%</em></div></div>'
+          +'<p>Линию залили переработками и лишним штатом. Такому росту радоваться нечему.</p>'
+          +'<p class="mrl-rulez">Увидел одну цифру — сразу смотри соседние.</p>'
+        +'</div></div></div>'
+    +'</div></section>'
+    +'<section class="m2 m2--ink"><div class="m2-in reveal">'
+      +'<div class="m2-kick">Скорость сигнала</div><div class="m2-rule"></div>'
+      +'<h2 class="m2-h">SLA падает <span class="hl">первой</span></h2>'
+      +'<p class="m2-body">Метрики не равны по скорости. За SLA валится домино:</p>'
+      +'<div class="m2-viz"><div class="slad"><div class="slad-step lead"><div class="sd-t">SLA</div><div class="sd-w">не успеваем в срок</div><div class="sd-time">сейчас</div></div><div class="slad-ar">→</div><div class="slad-step"><div class="sd-t">CSAT</div><div class="sd-w">клиент злится</div><div class="sd-time">через 1–2 недели</div></div><div class="slad-ar">→</div><div class="slad-step"><div class="sd-t">NPS · отток</div><div class="sd-w">уходят совсем</div><div class="sd-time">через ~квартал</div></div></div>'
+      +'<p class="slad-note">CSAT уже упал — значит, ты опоздал на пару недель. Смотри SLA <b>еженедельно</b>, не жди квартальный отчёт.</p></div>'
+    +'</div></section>'
+    +'<section class="m2 m2--ink"><div class="m2-in reveal">'
+      +'<div class="m2-kick">Что двигаешь сам</div><div class="m2-rule"></div>'
+      +'<h2 class="m2-h">Производительность растёт<br>не <span class="hl">от кнута</span></h2>'
+      +'<p class="m2-body">Её растит убранная лишняя работа. Разгрузил рутину шаблоном — люди успевают больше и не горят. Одна автоматизация тянет сразу две цифры:</p>'
+      +'<div class="m2-viz"><div class="auto-fx"><div class="auto-card"><div class="ac-lbl">Стоимость обращения</div><div class="ac-row"><span>было</span><i class="ac-bar"><b style="width:92%"></b></i><span class="ac-v">232 ₽</span></div><div class="ac-row good"><span>стало</span><i class="ac-bar"><b style="width:62%"></b></i><span class="ac-v">190 ₽</span></div><div class="ac-delta down">−18%</div></div><div class="auto-card"><div class="ac-lbl">Производительность</div><div class="ac-row"><span>было</span><i class="ac-bar"><b style="width:56%"></b></i><span class="ac-v">5.6/ч</span></div><div class="ac-row good"><span>стало</span><i class="ac-bar"><b style="width:80%"></b></i><span class="ac-v">6.8/ч</span></div><div class="ac-delta up">+21%</div></div></div>'
+      +'<div class="auto-list"><div class="al"><b>Разгрузить рутину</b>шаблоны частых ответов, чек-листы по типовым обращениям, удобная база знаний, меньше ручных кликов.</div><div class="al"><b>Поднять цифры руками</b>точечный разбор CSAT-негативов по диалогам, микрообучение 15 минут на смене, умное распределение (сложное — опытным, простое — новичкам), плотная работа в час пик ради SLA.</div></div></div>'
+    +'</div></section>'
+    +'<section class="m2 m2--coral"><div class="m2-in reveal">'
+      +'<div class="m2-kick">Твоя личная метрика</div><div class="m2-rule"></div>'
+      +'<h2 class="m2-h">Контролируешь<br><span class="hl">только ты</span></h2>'
+      +'<p class="m2-body">CSAT, SLA, NPS зависят от внешних факторов. А обратная связь от команды — целиком твоя зона. Никто не соберёт её за тебя.</p>'
+      +'<div class="m2-viz"><div class="fbctl-how"><div class="fh"><b>1:1 раз в две недели</b>«что мешает? что делаю хорошо? что бы изменил?»</div><div class="fh"><b>Анонимно раз в месяц</b>«как я справляюсь как капитан, по шкале 1–10?»</div><div class="fh"><b>Наблюдение на смене</b>кто тянет, кто закрылся, где напряжение в чате.</div></div>'
+      +'<p class="fbctl-warn"><b>Тревожный сигнал — тишина.</b> Молчащая команда — не благополучие, а дистанция. Спрашивай сам, не жди опроса.</p></div>'
+    +'</div></section>';
 }
 function dzHTML(l){return '<div class="dz reveal" id="dzCard"><div class="dz-h"><span class="ray">'+RAY+'</span>Домашнее задание</div><p>'+l.dz.text+'</p>'
   +'<textarea class="p3-input" data-ans="'+l.n+'" rows="3" placeholder="'+escq(l.dz.ph)+'" aria-label="Ответ на домашнее задание урока '+l.n+'"></textarea>'
@@ -847,14 +1129,15 @@ function fillLesson(i){
     +'<h1 class="l-title" id="lTitle">'+l.title+'</h1>'
     +'<p class="l-epi">«'+l.epi+'»</p>'
     +'<div class="l-zachem">'+l.zachem.map(function(p){return '<p>'+p+'</p>'}).join('')+'</div>'
-    +'<div class="l-nasbore"><b>На сборе</b>'+l.nasbore+'</div>'
+    +'<div class="l-nasbore"><b>НА ВСТРЕЧЕ</b>'+l.nasbore+'</div>'
     +'<button class="btn btn--ghost toUrok" type="button">↓ К уроку</button>';
   urokbox.innerHTML=(l.custom==='lesson1')?renderUrok1(l):(l.custom==='lesson2')?renderUrok2(l)
     :('<div class="ublock reveal"><div class="ul">Приём</div><p>'+l.priem+'</p></div>'
       +acc('Как звучит','<div class="ba"><div class="card bad"><b>Оператор</b>'+l.before+'</div><div class="card good"><b>Капитан</b>'+l.after+'</div></div>')
       +acc('Инструмент','<div class="tool"><div class="code">'+l.tool+'</div><button class="btn btn--ice copyBtn" type="button">Копировать</button></div>'));
-  p3box.innerHTML='<div class="reveal">'+renderP3(i)+'</div>'+((l.p3.type==='sworddz'||l.p3.type==='dzsend')?'':dzHTML(l));
+  p3box.innerHTML='<div class="reveal">'+renderP3(i)+'</div>'+((l.p3.type==='sworddz'||l.p3.type==='dzsend'||l.p3.type==='mrl3q')?'':dzHTML(l));
   setupP3(i);
+  initMrlCarousel();
   // восстановить ответ ДЗ + статус «сделано»
   p3box.querySelectorAll('[data-ans]').forEach(function(t){t.value=getAns(t.getAttribute('data-ans'))});
   var dn=p3box.querySelector('.dzDone');if(dn&&isDone(l.n))dn.textContent='Готово ✓';
@@ -895,10 +1178,35 @@ function renderDzSend(i){var l=L[i];
     +'<button class="btn" id="dzSendBtn" type="button">Отправить отчёт коучу</button>'
     +'<div class="p3-fb" id="dzsFb" role="status" aria-live="polite" hidden></div></div>';
 }
+function qFoot(q,fx){
+  var stage=(fx==='bolt')
+    ? '<div class="staff-stage fx-bolt">'+BOLT+'</div>'
+    : '<div class="staff-stage fx-'+fx+'"><div class="glow"></div>'+STAFF+(fx==='snow'?snowSpans():fx==='fire'?FLAMES:'')+'</div>';
+  return '<div class="qfoot"><div class="qfoot-l"><button class="btn q3send" type="button" data-q="'+q+'">Отправить руководителю</button><div class="p3-fb" role="status" aria-live="polite" hidden></div></div>'+stage+'</div>';
+}
+function renderMrl3q(i){var l=L[i];
+  var q1=l.q1data.map(function(m,k){return '<div class="q1item"><div class="q1top"><span class="q1nm">'+m[0]+'</span><span class="q1val">'+m[1]+'</span></div><div class="q1hint">'+m[2]+'</div><textarea class="q1a" data-k="'+k+'" rows="2" placeholder="Твоя аналитика…" aria-label="Аналитика по '+escq(m[0])+'"></textarea><button class="q1add btn btn--sm btn--ghost" type="button" data-k="'+k+'">Добавить в отчёт</button></div>'}).join('');
+  return '<div class="p3-lead">'+l.p3.lead+'</div><h3 class="p3-title">'+l.p3.title+'</h3><div class="q3q">'
+    +'<div class="qcard"><div class="qhd"><span class="qn">Вопрос 1</span>Прочитай приборы башни</div>'
+      +'<p class="qtext">Выгрузка за неделю. Прочитай 4 показателя <b>в связке</b> и под каждым напиши аналитику: что происходит и что будет дальше. Жми «Добавить в отчёт» — реплики копятся в одно сообщение для руководителя.</p>'
+      +'<div class="q1grid">'+q1+'</div>'
+      +'<div class="q1report"><div class="q1r-lbl">Отчёт руководителю</div><textarea class="p3-input q3ans" id="q1ans" rows="6" placeholder="Здесь копится разбор по каждому показателю. Можно дописать вывод и предложение." aria-label="Отчёт по показателям"></textarea></div>'
+      +qFoot(1,'snow')+'</div>'
+    +'<div class="qcard"><div class="qhd"><span class="qn">Вопрос 2</span>Твоя автоматизация</div>'
+      +'<p class="qtext">Придумай автоматизацию, которую <b>соберёшь своими руками</b>. Если пока не умеешь — какими своими действиями (без других отделов) поднимешь метрики?</p>'
+      +'<textarea class="p3-input q3ans" id="q2ans" rows="5" placeholder="Что автоматизирую своими руками / какие действия…" aria-label="Автоматизация"></textarea>'
+      +qFoot(2,'bolt')+'</div>'
+    +'<div class="qcard"><div class="qhd"><span class="qn">Вопрос 3</span>Оператор с низким CSAT</div>'
+      +'<p class="qtext">'+l.q3text+'</p>'
+      +'<textarea class="p3-input q3ans" id="q3ans" rows="5" placeholder="Цифры → разговор → план по шагам…" aria-label="План по оператору"></textarea>'
+      +qFoot(3,'fire')+'</div>'
+    +'</div>';
+}
 function renderP3(i){
   var p=L[i].p3;
   if(p.type==='sworddz')return renderSwordDz(i);
   if(p.type==='dzsend')return renderDzSend(i);
+  if(p.type==='mrl3q')return renderMrl3q(i);
   var h='<div class="p3-lead">'+p.lead+'</div><h3 class="p3-title">'+p.title+'</h3>';
   if(p.type==='gate'){
     h+='<div class="gate"><div class="gate-sword" id="gSword">'+SWORDV+'</div><textarea class="p3-input" id="gIn" rows="2" placeholder="'+escq(p.ph)+'" aria-label="Твоя причина"></textarea><button class="btn" id="gBtn" type="button">Тянуть меч</button><div class="p3-fb" id="gFb" role="status" aria-live="polite" hidden></div></div>';
@@ -934,6 +1242,25 @@ function setupP3(i){
       if(!ans){fb.className='p3-fb';fb.textContent='Сначала впиши отчёт.';fb.hidden=false;return;}
       ensureFio(function(fio){if(!fio)return;setDone(L[i].n,true);setSent(L[i].n,true);markSent(R('#dzSendBtn'));fb.className='p3-fb good';fb.textContent='Отправляю…';fb.hidden=false;
         sendRecord({fio:fio,urok:L[i].n,vopros:L[i].dz.text,otvet:ans},function(s){fb.textContent=s==='sent'?'Отчёт отправлен ✓':'Сохранено, отправлю при сети.';});});
+    });
+  }else if(p.type==='mrl3q'){
+    RA('.q1add').forEach(function(btn){btn.addEventListener('click',function(){
+      var k=+btn.getAttribute('data-k'),src=p3box.querySelector('.q1a[data-k="'+k+'"]'),rep=R('#q1ans');
+      var txt=(src.value||'').trim();if(!txt)return;
+      rep.value=(rep.value?rep.value+'\n':'')+L[i].q1data[k][0]+': '+txt;
+      LS.set('luchi_ans_2q1',rep.value);src.value='';
+      btn.textContent='Добавлено ✓';setTimeout(function(){btn.textContent='Добавить в отчёт'},1400);
+    });});
+    ['1','2','3'].forEach(function(q){var v=LS.get('luchi_ans_2q'+q,'');if(v)R('#q'+q+'ans').value=v;});
+    RA('.q3ans').forEach(function(ta){ta.addEventListener('input',function(){var q=ta.id.replace(/\D/g,'');LS.set('luchi_ans_2q'+q,ta.value);});});
+    RA('.q3send').forEach(function(btn){var q=+btn.getAttribute('data-q');
+      if(LS.get('luchi_sent_2q'+q,false)){markSent(btn);var st=btn.closest('.qcard').querySelector('.staff-stage');if(st)st.classList.add('go');}
+      btn.addEventListener('click',function(){var card=btn.closest('.qcard'),ta=card.querySelector('.q3ans'),ans=(ta?ta.value:'').trim(),fb=card.querySelector('.p3-fb'),stage=card.querySelector('.staff-stage');
+        if(!ans){fb.className='p3-fb';fb.textContent='Сначала заполни ответ.';fb.hidden=false;return;}
+        ensureFio(function(fio){if(!fio)return;LS.set('luchi_sent_2q'+q,true);setSent(2,true);setDone(2,true);markSent(btn);btn.classList.add('zapped');if(stage)stage.classList.add('go');
+          fb.className='p3-fb good';fb.textContent='Отправляю…';fb.hidden=false;
+          sendRecord({fio:fio,urok:2,vopros:VOP2[q],otvet:ans},function(s){fb.textContent=s==='sent'?'Отправлено руководителю ✓':'Сохранено, отправлю при сети.';});});
+      });
     });
   }else if(p.type==='gate'){
     R('#gBtn').addEventListener('click',function(){var v=R('#gIn').value.trim(),fb=R('#gFb'),sw=R('#gSword');
@@ -1008,7 +1335,7 @@ fioInput.addEventListener('keydown',function(e){if(e.key==='Enter')document.getE
 var passOv=document.getElementById('passOv'),passInput=document.getElementById('passInput'),passErr=document.getElementById('passErr'),passTitle=document.getElementById('passTitle'),passIdx=-1,passLastFocus=null;
 function openPass(i){passIdx=i;passTitle.textContent='Урок '+L[i].n+' · '+L[i].title;passInput.value='';passErr.textContent='';passLastFocus=document.activeElement;passOv.classList.add('open');document.body.classList.add('ov-open');requestAnimationFrame(function(){passInput.focus();});}
 function closePass(){passOv.classList.remove('open');if(!hubOv.classList.contains('open'))document.body.classList.remove('ov-open');if(passLastFocus&&passLastFocus.focus)passLastFocus.focus();}
-function trySubmitPass(){var v=passInput.value.trim();if(v&&passHash(v)===L[passIdx].passh){setOpen(L[passIdx].n);var idx=passIdx;closePass();renderAlbum();openLesson(idx);}else{passErr.textContent='Пароль не подошёл. Попробуй ещё раз.';}}
+function trySubmitPass(){var v=passInput.value.trim();if(v===L[passIdx].pass){setOpen(L[passIdx].n);var idx=passIdx;closePass();renderAlbum();openLesson(idx);}else{passErr.textContent='Пароль не подошёл. Попробуй ещё раз.';}}
 document.getElementById('passSubmit').addEventListener('click',trySubmitPass);
 document.getElementById('passCancel').addEventListener('click',closePass);
 passInput.addEventListener('keydown',function(e){if(e.key==='Enter')trySubmitPass();});
@@ -1076,5 +1403,6 @@ bufferFlush();
 window.addEventListener('online',bufferFlush);
 if(!getFio())openFioModal(null,true);
 </script>
-</body>
-</html>
+
+
+</body></html>
