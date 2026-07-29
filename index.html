@@ -645,6 +645,151 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
 .lesson.light .nvb-moral,.lesson.light .slad-note,.lesson.light .fbctl-warn{color:var(--teal)}
 .lesson.light .slad-step.lead,.lesson.light .fbctl{background:rgba(255,115,119,.1)}
 .lesson.light .fh,.lesson.light .auto-list .al{background:rgba(2,107,131,.06)}
+/* ====== СВЕТЛАЯ ТЕМА · ГЛАВНАЯ + РЮКЗАК ====== */
+body.light{background:var(--sand)}
+.theme-toggle--main{display:flex}
+body.lesson-open .theme-toggle--main,body.ov-open .theme-toggle--main{display:none}
+body.light .theme-toggle--main{background:var(--sand);color:var(--ink);border-color:var(--ink)}
+/* секция «Твои занятия» */
+body.light .album-wrap{background:var(--sand)}
+body.light .album-wrap h2{color:var(--ink)}
+body.light .album-wrap .section-label{color:var(--teal)}
+body.light .album-wrap .hint{color:var(--teal)}
+body.light .stat-track{background:rgba(2,32,40,.12)}
+/* футер */
+body.light .foot{background:var(--sand);border-top-color:rgba(2,32,40,.12)}
+body.light .legal{color:var(--teal)}
+body.light .foot .site{color:var(--teal)}
+/* рюкзак-оверлей */
+body.light .hub{background:var(--sand)}
+body.light .hub-fio{color:var(--teal)}
+body.light .hub-fio button{color:var(--teal)}
+body.light .bp-head{color:var(--ink)}
+body.light .bp-lesson{background:var(--white);color:var(--ink);border-color:rgba(2,32,40,.12)}
+body.light .bp-status.ok{color:var(--teal)}
+body.light .bp-status.wait{color:var(--ink);opacity:.55}
+body.light .bp-note{color:var(--teal)}
+body.light .bp-sub{color:var(--teal)}
+body.light .hw-item{background:var(--white);border-color:rgba(2,32,40,.12)}
+body.light .hw-tema{color:var(--teal)}
+body.light .hw-task{color:var(--ink)}
+body.light .hw-item .p3-input{background:var(--white);color:var(--ink);border-color:rgba(2,32,40,.25)}
+/* урок 2 · светлый вариант тёмных полос .m2--ink */
+.lesson.light .m2--ink{background:var(--sand);color:var(--ink)}
+.lesson.light .m2--ink .m2-kick{color:var(--teal)}
+.lesson.light .m2--ink .m2-h{color:var(--coral)}
+.lesson.light .m2--ink .m2-h .hl{color:var(--teal)}
+.lesson.light .m2--ink .m2-lede,.lesson.light .m2--ink .m2-body{color:var(--ink)}
+/* ====== УРОК 3 · Чаша Грааля — интерактивная страница ====== */
+.u3{--card:rgba(255,255,255,.05);--line:rgba(255,255,255,.13);--tx:var(--white);--tx2:var(--sand);--acc:var(--ice)}
+.lesson.light .u3{--card:var(--white);--line:rgba(2,32,40,.14);--tx:var(--ink);--tx2:var(--teal);--acc:var(--teal)}
+.u3nav{position:sticky;top:56px;z-index:6;display:flex;gap:8px;flex-wrap:wrap;padding:12px 0;margin-bottom:28px;
+  background:var(--ink);border-bottom:1px solid var(--line)}
+.lesson.light .u3nav{background:var(--sand)}
+.u3nav button{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:12px;
+  padding:8px 14px;border-radius:var(--pill);border:1.5px solid var(--line);background:transparent;color:var(--tx2);cursor:pointer;transition:.15s}
+.u3nav button:hover{border-color:var(--acc);color:var(--acc)}
+.u3nav button.on{background:var(--coral);border-color:var(--coral);color:var(--white)}
+.u3sec{margin-bottom:clamp(44px,6vw,72px);scroll-margin-top:120px}
+.u3-lbl{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--coral);
+  display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.u3-lbl::before{content:"";width:22px;height:2px;background:currentColor}
+.u3-h{font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:.92;
+  font-size:clamp(30px,4.6vw,54px);color:var(--tx);margin-bottom:14px}
+.u3-h .hl{color:var(--coral)}
+.u3-sub{font-size:17px;line-height:1.6;color:var(--tx2);max-width:62ch;margin-bottom:22px}
+.u3-sub b{color:var(--tx);font-weight:500}
+.story{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,3vw,34px)}
+.story-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.story-cnt{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--acc)}
+.story-dots{display:flex;gap:6px}
+.story-dots i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:.2s}
+.story-dots i.on{background:var(--coral);width:22px;border-radius:5px}
+.story-t{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(22px,3vw,32px);
+  line-height:.95;color:var(--coral);margin-bottom:12px;min-height:1.9em}
+.story-b{font-size:17px;line-height:1.65;color:var(--tx);min-height:7.5em}
+.story-b b{color:var(--acc);font-weight:500}
+.story-nav{display:flex;gap:10px;margin-top:18px}
+.story-nav .btn{font-size:13px;padding:11px 18px}
+.two-q{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.two-q{grid-template-columns:1fr}}
+.qcard2{border-radius:18px;padding:24px;border:1px solid var(--line)}
+.qcard2.bad{background:rgba(255,115,119,.12)}
+.qcard2.good{background:rgba(2,107,131,.28)}
+.lesson.light .qcard2.bad{background:rgba(255,115,119,.12)}
+.lesson.light .qcard2.good{background:rgba(2,107,131,.12)}
+.qcard2 h4{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(19px,2.4vw,25px);line-height:1;margin-bottom:10px}
+.qcard2.bad h4{color:var(--coral)}.qcard2.good h4{color:var(--acc)}
+.qcard2 p{font-size:15px;line-height:1.55;color:var(--tx)}
+.u3acc{display:grid;gap:10px}
+.u3item{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.u3item.open{border-color:var(--coral)}
+.u3head{width:100%;display:flex;align-items:center;gap:14px;background:transparent;border:0;cursor:pointer;
+  padding:16px 18px;text-align:left;color:var(--tx);font:inherit}
+.u3head:hover{background:rgba(255,115,119,.07)}
+.u3n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--coral);color:var(--white);
+  font-family:var(--font-display);font-weight:900;font-size:16px;display:grid;place-items:center}
+.u3item.done .u3n{background:var(--teal)}
+.u3ttl{flex:1;font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:17px;line-height:1.05}
+.u3was{display:block;font-family:var(--font-body);font-weight:400;text-transform:none;font-size:13px;color:var(--tx2);margin-top:3px}
+.u3sign{flex:none;font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--coral);line-height:1}
+.u3body{padding:0 18px 18px 66px;font-size:15px;line-height:1.6;color:var(--tx2)}
+.u3body[hidden]{display:none}
+.u3body b{color:var(--tx);font-weight:500}
+.u3body .ex{margin-top:8px;font-style:italic;color:var(--acc)}
+.u3here{display:inline-block;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;
+  font-size:11px;color:var(--ink);background:var(--ice);border-radius:var(--pill);padding:4px 10px;margin-left:8px}
+.mapline{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}
+@media(max-width:700px){.mapline{grid-template-columns:repeat(2,1fr)}}
+.mapstop{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px 12px;cursor:pointer;
+  text-align:left;color:var(--tx);font:inherit;transition:.15s}
+.mapstop:hover{border-color:var(--acc)}
+.mapstop.on{border-color:var(--coral);background:rgba(255,115,119,.12)}
+.mapstop .mn{font-family:var(--font-display);font-weight:900;font-size:26px;line-height:.8;color:var(--coral)}
+.mapstop .mt{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:14px;margin-top:8px;line-height:1}
+.mapdet{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--coral);border-radius:0 14px 14px 0;
+  padding:20px 22px;font-size:16px;line-height:1.6;color:var(--tx);min-height:5.4em}
+.mapdet b{color:var(--coral)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:14px;padding:12px 18px;
+  border-radius:var(--pill);border:1.5px solid var(--line);background:transparent;color:var(--tx2);cursor:pointer;transition:.15s}
+.tabs button:hover{border-color:var(--acc);color:var(--acc)}
+.tabs button.on{background:var(--coral);border-color:var(--coral);color:var(--white)}
+.tabpane{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;font-size:16px;line-height:1.62;color:var(--tx)}
+.tabpane b{color:var(--acc);font-weight:500}
+.u3note{background:rgba(255,115,119,.1);border:1.5px solid var(--coral);border-radius:16px;padding:20px 22px;
+  font-size:16px;line-height:1.6;color:var(--tx);margin-top:18px}
+.u3note b{color:var(--coral)}
+.pdz-tasks{display:grid;gap:14px;margin:6px 0 18px}
+.pdz-task{display:grid;grid-template-columns:auto 1fr;gap:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px 20px}
+.pdz-n{font-family:var(--font-display);font-weight:900;font-size:30px;line-height:.8;color:var(--coral)}
+.pdz-h{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:18px;color:var(--white);margin-bottom:6px}
+.pdz-task p{font-size:15px;line-height:1.55;color:var(--sand)}
+.pdz-do{margin-top:8px;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:12px;color:var(--ice)!important}
+.pdz-final{background:rgba(255,115,119,.1);border:1.5px solid var(--coral);border-radius:14px;padding:16px 18px;font-size:15px;line-height:1.55;color:var(--white);margin-bottom:16px}
+.pdz-final b{color:var(--coral)}
+.pdz-lbl{display:block;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:12px;color:var(--ice);margin-bottom:8px}
+.pdz-input{margin-bottom:14px}
+.lesson.light .pdz-task{background:var(--white);border-color:rgba(2,32,40,.12)}
+.lesson.light .pdz-h{color:var(--ink)}
+.lesson.light .pdz-task p{color:var(--ink)}
+.lesson.light .pdz-do{color:var(--teal)!important}
+.lesson.light .pdz-final{background:rgba(255,115,119,.12);color:var(--ink)}
+.lesson.light .pdz-lbl{color:var(--teal)}
+.lesson.light .p3-title,.lesson.light .dzsend .dz-task{color:var(--ink)}
+.lesson.light .p3-lead{color:var(--teal)}
+.lesson.light .story-b,.lesson.light .mapdet,.lesson.light .tabpane,.lesson.light .u3note,.lesson.light .qcard2 p{color:var(--ink)}
+.lesson.light .u3-h,.lesson.light .u3head{color:var(--ink)}
+.lesson.light .u3-sub,.lesson.light .u3body,.lesson.light .u3was{color:var(--teal)}
+.lesson.light .u3-sub b,.lesson.light .u3body b{color:var(--ink)}
+.lesson.light .story-b b,.lesson.light .tabpane b{color:var(--teal)}
+/* заглушка «пока не готово» для незаполненных уроков */
+.soon-wrap{max-width:560px;margin:8px auto;text-align:center;padding:clamp(30px,6vw,64px) 0}
+.soon-emb{width:96px;height:96px;margin:0 auto 22px;opacity:.9}
+.soon-emb svg{width:100%;height:100%}
+.soon-h{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,6vw,52px);line-height:.95;color:var(--coral);margin-bottom:14px}
+.soon-p{font-size:17px;line-height:1.6;color:var(--sand);max-width:44ch;margin:0 auto}
+.lesson.light .soon-p{color:var(--teal)}
 </style>
 </head>
 <body>
@@ -694,6 +839,7 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
   <a class="site" href="#top">Наверх ↑</a>
 </div></footer>
 </div>
+<button class="theme-toggle theme-toggle--main" id="themeBtnMain" type="button" aria-label="Светлая или тёмная тема" title="Светлая/тёмная тема">☀</button>
 
 <section class="lesson" id="lesson" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="counter" tabindex="-1">
   <div class="lesson__bar">
@@ -760,11 +906,9 @@ body.lesson-open #collection{transform:scale(1.14);filter:blur(7px) brightness(.
 
 <script>
 /* ====== КОНСТАНТЫ ОТПРАВКИ (Google-форма) ====== */
-var FORM_ACTION="https://docs.google.com/forms/d/e/1FAIpQLScKBkM0nhOYIrPzANAu9zjfxFiDeMYbDTNVSIsqBwCgBXrbHQ/formResponse";
-var ENTRY_FIO="entry.1925877073";
-var ENTRY_UROK="entry.579664312";
-var ENTRY_VOPROS="entry.252570359";
-var ENTRY_OTVET="entry.175993705";
+/* Приём ДЗ и раздача обратной связи идут через Google Apps Script (см. инструкцию по публикации).
+   Вставь сюда URL веб-приложения, который Google выдаст при публикации скрипта — он оканчивается на /exec. */
+var WEBAPP_URL="https://script.google.com/macros/s/AKfycbzyKhDjbNOmYkY05TEIK5Y2HbIlvgCMqi4x99AtPsYEd-ZHz8YFIdKwQwq1lbpZpuK6/exec";
 
 /* ====== ХРАНИЛИЩЕ ====== */
 var LS={get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
@@ -782,8 +926,8 @@ function isSent(n){return !!LS.get('luchi_sent_'+n,false)} function setSent(n,v)
 function isSeen(n){return !!LS.get('luchi_seen_'+n,false)} function setSeen(n,v){LS.set('luchi_seen_'+n,!!v)}
 function getAvatar(){var a=LS.get('luchi_avatar','armor')||'armor';return (typeof AVA!=='undefined'&&AVA[a])?a:'armor'} function setAvatar(a){LS.set('luchi_avatar',a)}
 function getTheme(){return LS.get('luchi_theme','dark')||'dark'} function setTheme(t){LS.set('luchi_theme',t)}
-/* Проверки коуча — читаются из опубликованного CSV листа ответов (заполни ссылку). */
-var REVIEW_CSV="";
+/* Обратная связь приходит от Apps Script (JSONP) и только по текущему оператору.
+   Таблицу можно держать ЗАКРЫТОЙ: её читает скрипт от твоего имени, а не браузер оператора. */
 var REVIEWS={};
 function reviewKey(fio,n){return String(fio||'').trim().toLowerCase()+'|||'+n}
 function getReview(n){var t=REVIEWS[reviewKey(getFio(),n)];return (t&&String(t).trim())?t:null}
@@ -794,11 +938,13 @@ function csvParse(txt){var rows=[],row=[],f='',q=false,i,c;for(i=0;i<txt.length;
 function parseReviews(txt){try{var rows=csvParse(txt);if(!rows.length)return;var head=rows[0].map(function(s){return String(s).toLowerCase()});
   var iF=head.findIndex(function(h){return h.indexOf('фио')>=0||h.indexOf('имя')>=0});
   var iU=head.findIndex(function(h){return h.indexOf('урок')>=0});
-  var iR=head.findIndex(function(h){return h.indexOf('провер')>=0||h.indexOf('коммент')>=0||h.indexOf('отзыв')>=0});
+  var iR=head.findIndex(function(h){return h.indexOf('обратн')>=0||h.indexOf('связь')>=0||h.indexOf('провер')>=0||h.indexOf('коммент')>=0||h.indexOf('отзыв')>=0;});
   if(iF<0||iU<0||iR<0)return;
-  REVIEWS={};rows.slice(1).forEach(function(r){var fio=r[iF],ur=String(r[iU]||'').replace(/\D/g,''),rev=r[iR];if(fio&&ur&&rev&&String(rev).trim())REVIEWS[reviewKey(fio,ur)]=rev;});
+  REVIEWS={};rows.slice(1).forEach(function(r){var fio=r[iF],ur=(String(r[iU]||'').match(/\d+/)||[''])[0],rev=r[iR];if(fio&&ur&&rev&&String(rev).trim())REVIEWS[reviewKey(fio,ur)]=rev;});
 }catch(e){}}
-function loadReviews(){if(!REVIEW_CSV)return;fetch(REVIEW_CSV).then(function(r){return r.text()}).then(function(txt){parseReviews(txt);renderAlbum();if(hubOv&&hubOv.classList.contains('open'))renderBackpack();}).catch(function(){});}
+function loadReviews(){if(!WEBAPP_URL||WEBAPP_URL.indexOf('http')!==0)return;var fio=getFio();if(!fio)return;
+  window.__luchiReviews=function(data){REVIEWS={};if(data&&typeof data==='object'){Object.keys(data).forEach(function(k){var n=(String(k).match(/\d+/)||[''])[0];if(n&&String(data[k]).trim())REVIEWS[reviewKey(fio,n)]=data[k];});}renderAlbum();if(hubOv&&hubOv.classList.contains('open'))renderBackpack();};
+  var s=document.createElement('script');s.src=WEBAPP_URL+'?action=reviews&fio='+encodeURIComponent(fio)+'&callback=__luchiReviews&t='+Date.now();s.onload=function(){s.remove();};s.onerror=function(){s.remove();};document.head.appendChild(s);}
 var AVA={
  knight:'<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 6l5 13h-10z" fill="'+DB+'"/><rect x="30" y="19" width="40" height="52" rx="15" fill="'+CR+'"/><rect x="44" y="27" width="12" height="30" rx="5" fill="'+INK+'"/><rect x="34" y="40" width="32" height="5" rx="2" fill="'+INK+'"/><rect x="33" y="70" width="34" height="9" rx="3" fill="'+DB+'"/></svg>',
  princess:'<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 L67 40 H33 Z" fill="'+CR+'"/><circle cx="50" cy="60" r="21" fill="'+SAND+'" stroke="'+INK+'" stroke-width="2"/><path d="M67 41q-17 9-34 0l2 8q15 7 30 0z" fill="'+LB+'"/><circle cx="43" cy="58" r="2.6" fill="'+INK+'"/><circle cx="57" cy="58" r="2.6" fill="'+INK+'"/><path d="M44 66q6 5 12 0" fill="none" stroke="'+INK+'" stroke-width="2" stroke-linecap="round"/></svg>',
@@ -924,13 +1070,28 @@ var L=[
 ];
 
 /* ---- пароли, тайминги, ДЗ для уроков 2 и 4, хуки, разбавка ритма ---- */
-var PASS=['0102','8264','0312','0311','0401','0603'];
+/* Пароли уроков хранятся хэшами, чтобы их нельзя было прочитать в исходнике.
+   По хэшу сам код не восстанавливается; проверка идёт по хэшу введённого значения. */
+function cyrb53(str,seed){seed=seed||0;var h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(var i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677);}h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return(4294967296*(2097151&h2)+(h1>>>0)).toString();}
+function passHash(c){return cyrb53('luchi§'+String(c).trim(),1917);}
+var PASS_H=["6947966351209691","8400981017631600","2145653435759225","2075509033212164","8109747740760542","8560331290460845"];
 var TIME=['~6 мин','~7 мин','~8 мин','~7 мин','~6 мин','~7 мин'];
-L.forEach(function(l,i){l.pass=PASS[i];l.time=TIME[i];});
+L.forEach(function(l,i){l.passh=PASS_H[i];l.time=TIME[i];});
 L[1].dz={text:'Урок 2 — парный на сборе. Что берёшь на сбор: одну метрику своей линии для разбора и свою гипотезу причины.',ph:'Что беру на сбор…'};
 L[3].dz={text:'Урок 4 — парный разговор на сборе. Что берёшь на сбор: с кем проведёшь 1:1 и какие 2–3 вопроса задашь, чтобы услышать выгорание.',ph:'Что беру на сбор…'};
 L[0].hook='Ты идёшь в капитаны за деньгами?';
 L[2].hook='Сколько твоя идея стоит в рублях?';
+/* --- Урок 3: Чаша Грааля (интерактивная страница) --- */
+L[2].custom='lesson3';
+L[2].tema='Инициативы · выбрать проект и запитчить';
+L[2].hook='Ты был в замке Грааля — и промолчал?';
+L[2].epi='Как выбирать проект и питчить его.';
+L[2].zachem=['Сегодня — легенда о Чаше Грааля и вопрос, который лечит: кому она служит.','Дальше руками: наш живой пример, карта проекта, сопротивление команды и питч за минуту.'];
+L[2].nasbore='Питч и отработка возражения — в паре.';
+L[2].p3={type:'dzsend',pitch:true,title:'Питч и возражение — в паре',lead:'Готовим не текст, а разговор. На сборе — вживую, вдвоём.'};
+L[2].dz={text:'Урок 3 · Питч своей инициативы + отработка возражения напарника в паре на сборе (запись встречи на видео).',ph:'https://…'};
+/* --- Уроки 4, 5, 6 — наполнение ещё не готово: показываем заглушку --- */
+L[3].soon=true; L[4].soon=true; L[5].soon=true;
 L[3].hook='«Да всё нормально» — правда или маска?';
 L[5].hook='Что нести наверх, а что решить самому?';
 
@@ -964,8 +1125,8 @@ L[1].q3text='Оператор со стабильно низким CSAT. Как 
 L[1].dz={text:'Отчёт капитана из трёх частей: 1) разбор 4 показателей в связке для руководителя; 2) автоматизация своими руками или действия без других отделов; 3) план по оператору со стабильно низким CSAT.',ph:'Отчёт капитана…'};
 
 /* ====== ОТПРАВКА + БУФЕР ====== */
-function postRec(rec){var b=new URLSearchParams();b.append(ENTRY_FIO,rec.fio);b.append(ENTRY_UROK,String(rec.urok));b.append(ENTRY_VOPROS,rec.vopros);b.append(ENTRY_OTVET,rec.otvet);
-  return fetch(FORM_ACTION,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:b.toString()});}
+function postRec(rec){var b=new URLSearchParams();b.append('fio',rec.fio);b.append('urok',String(rec.urok));b.append('vopros',rec.vopros);b.append('otvet',rec.otvet);
+  return fetch(WEBAPP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:b.toString()});}
 function bufferAdd(rec){var buf=LS.get('luchi_buffer',[]);rec.id=Date.now()+'_'+rec.urok+'_'+Math.random().toString(36).slice(2,6);rec.sent=false;buf.push(rec);LS.set('luchi_buffer',buf);}
 function bufferFlush(){var buf=LS.get('luchi_buffer',[]);if(!buf.length||navigator.onLine===false)return;
   buf.filter(function(r){return !r.sent}).forEach(function(r){postRec(r).then(function(){r.sent=true;LS.set('luchi_buffer',buf);}).catch(function(){});});}
@@ -1116,6 +1277,166 @@ function dzHTML(l){return '<div class="dz reveal" id="dzCard"><div class="dz-h">
   +'<textarea class="p3-input" data-ans="'+l.n+'" rows="3" placeholder="'+escq(l.dz.ph)+'" aria-label="Ответ на домашнее задание урока '+l.n+'"></textarea>'
   +'<div class="dz-actions"><button class="btn btn--ghost dzDone" type="button" data-n="'+l.n+'">Записал</button><button class="btn dzSend" type="button" data-n="'+l.n+'">Отправить коучу</button><span class="dz-st" data-st="'+l.n+'" role="status" aria-live="polite"></span></div></div>';}
 
+/* — данные урока 3 (строго из презентации) — */
+var L3STORY=[
+ ['Король-рыбак был ранен в бедро','Он поехал на охоту — и рана так и не зажила. Король хранит Грааль, но исцелить его может лишь одно: чистый сердцем рыцарь должен задать правильный вопрос. До тех пор ему остаётся только терпеть.'],
+ ['Ему осталась лодка','Отсюда имя — Король-рыбак: ходить он больше не мог. А земля его владений омертвела: пока король ранен, поля не рожают пшеницу, реки иссыхают. Некогда цветущее королевство стало пустошью.<br><br><b>Земля зеркалит короля.</b> Боль правителя переносится на всё, чем он правит.'],
+ ['Как помочь Королю-рыбаку?','Должен прийти человек с чистыми намерениями — и не пытаться забрать Чашу Грааля, а спросить: кому она служит? Только тогда Грааль сможет исцелить Короля-рыбака, и королевство вновь расцветёт.'],
+ ['Он молчит','Персеваль странствует и среди мёртвой земли находит замок. Он попадает на пир, встречает короля — и видит Грааль. И молчит: чтобы не показаться глупым, как учила его мать.<br><br>Наутро замок пустеет, а потом и вовсе исчезает.'],
+ ['Цена одного невопроса','Один вопрос исцелил бы короля. Он не прозвучал. Позже Персевалю объяснят: спроси он — король был бы здоров, а земля ожила. Теперь — годы скитаний и поисков дороги назад. К замку, в котором он уже был.'],
+ ['Юнгианцы читают этот миф как карту карьеры','Роберт Джонсон разбирает Короля-рыбака как психологический портрет способного человека. Не сказка про рыцарей — описание того, что происходит с тобой на работе.<br><br>Успешный проект — это долгий путь. Опыт ценнее всего: с первого раза редко что получается, сила в методичных повторениях.'],
+ ['Ты был в замке Грааля','Но не был готов к этой ответственности. Командная встреча с тимлидом, обсуждение процессов зашло в тупик. У тебя в голове готовое решение, но ты не говоришь.<br><br>Потому что внутри звучит мать: <b>не лезь, не твоё дело, спросят — скажешь.</b>']
+];
+var L3CASE=[
+ ['Кейсы','не знаем уровня, «учите всему»','Точной аналитики у нас не было. Уровня операторов мы не знали — значит, не знали и чему учить. А «всему» означает ничему: на всё не хватит ни времени, ни людей. Вот оно, первое решение, которое я не мог принять.',''],
+ ['Открытые ответы','закрытые прокликивают','Идея была простая: телеграм-бот, который напоминает о себе, с прикольными картинками и интересной вселенной. Внутри — тесты: при многократном повторении в них запоминается сложная информация. Но закрытые тесты просто прокликивают: балл есть, а уровня не видно.',''],
+ ['ИИ-проверки','тонем в проверках','Открытые ответы дают правду. И топят коуча: каждый развёрнутый ответ надо прочитать и разобрать руками, коучей единицы, а операторов сотни. Без разбора открытый вопрос бессмысленен — человек не узнает, что не так.<br><br>Взяли ИИ на проверки и объяснения — заботливого, а не карающего.','И сразу новая яма: ИИ не знает наших мануалов. Он вежливо напишет ерунду, если ему не объяснить, что у нас считается верным и почему.'],
+ ['Логика объяснений','ИИ не знает мануалов','Мы сели и написали логику объяснений: что считается верным ответом, что нет и почему именно. По ней ИИ и собирает обратную связь каждому человеку.','Тут и был главный сдвиг: проверять руками — механика, её может машина. Формулировать, что такое «правильно» и почему, — не может никто, кроме нас.'],
+ ['ИИ-бот','правим руками, копипаст','Мы всё ещё на лестнице: качество разбора догоняем, правки за ИИ пока нужны. Следующая ступень — бот: убрать копировать-вставить и поднять качество проверок. Проект не заканчивается — он поднимается.','']
+];
+var L3MAP=[
+ ['Вопрос','кому служит Грааль?','Кому служит Грааль? Узнать, кому инициатива поможет и в каком объёме.'],
+ ['MVP','черновой прототип','Создай черновой прототип.'],
+ ['Пилот','добровольцы + замер «до»','Добровольцы, а не вся команда. И замер «до».'],
+ ['Медиана','промежуточный замер','Промежуточный замер проекта.'],
+ ['Грааль','раскатка на всех','Раскатка на всех и финальный замер.']
+];
+var L3RES=[
+ ['Не спорь — расспроси','«Что именно было лучше?» Под фразой всегда живая боль: дольше, больше кликов, страшно ошибиться. Услышал — <b>почини</b>.'],
+ ['Продай в его валюте','Не «у компании вырастет метрика», а «тебе — на десять кликов меньше за смену». <b>Привычку меняют ради своей выгоды.</b>'],
+ ['Оставь путь назад','На пилоте не отбирай старый способ. «Не понравится — вернёшься» снимает страх. <b>Насильно — получишь саботаж.</b>']
+];
+var L3PITCH=[
+ ['Боль','Что сломано и кого задевает.','«Уровня операторов не видно: закрытые тесты прокликивают, учить непонятно чему».'],
+ ['Идея','Одним предложением.','«Открытые кейсы, а разбор по нашей логике объяснений собирает ИИ».'],
+ ['Кому служит','Метрике — и человеку.','«Оператор получает разбор вместо балла, коуч видит, чему учить, и не тонет в проверках».'],
+ ['Цена и срок','Что нужно, к какому числу.','«Пилот на одной группе две недели, логику объяснений пишу сам».'],
+ ['Просьба','Конкретное действие руководителя.','«Прошу добро на пилот и доступ к выгрузке ответов».']
+];
+function renderUrok3(l){
+  var caseItems=L3CASE.map(function(c,i){
+    return '<div class="u3item" data-acc><button class="u3head" type="button" aria-expanded="false">'
+      +'<span class="u3n">'+(i+1)+'</span>'
+      +'<span class="u3ttl">'+c[0]+(i===4?'<span class="u3here">мы здесь</span>':'')+'<span class="u3was">мешало: '+c[1]+'</span></span>'
+      +'<span class="u3sign" aria-hidden="true">+</span></button>'
+      +'<div class="u3body" hidden><p>'+c[2]+'</p>'+(c[3]?'<p class="ex">'+c[3]+'</p>':'')+'</div></div>';
+  }).join('');
+  var pitchItems=L3PITCH.map(function(p,i){
+    return '<div class="u3item" data-acc><button class="u3head" type="button" aria-expanded="false">'
+      +'<span class="u3n">'+(i+1)+'</span><span class="u3ttl">'+p[0]+'<span class="u3was">'+p[1]+'</span></span>'
+      +'<span class="u3sign" aria-hidden="true">+</span></button>'
+      +'<div class="u3body" hidden><p class="ex">'+p[2]+'</p></div></div>';
+  }).join('');
+  var stops=L3MAP.map(function(m,i){
+    return '<button class="mapstop'+(i===0?' on':'')+'" type="button" data-i="'+i+'"><span class="mn">'+(i+1)+'</span><span class="mt">'+m[0]+'</span></button>';
+  }).join('');
+  var tabs=L3RES.map(function(r,i){return '<button type="button" class="'+(i===0?'on':'')+'" data-i="'+i+'">'+r[0]+'</button>'}).join('');
+  return '<div class="u3">'
+  +'<nav class="u3nav" id="u3nav" aria-label="Части урока">'
+    +'<button type="button" data-go="legend" class="on">Легенда</button>'
+    +'<button type="button" data-go="cure">Лекарство</button>'
+    +'<button type="button" data-go="case">Наш пример</button>'
+    +'<button type="button" data-go="map">Карта</button>'
+    +'<button type="button" data-go="res">Сопротивление</button>'
+    +'<button type="button" data-go="pitch">Питч</button>'
+  +'</nav>'
+  +'<section class="u3sec reveal" id="u3-legend"><div class="u3-lbl">Легенда · Чаша Грааля</div>'
+    +'<h3 class="u3-h">История за <span class="hl">семь шагов</span></h3>'
+    +'<div class="story"><div class="story-top"><span class="story-cnt">Шаг <b id="stN">1</b> из '+L3STORY.length+'</span>'
+      +'<span class="story-dots" id="stDots" aria-hidden="true">'+L3STORY.map(function(_,i){return '<i class="'+(i===0?'on':'')+'"></i>'}).join('')+'</span></div>'
+      +'<div class="story-t" id="stT"></div><div class="story-b" id="stB" role="status" aria-live="polite"></div>'
+      +'<div class="story-nav"><button class="btn btn--ghost" id="stPrev" type="button">← Назад</button><button class="btn" id="stNext" type="button">Дальше →</button></div>'
+    +'</div></section>'
+  +'<section class="u3sec reveal" id="u3-cure"><div class="u3-lbl">Лекарство · оно всего одно</div>'
+    +'<h3 class="u3-h">Кому служит <span class="hl">Грааль?</span></h3>'
+    +'<p class="u3-sub">Короля исцеляет вопрос, а не ответ.</p>'
+    +'<div class="two-q">'
+      +'<div class="qcard2 bad"><h4>«Что мне за это будет»</h4><p>Пока спрашиваешь так — вокруг пустошь.</p></div>'
+      +'<div class="qcard2 good"><h4>«Чему это служит»</h4><p>Спросил — земля ожила.</p></div>'
+    +'</div>'
+    +'<div class="u3note"><b>А что делать-то с этой легендой?</b> Ответить на вопросы: кому служит Грааль — узнать, кому инициатива поможет и в каком объёме. И откуда берётся процесс — подумать над своим опытом, понаблюдать за процессами на линии, посмотреть за работой операторов.</div>'
+  +'</section>'
+  +'<section class="u3sec reveal" id="u3-case"><div class="u3-lbl">Наш пример · живой кейс</div>'
+    +'<h3 class="u3-h">Не одна идея — <span class="hl">цепочка</span> снятых помех</h3>'
+    +'<p class="u3-sub">Как появились проклятые тестирования от отдела обучения. Нажми на ступень — увидишь, что мешало и что сделали.</p>'
+    +'<div class="u3acc">'+caseItems+'</div></section>'
+  +'<section class="u3sec reveal" id="u3-map"><div class="u3-lbl">Ремесло · дорога назад в замок</div>'
+    +'<h3 class="u3-h">Персеваль искал замок годами.<br>У тебя есть <span class="hl">карта</span></h3>'
+    +'<div class="mapline" id="mapLine">'+stops+'</div>'
+    +'<div class="mapdet" id="mapDet" role="status" aria-live="polite"></div>'
+    +'<div class="u3note"><b>Проекты гибнут в промежутках:</b> спросил, но не собрал. Собрал, но не обкатал. Обкатал, но не закрепил — и через месяц все вернулись к старому.</div>'
+  +'</section>'
+  +'<section class="u3sec reveal" id="u3-res"><div class="u3-lbl">Сопротивление · тот же голос Горнемана</div>'
+    +'<h3 class="u3-h">«Раньше было <span class="hl">лучше</span>»</h3>'
+    +'<p class="u3-sub">Сопротивление всегда встречает перемены. Совет «не задавай лишних вопросов» когда-то делал Персеваля рыцарем: обстановка сменилась — совет остался. Человек, который так говорит, не саботирует. <b>Он держится за то, что однажды его спасало.</b></p>'
+    +'<div class="tabs" id="resTabs">'+tabs+'</div><div class="tabpane" id="resPane"></div></section>'
+  +'<section class="u3sec reveal" id="u3-pitch"><div class="u3-lbl">Инструмент · копируй</div>'
+    +'<h3 class="u3-h">Питч за минуту: <span class="hl">5 шагов</span></h3>'
+    +'<p class="u3-sub">Нажми на шаг — увидишь пример на нашем кейсе.</p>'
+    +'<div class="u3acc">'+pitchItems+'</div></section>'
+  +'</div>';
+}
+function initUrok3(){
+  var box=urokbox.querySelector('.u3');if(!box)return;
+  box.querySelectorAll('[data-acc]').forEach(function(it){
+    var h=it.querySelector('.u3head'),b=it.querySelector('.u3body'),s=it.querySelector('.u3sign');
+    h.addEventListener('click',function(){
+      var open=!b.hidden;b.hidden=open;it.classList.toggle('open',!open);it.classList.toggle('done',!open);
+      h.setAttribute('aria-expanded',String(!open));s.textContent=open?'+':'−';
+    });
+  });
+  var st=0,stT=box.querySelector('#stT'),stB=box.querySelector('#stB'),stN=box.querySelector('#stN'),
+      dots=[].slice.call(box.querySelectorAll('#stDots i')),
+      pv=box.querySelector('#stPrev'),nx=box.querySelector('#stNext');
+  function paint(){
+    stT.innerHTML=L3STORY[st][0];stB.innerHTML=L3STORY[st][1];stN.textContent=(st+1);
+    dots.forEach(function(d,i){d.classList.toggle('on',i===st)});
+    pv.disabled=(st===0);nx.disabled=(st===L3STORY.length-1);
+    nx.textContent=(st===L3STORY.length-1)?'Это финал':'Дальше →';
+  }
+  pv.addEventListener('click',function(){if(st>0){st--;paint();}});
+  nx.addEventListener('click',function(){if(st<L3STORY.length-1){st++;paint();}});
+  paint();
+  var det=box.querySelector('#mapDet');
+  function mapPaint(i){
+    det.innerHTML='<b>'+L3MAP[i][0]+'</b> — '+L3MAP[i][2];
+    box.querySelectorAll('.mapstop').forEach(function(s,k){s.classList.toggle('on',k===i)});
+  }
+  box.querySelectorAll('.mapstop').forEach(function(s){
+    s.addEventListener('click',function(){mapPaint(+s.getAttribute('data-i'))});
+  });
+  mapPaint(0);
+  var pane=box.querySelector('#resPane');
+  function resPaint(i){
+    pane.innerHTML=L3RES[i][1];
+    box.querySelectorAll('#resTabs button').forEach(function(b,k){b.classList.toggle('on',k===i)});
+  }
+  box.querySelectorAll('#resTabs button').forEach(function(b){
+    b.addEventListener('click',function(){resPaint(+b.getAttribute('data-i'))});
+  });
+  resPaint(0);
+  var nav=box.querySelector('#u3nav');
+  nav.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=box.querySelector('#u3-'+b.getAttribute('data-go'));if(!el)return;
+      nav.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
+      el.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+}
+function renderPitchDz(i){var l=L[i];
+  return '<div class="p3-lead">'+(l.p3.lead||'')+'</div><h3 class="p3-title">'+(l.p3.title||'Испытание')+'</h3>'
+    +'<div class="dzsend">'
+    +'<div class="pdz-tasks">'
+      +'<div class="pdz-task"><span class="pdz-n">1</span><div><div class="pdz-h">Запитчи свою инициативу</div><p>Выбери проект, который реально будешь развивать, и доведи его до порога пилота. Нет своей идеи — бери нашу: «Премиальная линия — как перестроить процессы, чтобы CSAT на отдельной линии был 5.0». Собери питч по формуле пяти шагов из урока: боль → идея → кому служит → цена и срок → просьба.</p><p class="pdz-do">Питчишь вслух за минуту — напарнику, на сборе.</p></div></div>'
+      +'<div class="pdz-task"><span class="pdz-n">2</span><div><div class="pdz-h">Отработай возражение</div><p>Напарник играет «землю, которая сопротивляется»: даёт возражение в духе «раньше было лучше». Твоя задача — не спорить, а расспросить, продать выгоду в его валюте и оставить путь назад. Потом меняетесь ролями.</p><p class="pdz-do">Делаете в паре, вживую, на сборе.</p></div></div>'
+    +'</div>'
+    +'<div class="pdz-final"><b>Что сдать.</b> Выберите напарника, проведите встречу в паре — по очереди питч и отработка возражения, — запишите её на видео и пришлите одну ссылку на запись.</div>'
+    +'<label class="pdz-lbl" for="pdzLink">Ссылка на запись встречи</label>'
+    +'<input class="p3-input pdz-input" id="pdzLink" data-ans="'+l.n+'" type="url" inputmode="url" placeholder="'+escq(l.dz.ph)+'" aria-label="Ссылка на запись встречи">'
+    +'<button class="btn" id="dzSendBtn" type="button">Отправить ссылку коучу</button>'
+    +'<div class="p3-fb" id="dzsFb" role="status" aria-live="polite" hidden></div></div>';
+}
 function fillLesson(i){
   var l=L[i];
   cover.innerHTML='<div class="paper"><div class="inner">'
@@ -1123,6 +1444,23 @@ function fillLesson(i){
     +'<div class="art">'+EMB[l.emb]+'<span class="postmark">'+postmark()+'</span></div>'
     +'<div class="s-cap"><div class="s-tema">'+l.tema+'</div><div class="s-title">'+l.title+'</div></div></div></div>'
     +'<div class="cover-tema">Урок '+l.n+' из 6</div>';
+  var _uZone=urokbox.closest('.zone'),_tZone=p3box.closest('.zone'),
+      _chU=document.getElementById('chapterU'),_chT=document.getElementById('chapterT');
+  if(l.soon){
+    content.innerHTML='<div class="soon-wrap"><div class="soon-emb">'+EMB[l.emb]+'</div>'
+      +'<div class="soon-h">Пока не готово</div>'
+      +'<p class="soon-p">Этот урок ещё в работе — скоро откроем. Возвращайся чуть позже.</p></div>';
+    urokbox.innerHTML='';p3box.innerHTML='';
+    _chU.style.display='none';_chT.style.display='none';_uZone.style.display='none';_tZone.style.display='none';
+    document.getElementById('barTime').textContent='';
+    document.getElementById('counter').textContent='Урок '+l.n+' / 6';
+    var _pv=document.getElementById('prevBtn'),_nx=document.getElementById('nextBtn');
+    _pv.disabled=(i===0||!isOpen(L[i-1].n));_nx.disabled=(i===L.length-1||!isOpen(L[i+1].n));
+    document.getElementById('prevName').textContent=(i>0&&isOpen(L[i-1].n))?' · '+L[i-1].title:'';
+    document.getElementById('nextName').textContent=(i<L.length-1&&isOpen(L[i+1].n))?' · '+L[i+1].title:'';
+    initReveal();lesson.scrollTop=0;return;
+  }
+  _chU.style.display='';_chT.style.display='';_uZone.style.display='';_tZone.style.display='';
   content.innerHTML='<div class="l-part">Легенда</div>'+(l.hook?'<div class="l-hook">'+l.hook+'</div>':'')
     +'<div class="l-kicker">Урок '+l.n+' · '+l.tema+'</div>'
     +'<nav class="l-toc" aria-label="Части урока"><button type="button" data-go="l">Легенда</button><button type="button" data-go="u">Урок</button><button type="button" data-go="t">Испытание</button></nav>'
@@ -1131,13 +1469,14 @@ function fillLesson(i){
     +'<div class="l-zachem">'+l.zachem.map(function(p){return '<p>'+p+'</p>'}).join('')+'</div>'
     +'<div class="l-nasbore"><b>НА ВСТРЕЧЕ</b>'+l.nasbore+'</div>'
     +'<button class="btn btn--ghost toUrok" type="button">↓ К уроку</button>';
-  urokbox.innerHTML=(l.custom==='lesson1')?renderUrok1(l):(l.custom==='lesson2')?renderUrok2(l)
+  urokbox.innerHTML=(l.custom==='lesson1')?renderUrok1(l):(l.custom==='lesson2')?renderUrok2(l):(l.custom==='lesson3')?renderUrok3(l)
     :('<div class="ublock reveal"><div class="ul">Приём</div><p>'+l.priem+'</p></div>'
       +acc('Как звучит','<div class="ba"><div class="card bad"><b>Оператор</b>'+l.before+'</div><div class="card good"><b>Капитан</b>'+l.after+'</div></div>')
       +acc('Инструмент','<div class="tool"><div class="code">'+l.tool+'</div><button class="btn btn--ice copyBtn" type="button">Копировать</button></div>'));
   p3box.innerHTML='<div class="reveal">'+renderP3(i)+'</div>'+((l.p3.type==='sworddz'||l.p3.type==='dzsend'||l.p3.type==='mrl3q')?'':dzHTML(l));
   setupP3(i);
   initMrlCarousel();
+  if(l.custom==='lesson3')initUrok3();
   // восстановить ответ ДЗ + статус «сделано»
   p3box.querySelectorAll('[data-ans]').forEach(function(t){t.value=getAns(t.getAttribute('data-ans'))});
   var dn=p3box.querySelector('.dzDone');if(dn&&isDone(l.n))dn.textContent='Готово ✓';
@@ -1182,7 +1521,7 @@ function qFoot(q,fx){
   var stage=(fx==='bolt')
     ? '<div class="staff-stage fx-bolt">'+BOLT+'</div>'
     : '<div class="staff-stage fx-'+fx+'"><div class="glow"></div>'+STAFF+(fx==='snow'?snowSpans():fx==='fire'?FLAMES:'')+'</div>';
-  return '<div class="qfoot"><div class="qfoot-l"><button class="btn q3send" type="button" data-q="'+q+'">Отправить руководителю</button><div class="p3-fb" role="status" aria-live="polite" hidden></div></div>'+stage+'</div>';
+  return '<div class="qfoot">'+stage+'</div>';
 }
 function renderMrl3q(i){var l=L[i];
   var q1=l.q1data.map(function(m,k){return '<div class="q1item"><div class="q1top"><span class="q1nm">'+m[0]+'</span><span class="q1val">'+m[1]+'</span></div><div class="q1hint">'+m[2]+'</div><textarea class="q1a" data-k="'+k+'" rows="2" placeholder="Твоя аналитика…" aria-label="Аналитика по '+escq(m[0])+'"></textarea><button class="q1add btn btn--sm btn--ghost" type="button" data-k="'+k+'">Добавить в отчёт</button></div>'}).join('');
@@ -1200,12 +1539,13 @@ function renderMrl3q(i){var l=L[i];
       +'<p class="qtext">'+l.q3text+'</p>'
       +'<textarea class="p3-input q3ans" id="q3ans" rows="5" placeholder="Цифры → разговор → план по шагам…" aria-label="План по оператору"></textarea>'
       +qFoot(3,'fire')+'</div>'
+    +'<div class="q3submit" style="margin-top:6px;display:flex;flex-direction:column;gap:10px"><button class="btn" id="mrlSend" type="button">Отправить отчёт руководителю</button><div class="p3-fb" id="mrlFb" role="status" aria-live="polite" hidden></div></div>'
     +'</div>';
 }
 function renderP3(i){
   var p=L[i].p3;
   if(p.type==='sworddz')return renderSwordDz(i);
-  if(p.type==='dzsend')return renderDzSend(i);
+  if(p.type==='dzsend')return p.pitch?renderPitchDz(i):renderDzSend(i);
   if(p.type==='mrl3q')return renderMrl3q(i);
   var h='<div class="p3-lead">'+p.lead+'</div><h3 class="p3-title">'+p.title+'</h3>';
   if(p.type==='gate'){
@@ -1253,15 +1593,18 @@ function setupP3(i){
     });});
     ['1','2','3'].forEach(function(q){var v=LS.get('luchi_ans_2q'+q,'');if(v)R('#q'+q+'ans').value=v;});
     RA('.q3ans').forEach(function(ta){ta.addEventListener('input',function(){var q=ta.id.replace(/\D/g,'');LS.set('luchi_ans_2q'+q,ta.value);});});
-    RA('.q3send').forEach(function(btn){var q=+btn.getAttribute('data-q');
-      if(LS.get('luchi_sent_2q'+q,false)){markSent(btn);var st=btn.closest('.qcard').querySelector('.staff-stage');if(st)st.classList.add('go');}
-      btn.addEventListener('click',function(){var card=btn.closest('.qcard'),ta=card.querySelector('.q3ans'),ans=(ta?ta.value:'').trim(),fb=card.querySelector('.p3-fb'),stage=card.querySelector('.staff-stage');
-        if(!ans){fb.className='p3-fb';fb.textContent='Сначала заполни ответ.';fb.hidden=false;return;}
-        ensureFio(function(fio){if(!fio)return;LS.set('luchi_sent_2q'+q,true);setSent(2,true);setDone(2,true);markSent(btn);btn.classList.add('zapped');if(stage)stage.classList.add('go');
-          fb.className='p3-fb good';fb.textContent='Отправляю…';fb.hidden=false;
-          sendRecord({fio:fio,urok:2,vopros:VOP2[q],otvet:ans},function(s){fb.textContent=s==='sent'?'Отправлено руководителю ✓':'Сохранено, отправлю при сети.';});});
+    var mb=R('#mrlSend');
+    if(mb){
+      if(isSent(2)){markSent(mb);RA('.staff-stage').forEach(function(s){s.classList.add('go')});}
+      mb.addEventListener('click',function(){
+        var a1=(R('#q1ans')&&R('#q1ans').value.trim())||'',a2=(R('#q2ans')&&R('#q2ans').value.trim())||'',a3=(R('#q3ans')&&R('#q3ans').value.trim())||'',fb=R('#mrlFb');
+        if(!a1||!a2||!a3){if(fb){fb.className='p3-fb';fb.textContent='Заполни все три ответа перед отправкой.';fb.hidden=false;}return;}
+        var combined='1) '+VOP2[1]+'\nОтвет: '+a1+'\n\n2) '+VOP2[2]+'\nОтвет: '+a2+'\n\n3) '+VOP2[3]+'\nОтвет: '+a3;
+        ensureFio(function(fio){if(!fio)return;setAns(2,combined);setSent(2,true);setDone(2,true);markSent(mb);RA('.staff-stage').forEach(function(s){s.classList.add('go')});
+          if(fb){fb.className='p3-fb good';fb.textContent='Отправляю…';fb.hidden=false;}
+          sendRecord({fio:fio,urok:2,vopros:'Урок 2 · Отчёт капитана (3 задания)',otvet:combined},function(s){if(fb)fb.textContent=s==='sent'?'Отчёт отправлен руководителю ✓':'Сохранено, отправлю при сети.';});});
       });
-    });
+    }
   }else if(p.type==='gate'){
     R('#gBtn').addEventListener('click',function(){var v=R('#gIn').value.trim(),fb=R('#gFb'),sw=R('#gSword');
       if(v.length>0){sw.classList.add('free');fb.textContent='Записал. Обсуди свою причину с коучем на сборе.';}
@@ -1327,7 +1670,7 @@ var fioOv=document.getElementById('fioOv'),fioInput=document.getElementById('fio
 function openFioModal(cb,forced){fioForced=!!forced;fioCb=cb;fioInput.value=getFio();fioErr.textContent='';document.getElementById('fioCancel').style.display=forced?'none':'';fioOv.classList.add('open');document.body.classList.add('ov-open');requestAnimationFrame(function(){fioInput.focus();});}
 function closeFioModal(){fioOv.classList.remove('open');if(!hubOv.classList.contains('open'))document.body.classList.remove('ov-open');}
 function ensureFio(cb){var f=getFio();if(f)return cb(f);openFioModal(cb);}
-document.getElementById('fioSave').addEventListener('click',function(){var v=fioInput.value.trim();if(!v){fioErr.textContent='Впиши имя и фамилию';return;}LS.set('luchi_fio',v);fioForced=false;closeFioModal();if(hubOv.classList.contains('open'))renderBackpack();var c=fioCb;fioCb=null;if(c)c(v);});
+document.getElementById('fioSave').addEventListener('click',function(){var v=fioInput.value.trim();if(!v){fioErr.textContent='Впиши имя и фамилию';return;}LS.set('luchi_fio',v);fioForced=false;closeFioModal();loadReviews();if(hubOv.classList.contains('open'))renderBackpack();var c=fioCb;fioCb=null;if(c)c(v);});
 document.getElementById('fioCancel').addEventListener('click',function(){if(fioForced)return;closeFioModal();var c=fioCb;fioCb=null;if(c)c(null);});
 fioInput.addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('fioSave').click();});
 
@@ -1335,7 +1678,7 @@ fioInput.addEventListener('keydown',function(e){if(e.key==='Enter')document.getE
 var passOv=document.getElementById('passOv'),passInput=document.getElementById('passInput'),passErr=document.getElementById('passErr'),passTitle=document.getElementById('passTitle'),passIdx=-1,passLastFocus=null;
 function openPass(i){passIdx=i;passTitle.textContent='Урок '+L[i].n+' · '+L[i].title;passInput.value='';passErr.textContent='';passLastFocus=document.activeElement;passOv.classList.add('open');document.body.classList.add('ov-open');requestAnimationFrame(function(){passInput.focus();});}
 function closePass(){passOv.classList.remove('open');if(!hubOv.classList.contains('open'))document.body.classList.remove('ov-open');if(passLastFocus&&passLastFocus.focus)passLastFocus.focus();}
-function trySubmitPass(){var v=passInput.value.trim();if(v===L[passIdx].pass){setOpen(L[passIdx].n);var idx=passIdx;closePass();renderAlbum();openLesson(idx);}else{passErr.textContent='Пароль не подошёл. Попробуй ещё раз.';}}
+function trySubmitPass(){var v=passInput.value.trim();if(v&&passHash(v)===L[passIdx].passh){setOpen(L[passIdx].n);var idx=passIdx;closePass();renderAlbum();openLesson(idx);}else{passErr.textContent='Пароль не подошёл. Попробуй ещё раз.';}}
 document.getElementById('passSubmit').addEventListener('click',trySubmitPass);
 document.getElementById('passCancel').addEventListener('click',closePass);
 passInput.addEventListener('keydown',function(e){if(e.key==='Enter')trySubmitPass();});
@@ -1370,8 +1713,11 @@ finalCard.addEventListener('click',function(e){if(e.target.closest('#finalHw'))o
 document.getElementById('hwOpen').addEventListener('click',openHub);
 
 /* тема урока */
-function applyTheme(){var light=getTheme()==='light';lesson.classList.toggle('light',light);var tb=document.getElementById('themeBtn');if(tb)tb.textContent=light?'☾':'☀';}
-document.getElementById('themeBtn').addEventListener('click',function(){setTheme(getTheme()==='light'?'dark':'light');applyTheme();});
+function applyTheme(){var light=getTheme()==='light';document.body.classList.toggle('light',light);lesson.classList.toggle('light',light);['themeBtn','themeBtnMain'].forEach(function(id){var tb=document.getElementById(id);if(tb)tb.textContent=light?'☾':'☀';});}
+function toggleTheme(){setTheme(getTheme()==='light'?'dark':'light');applyTheme();}
+document.getElementById('themeBtn').addEventListener('click',toggleTheme);
+var _tbMain=document.getElementById('themeBtnMain');if(_tbMain)_tbMain.addEventListener('click',toggleTheme);
+applyTheme();
 
 /* письмо-проверка */
 var letterOv=document.getElementById('letterOv'),letterLastFocus=null;
