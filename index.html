@@ -795,6 +795,427 @@ body.light .hw-item .p3-input{background:var(--white);color:var(--ink);border-co
 .soon-p{font-size:17px;line-height:1.6;color:var(--sand);max-width:44ch;margin:0 auto}
 .lesson.light .soon-p{color:var(--teal)}
 
+/* --- урок 5 · светлая тема: доводка контраста --- */
+.lesson.light .u5 .agenda,.lesson.light .u5 .crit,.lesson.light .u5 .card-s,.lesson.light .u5 .card-t,
+.lesson.light .u5 .verdict,.lesson.light .u5 .rt-verdict,.lesson.light .u5 .qstep,
+.lesson.light .u5 .tm,.lesson.light .u5 .faded,.lesson.light .u5 .ratio,
+.lesson.light .u5 .quest-steps,.lesson.light .u5 .spacing{background:var(--white);border-color:rgba(2,32,40,.14)}
+.lesson.light .u5 .agenda,.lesson.light .u5 .agenda p,.lesson.light .u5 .agenda li,
+.lesson.light .u5 .agenda span,.lesson.light .u5 .agenda .tm,.lesson.light .u5 .agenda div,
+.lesson.light .u5 .crit,.lesson.light .u5 .crit li,.lesson.light .u5 .crit p,
+.lesson.light .u5 .card-s,.lesson.light .u5 .card-t,.lesson.light .u5 .card-s p,.lesson.light .u5 .card-t p,
+.lesson.light .u5 .qstep,.lesson.light .u5 .qstep p,.lesson.light .u5 .verdict,
+.lesson.light .u5 .rt-verdict,.lesson.light .u5 .sp-panel p{color:var(--ink)}
+.lesson.light .u5 .agenda h3,.lesson.light .u5 .crit h3,.lesson.light .u5 .agenda b,
+.lesson.light .u5 .qstep h4,.lesson.light .u5 .qstep .sub,.lesson.light .u5 .card-s b,
+.lesson.light .u5 .card-t b,.lesson.light .u5 .verdict b,.lesson.light .u5 .sp-panel .d{color:var(--teal)}
+/* ====== УРОК 5 · Оруженосец ====== */
+.u5 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gap)}
+.u5 h1,.u5 h2,.u5 h3,.u5 .display{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:0;line-height:.9}
+.u5 a{color:inherit}
+.u5 img,.u5 svg{max-width:100%}
+.u5 button{font:inherit;cursor:pointer}
+.u5 .section-label{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.16em;
+  font-size:13px;display:flex;gap:11px;align-items:center;margin-bottom:18px}
+.u5 .section-label::before{content:"";width:26px;height:2px;background:currentColor;flex:none}
+.u5 .readbar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--ice);z-index:80;transition:width .1s linear}
+.u5 .topbar{position:sticky;top:0;z-index:60;background:var(--coral);border-bottom:1px solid rgba(2,32,40,.18)}
+.u5 .topbar .row{display:flex;align-items:center;justify-content:space-between;height:60px;gap:14px}
+.u5 .brand{font-family:var(--font-display);font-weight:900;font-size:22px;letter-spacing:.02em;
+  color:var(--sand);text-decoration:none;display:flex;align-items:center;gap:9px}
+.u5 .brand .ray{width:20px;height:20px;color:var(--sand)}
+.u5 .crumbs{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;
+  font-size:12px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.u5 .crumbs .sep{color:var(--white)}
+.u5 .actnav{position:sticky;top:60px;z-index:55;background:rgba(2,32,40,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.08)}
+.u5 .actnav .row{display:flex;gap:8px;padding:10px 0;overflow-x:auto;scrollbar-width:none}
+.u5 .actnav .row::-webkit-scrollbar{display:none}
+.u5 .actlink{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;
+  font-size:12px;line-height:1;color:var(--white);text-decoration:none;border:1.5px solid rgba(255,255,255,.25);
+  border-radius:var(--pill);padding:9px 14px;white-space:nowrap;transition:.2s}
+.u5 .actlink:hover{border-color:var(--ice);color:var(--ice)}
+.u5 .actlink.is-here{background:var(--coral);border-color:var(--coral);color:var(--white)}
+.u5 .actlink b{font-weight:900;margin-right:6px;color:var(--ice)}
+.u5 .actlink.is-here b{color:var(--sand)}
+.u5 .hero{background:var(--coral);color:var(--sand);padding:clamp(48px,8vw,96px) 0 clamp(44px,7vw,84px);position:relative;overflow:hidden}
+.u5 .hero .bigray{position:absolute;right:-120px;top:-120px;width:480px;height:480px;color:var(--ink);opacity:.08;
+  animation:spin 90s linear infinite}
+.u5 .hero .kicker{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.2em;
+  font-size:13px;margin-bottom:16px;color:var(--ink)}
+.u5 .hero h1{font-size:clamp(44px,8.6vw,104px);color:var(--sand);overflow-wrap:break-word}
+.u5 .hero .lede{max-width:640px;margin-top:22px;font-size:clamp(16px,1.6vw,19px);color:var(--ink)}
+.u5 .hero .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.u5 .chip{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;
+  font-size:12px;line-height:1;padding:9px 13px;border-radius:var(--pill);border:1.5px solid currentColor;color:var(--ink)}
+.u5 .chip.solid{background:var(--ink);border-color:var(--ink);color:var(--sand)}
+.u5 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,60px);align-items:center}
+@media(max-width:880px){.u5 .hero-grid{grid-template-columns:1fr;justify-items:start}}
+.u5 .stamp{--punch:var(--coral);display:block;width:min(340px,100%);transform:rotate(1.6deg);transition:transform .25s}
+.u5 .stamp:hover{transform:translateY(-7px) rotate(0)}
+.u5 .paper{position:relative;padding:13px;border-radius:3px;box-shadow:0 14px 30px rgba(2,32,40,.35);
+  background:
+    radial-gradient(circle 5px at 9px 0,var(--punch) 4.6px,rgba(0,0,0,0) 5.4px) 0 0/18px 50% repeat-x,
+    radial-gradient(circle 5px at 9px 100%,var(--punch) 4.6px,rgba(0,0,0,0) 5.4px) 0 100%/18px 50% repeat-x,
+    radial-gradient(circle 5px at 0 9px,var(--punch) 4.6px,rgba(0,0,0,0) 5.4px) 0 0/50% 18px repeat-y,
+    radial-gradient(circle 5px at 100% 9px,var(--punch) 4.6px,rgba(0,0,0,0) 5.4px) 100% 0/50% 18px repeat-y,
+    var(--white)}
+.u5 .inner{border:1px solid rgba(2,32,40,.28);border-radius:2px;padding:14px;color:var(--ink)}
+.u5 .s-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px}
+.u5 .s-country{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.06em;font-size:12px;line-height:1}
+.u5 .s-value{font-family:var(--font-display);font-weight:900;font-size:26px;line-height:.8;color:var(--coral)}
+.u5 .art{position:relative;aspect-ratio:1/.82;border-radius:2px;overflow:hidden;background:var(--sand);display:flex;align-items:center;justify-content:center}
+.u5 .art svg.emblem{width:84%;height:84%;display:block}
+.u5 .postmark{position:absolute;right:7px;bottom:7px;width:40px;height:40px;opacity:.45;transform:rotate(-13deg);mix-blend-mode:multiply}
+.u5 .postmark svg{width:100%;height:100%}
+.u5 .s-cap{margin-top:12px}
+.u5 .s-tema{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:11px;color:var(--teal);line-height:1.2}
+.u5 .s-title{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:24px;line-height:.92;margin-top:5px}
+.u5 .s-meta{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px 9px;align-items:center}
+.u5 .s-toc{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:10px;color:var(--teal)}
+.u5 .s-issuer{margin-top:12px;border-top:1px dashed rgba(2,32,40,.28);padding-top:9px;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.07em;font-size:10px;color:var(--teal);display:flex;justify-content:space-between}
+.u5 .sec{padding:clamp(52px,8vw,104px) 0;position:relative;overflow:hidden}
+.u5 .sec--ink{background:var(--ink);color:var(--white)}
+.u5 .sec--sand{background:var(--sand);color:var(--ink)}
+.u5 .sec--coral{background:var(--coral);color:var(--ink)}
+.u5 .sec h2{font-size:clamp(34px,5.6vw,68px);margin-bottom:18px}
+.u5 .sec h3{font-size:clamp(21px,2.6vw,30px);margin:0 0 14px}
+.u5 .sec--ink .section-label{color:var(--ice)}
+.u5 .sec--sand .section-label{color:var(--teal)}
+.u5 .sec--coral .section-label{color:var(--ink)}
+.u5 .lede{font-size:clamp(16px,1.55vw,19px);max-width:700px}
+.u5 .cols2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px)}
+.u5 .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
+@media(max-width:860px){.u5 .cols2,.u5 .cols3{grid-template-columns:1fr}}
+.u5 .sec--ink b,.u5 .sec--ink strong{color:var(--ice);font-weight:500}
+.u5 .sec--sand b,.u5 .sec--sand strong{color:var(--teal);font-weight:500}
+.u5 .note{font-family:var(--font-display);font-weight:300;font-size:12.5px;margin-top:12px;opacity:.7}
+.u5 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.u5 .reveal.on{opacity:1;transform:none}
+.u5 .reveal.d1{transition-delay:.12s}
+.u5 .reveal.d2{transition-delay:.24s}
+.u5 .reveal.d3{transition-delay:.36s}
+@media(prefers-reduced-motion:reduce){.u5 .reveal{opacity:1;transform:none;transition:none}
+.u5 .hero .bigray{animation:none}}
+.u5 .legend-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(26px,4vw,56px);align-items:start}
+@media(max-width:920px){.u5 .legend-grid{grid-template-columns:1fr}}
+.u5 .legend p{margin-bottom:1.15em;font-size:clamp(15.5px,1.5vw,18px)}
+.u5 .legend p:first-of-type::first-letter{font-family:var(--font-display);font-weight:900;font-size:3.1em;
+  float:left;line-height:.78;margin:.06em .12em 0 0;color:var(--coral)}
+.u5 .legend .mark{background:rgba(113,215,255,.14);color:var(--ice);padding:.05em .25em;border-radius:4px}
+.u5 .oath{background:rgba(239,235,204,.06);border:1px solid rgba(239,235,204,.18);border-radius:var(--radius);
+  padding:22px 24px;margin-top:8px}
+.u5 .oath .t{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:15px;
+  letter-spacing:.06em;color:var(--coral);display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.u5 .oath p{margin:0;color:var(--sand);font-size:15.5px}
+.u5 .shieldfig{position:sticky;top:130px}
+@media(max-width:920px){.u5 .shieldfig{position:static}}
+.u5 .shieldfig figcaption{font-family:var(--font-display);font-weight:500;text-transform:uppercase;
+  letter-spacing:.08em;font-size:12px;color:var(--ice);text-align:center;margin-top:14px}
+.u5 .ring-spin{animation:spin 150s linear infinite;transform-origin:210px 210px}
+.u5 .draw{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 3.4s ease forwards .3s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.u5 .pulse{animation:pulse 3.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:.85}}
+@media(prefers-reduced-motion:reduce){.u5 .ring-spin,.u5 .draw,.u5 .pulse,.u5 .dash-anim{animation:none;stroke-dashoffset:0}}
+.u5 .legend-bridge{margin-top:clamp(30px,4vw,50px);background:var(--coral);color:var(--ink);border-radius:var(--radius);
+  padding:clamp(20px,3vw,32px);display:flex;gap:18px;align-items:flex-start}
+.u5 .legend-bridge .ray{width:34px;height:34px;flex:none;color:var(--ink);margin-top:2px}
+.u5 .legend-bridge p{font-size:clamp(15.5px,1.5vw,18px);font-weight:500}
+.u5 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px);margin-top:26px}
+@media(max-width:860px){.u5 .facts{grid-template-columns:1fr}}
+.u5 .fact{background:var(--white);border-radius:var(--radius);padding:22px 22px 20px}
+.u5 .fact .bignum{font-family:var(--font-display);font-weight:900;line-height:.82;font-size:clamp(46px,6vw,76px);display:block}
+.u5 .fact:nth-child(odd) .bignum{color:var(--teal)}
+.u5 .fact:nth-child(even) .bignum{color:var(--coral)}
+.u5 .fact .cap{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;
+  font-size:12.5px;color:var(--ink);margin-top:10px}
+.u5 .fact .note{font-size:13.5px;color:rgba(2,32,40,.75);margin-top:6px;line-height:1.45;font-family:var(--font-body);opacity:1}
+.u5 .card-w{background:var(--white);color:var(--ink);border-radius:var(--radius);padding:clamp(20px,3vw,32px);margin-top:26px}
+.u5 .card-t{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:19px;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.u5 .card-t .ray{width:20px;height:20px;color:var(--coral);flex:none}
+.u5 .card-s{font-size:14px;color:rgba(2,32,40,.7);margin-bottom:18px}
+.u5 .gs-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;background:var(--sand);
+  border-radius:12px;padding:13px 15px;margin-bottom:10px;border:2px solid transparent;transition:.2s}
+@media(max-width:640px){.u5 .gs-row{grid-template-columns:1fr}}
+.u5 .gs-row .txt{font-size:14.5px;color:var(--ink)}
+.u5 .gs-btns{display:flex;gap:7px;flex:none}
+.u5 .gs-btns button{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;
+  font-size:11.5px;padding:9px 13px;border-radius:var(--pill);border:1.5px solid rgba(2,32,40,.3);
+  background:transparent;color:var(--ink);transition:.15s;white-space:nowrap}
+.u5 .gs-btns button:hover{border-color:var(--ink)}
+.u5 .gs-btns button.on{background:var(--ink);border-color:var(--ink);color:var(--sand)}
+.u5 .gs-row.right{border-color:var(--teal);background:rgba(2,107,131,.09)}
+.u5 .gs-row.wrong{border-color:var(--coral);background:rgba(255,115,119,.12)}
+.u5 .gs-row .why{grid-column:1/-1;display:none;font-size:13px;color:rgba(2,32,40,.75);border-top:1px dashed rgba(2,32,40,.2);padding-top:9px;margin-top:2px}
+.u5 .gs-row.done .why{display:block;animation:fadein .3s ease}
+.u5 .gs-row.done .gs-btns button{pointer-events:none;opacity:.55}
+.u5 .gs-row.done .gs-btns button.on{opacity:1}
+.u5 .actbtn{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.03em;font-size:14px;
+  background:var(--coral);color:var(--white);border:2px solid var(--coral);border-radius:var(--pill);
+  padding:12px 24px;margin-top:14px;transition:.2s}
+.u5 .actbtn:hover{background:var(--ink);border-color:var(--ink);color:var(--sand)}
+.u5 .actbtn:disabled{opacity:.4;pointer-events:none}
+.u5 .ghostbtn{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:12.5px;
+  background:transparent;border:1.5px solid rgba(2,32,40,.35);color:var(--ink);border-radius:var(--pill);padding:9px 16px;margin:12px 0 0 8px;transition:.2s}
+.u5 .ghostbtn:hover{border-color:var(--ink)}
+.u5 .verdict{margin-top:16px;border-radius:12px;padding:14px 16px;font-size:14.5px;display:none}
+.u5 .verdict.on{display:block;animation:fadein .35s ease}
+.u5 .verdict.good{background:var(--teal);color:var(--white)}
+.u5 .verdict.mid{background:var(--sand);color:var(--ink);border:1px solid rgba(2,32,40,.2)}
+.u5 .verdict.bad{background:var(--coral);color:var(--white)}
+.u5 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,22px);margin-top:26px}
+@media(max-width:860px){.u5 .pillars{grid-template-columns:1fr}}
+.u5 .pillar{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:24px 22px}
+.u5 .pillar .ic{width:58px;height:58px;border-radius:50%;background:var(--coral);display:grid;place-items:center;margin-bottom:14px}
+.u5 .pillar .ic svg{width:50%;height:50%;stroke:var(--white);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.u5 .pillar h4{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:19px;color:var(--ice);margin-bottom:8px}
+.u5 .pillar p{font-size:14px;color:rgba(255,255,255,.85)}
+.u5 .pillar .src{display:block;margin-top:12px;font-family:var(--font-display);font-weight:500;text-transform:uppercase;
+  letter-spacing:.07em;font-size:10.5px;color:var(--sand);opacity:.75}
+.u5 .faded{background:var(--white);color:var(--ink);border-radius:var(--radius);padding:clamp(20px,3vw,32px);margin-top:26px}
+.u5 .modes{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 20px}
+.u5 .mode{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:12.5px;
+  padding:11px 17px;border-radius:var(--pill);border:1.5px solid rgba(2,32,40,.28);background:transparent;color:var(--ink);transition:.2s}
+.u5 .mode:hover{border-color:var(--ink)}
+.u5 .mode.on{background:var(--coral);border-color:var(--coral);color:var(--white)}
+.u5 .fd-hint{background:var(--sand);border-radius:12px;padding:13px 16px;font-size:14px;color:var(--ink);margin-bottom:18px;transition:.2s}
+.u5 .fd-steps{display:grid;gap:10px;counter-reset:fd}
+.u5 .fd-step{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;padding:13px 15px;border-radius:12px;
+  background:rgba(2,32,40,.05);transition:.35s}
+.u5 .fd-step .n{counter-increment:fd;font-family:var(--font-display);font-weight:900;font-size:19px;line-height:1.2;color:var(--teal)}
+.u5 .fd-step .n::before{content:counter(fd)}
+.u5 .fd-step .say{font-size:14.5px;color:var(--ink)}
+.u5 .fd-step .think{display:block;font-size:13px;color:rgba(2,32,40,.62);font-style:italic;margin-top:5px}
+.u5 .fd-step.hidden .say,.u5 .fd-step.hidden .think{visibility:hidden}
+.u5 .fd-step.hidden{position:relative;background:rgba(2,32,40,.03);border:2px dashed rgba(2,32,40,.22);min-height:56px}
+.u5 .fd-step.hidden::after{content:attr(data-blank);position:absolute;left:62px;top:50%;transform:translateY(-50%);
+  font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--coral)}
+.u5 .fd-step.dim{opacity:.45}
+.u5 .fd-step.pair{background:rgba(255,115,119,.1);border:2px solid var(--coral)}
+.u5 .fd-step.pair .say::after{content:"разбираем вместе — сложный шаг";display:block;margin-top:9px;
+  font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--coral)}
+.u5 .load{background:var(--white);color:var(--ink);border-radius:var(--radius);padding:clamp(20px,3vw,32px);margin-top:26px}
+.u5 .load-chips{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 22px}
+.u5 .lchip{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:12px;
+  padding:10px 15px;border-radius:var(--pill);border:1.5px solid rgba(2,32,40,.28);background:transparent;color:var(--ink);transition:.18s}
+.u5 .lchip:hover{border-color:var(--sky)}
+.u5 .lchip.on{background:var(--teal);border-color:var(--teal);color:var(--white)}
+.u5 .lchip.on.over{background:var(--coral);border-color:var(--coral)}
+.u5 .load-meter{display:flex;align-items:center;gap:14px}
+.u5 .load-meter .track{display:block;flex:1;height:16px;border-radius:var(--pill);background:rgba(2,32,40,.1);overflow:hidden}
+.u5 .load-meter .fill{display:block;height:100%;width:0;background:var(--teal);border-radius:var(--pill);transition:width .3s ease,background .3s ease}
+.u5 .load-meter .cnt{font-family:var(--font-display);font-weight:900;font-size:22px;min-width:52px;text-align:right;color:var(--ink)}
+.u5 .load-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--font-display);
+  font-weight:500;text-transform:uppercase;letter-spacing:.07em;font-size:11.5px;color:rgba(2,32,40,.6);margin-bottom:8px}
+.u5 .ratio{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);
+  padding:clamp(20px,3vw,32px);margin-top:26px}
+.u5 .ratio .bars{display:flex;flex-direction:column;gap:13px;margin:18px 0 6px}
+.u5 .rt-row{display:grid;grid-template-columns:104px 1fr 56px;gap:12px;align-items:center}
+@media(max-width:560px){.u5 .rt-row{grid-template-columns:80px 1fr 46px}}
+.u5 .rt-row .who{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:12px}
+.u5 .rt-track{height:26px;border-radius:var(--pill);background:rgba(255,255,255,.1);overflow:hidden}
+.u5 .rt-fill{height:100%;border-radius:var(--pill);transition:width .25s ease}
+.u5 .rt-fill--th{background:var(--coral)}
+.u5 .rt-fill--pr{background:var(--ice)}
+.u5 .rt-row .pct{font-family:var(--font-display);font-weight:900;font-size:20px;text-align:right}
+.u5 .ratio input[type=range]{width:100%;margin:18px 0 4px;accent-color:var(--coral)}
+.u5 .rt-verdict{margin-top:14px;border-radius:12px;padding:14px 16px;font-size:15px;transition:.25s;
+  background:rgba(113,215,255,.12);color:var(--ice)}
+.u5 .rt-verdict.warn{background:rgba(239,235,204,.12);color:var(--sand)}
+.u5 .rt-verdict.bad{background:rgba(255,115,119,.14);color:var(--coral)}
+.u5 .chartbox{background:var(--white);color:var(--ink);border-radius:var(--radius);padding:clamp(18px,2.6vw,28px);margin-top:24px}
+.u5 .chartbox .ct{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:17px;color:var(--ink);margin-bottom:4px}
+.u5 .chartbox .cs{font-size:13.5px;color:rgba(2,32,40,.7);margin-bottom:18px}
+.u5 .hbars{display:grid;gap:16px;margin-top:18px}
+.u5 .hbar .hl{display:flex;justify-content:space-between;align-items:baseline;font-size:14.5px;margin-bottom:6px;gap:12px}
+.u5 .hbar .hl b{font-family:var(--font-display);font-weight:900;font-size:20px;color:var(--ink)}
+.u5 .hbar .track{display:block;width:100%;height:22px;border-radius:var(--pill);background:rgba(2,32,40,.08);overflow:hidden}
+.u5 .hbar .fill{display:block;height:100%;width:0;border-radius:var(--pill);transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.u5 .chart-src{margin-top:14px;font-family:var(--font-display);font-weight:300;font-size:12px;color:rgba(2,32,40,.6)}
+.u5 .spacing{background:var(--white);color:var(--ink);border-radius:var(--radius);padding:clamp(20px,3vw,32px);margin-top:26px}
+.u5 .sp-dot{cursor:pointer}
+.u5 .sp-dot circle.hit{transition:r .2s,fill .2s}
+.u5 .sp-dot.on circle.hit{fill:var(--coral)}
+.u5 .sp-dot text{font-family:var(--font-display);font-weight:900;font-size:15px;fill:var(--ink)}
+.u5 .sp-dot.on text{fill:var(--coral)}
+.u5 .sp-panel{margin-top:14px;background:var(--sand);border-radius:12px;padding:16px 18px;min-height:96px}
+.u5 .sp-panel .d{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:16px;color:var(--teal);margin-bottom:6px}
+.u5 .sp-panel p{font-size:14.5px;color:var(--ink)}
+.u5 .sp-panel .q{display:block;margin-top:8px;font-style:italic;color:rgba(2,32,40,.72);font-size:14px}
+.u5 .agenda{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:var(--white);
+  border-radius:var(--radius);padding:clamp(20px,3vw,32px)}
+.u5 .agenda ol{list-style:none;counter-reset:ag;display:grid;gap:12px;margin-top:6px}
+.u5 .agenda ol li{display:flex;gap:14px;align-items:flex-start;font-size:15px}
+.u5 .agenda ol li::before{counter-increment:ag;content:counter(ag);font-family:var(--font-display);font-weight:900;
+  font-size:20px;line-height:1;color:var(--coral);min-width:24px;padding-top:2px}
+.u5 .agenda ol li b{color:var(--ice);font-weight:500}
+.u5 .agenda .tm{font-family:var(--font-display);font-weight:500;font-size:12px;color:var(--sand);opacity:.8;display:block}
+.u5 .copybtn{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.03em;font-size:14px;
+  background:var(--coral);color:var(--white);border:2px solid var(--coral);border-radius:var(--pill);
+  padding:11px 20px;margin-top:18px;transition:.2s}
+.u5 .copybtn:hover{background:var(--white);color:var(--coral)}
+.u5 .copybtn.ok{background:var(--teal);border-color:var(--teal);color:var(--white)}
+.u5 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 0}
+.u5 .tab{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;
+  font-size:13px;line-height:1;padding:11px 18px;border-radius:var(--pill);border:1.5px solid rgba(2,32,40,.3);
+  background:transparent;color:var(--ink);transition:.2s}
+.u5 .tab:hover{border-color:var(--ink)}
+.u5 .tab.is-on{background:var(--ink);border-color:var(--ink);color:var(--sand)}
+.u5 .tabpanes{margin-top:22px}
+.u5 .tabpane{display:none}
+.u5 .tabpane.is-on{display:block;animation:fadein .4s ease}
+.u5 .co-card{background:var(--white);border-radius:var(--radius);padding:clamp(20px,3vw,32px)}
+.u5 .co-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.u5 .co-name{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:26px;color:var(--teal)}
+.u5 .co-what{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.07em;font-size:11.5px;color:var(--coral)}
+.u5 .co-list{list-style:none;display:grid;gap:10px}
+.u5 .co-list li{display:flex;gap:10px;font-size:15px;color:var(--ink)}
+.u5 .co-list .ray{width:15px;height:15px;flex:none;margin-top:4px;color:var(--coral)}
+.u5 .co-quote{margin-top:16px;border-left:3px solid var(--coral);padding:4px 0 4px 14px;font-size:14.5px;color:rgba(2,32,40,.8)}
+.u5 .co-src{margin-top:14px;font-family:var(--font-display);font-weight:300;font-size:11.5px;color:rgba(2,32,40,.6)}
+.u5 .ladder{display:grid;gap:10px;margin-top:26px}
+.u5 .lstep{display:grid;grid-template-columns:58px 1fr;gap:16px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:18px 20px;cursor:pointer;transition:.25s}
+.u5 .lstep:hover{border-color:var(--ice)}
+.u5 .lstep:nth-child(2){margin-left:26px}
+.u5 .lstep:nth-child(3){margin-left:52px}
+.u5 .lstep:nth-child(4){margin-left:78px}
+@media(max-width:760px){.u5 .lstep:nth-child(2),.u5 .lstep:nth-child(3),.u5 .lstep:nth-child(4){margin-left:0}}
+.u5 .lstep .lv{font-family:var(--font-display);font-weight:900;font-size:clamp(32px,4vw,44px);line-height:.8;color:var(--coral)}
+.u5 .lstep h4{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:18px;color:var(--white);margin-bottom:4px}
+.u5 .lstep .sub{font-size:13.5px;color:rgba(255,255,255,.7)}
+.u5 .lstep .body{max-height:0;overflow:hidden;opacity:0;transition:.35s}
+.u5 .lstep.is-open .body{max-height:260px;opacity:1;margin-top:10px}
+.u5 .lstep .body p{font-size:14.5px;color:var(--sand)}
+.u5 .lstep .body .tool{display:block;margin-top:8px;font-size:13.5px;color:var(--ice)}
+.u5 .lstep .tap{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.08em;
+  font-size:10px;color:rgba(255,255,255,.55);margin-top:8px}
+.u5 .flips{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.8vw,20px);margin-top:26px}
+@media(max-width:920px){.u5 .flips{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.u5 .flips{grid-template-columns:1fr}}
+.u5 .flip{perspective:1000px;height:250px;cursor:pointer}
+.u5 .flip__in{position:relative;width:100%;height:100%;transition:transform .55s;transform-style:preserve-3d}
+.u5 .flip.is-open .flip__in{transform:rotateY(180deg)}
+.u5 .flip__f,.u5 .flip__b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);padding:20px}
+.u5 .flip__f{background:var(--coral);color:var(--white);display:flex;flex-direction:column;justify-content:space-between}
+.u5 .flip__f .cat{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:21px;line-height:.95}
+.u5 .flip__f .look{font-size:13.5px;margin-top:10px;color:var(--sand)}
+.u5 .flip__f .hint{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.07em;font-size:11px;opacity:.85}
+.u5 .flip__f .ray{width:24px;height:24px;color:var(--sand)}
+.u5 .flip__b{background:var(--white);color:var(--ink);transform:rotateY(180deg);overflow:auto}
+.u5 .flip__b .fx{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:13px;color:var(--teal);margin-bottom:6px}
+.u5 .flip__b p{font-size:13.5px;line-height:1.5;margin-bottom:10px}
+.u5 .flip__b .sig{border-top:1px dashed rgba(2,32,40,.25);padding-top:9px;font-size:13px;color:rgba(2,32,40,.75)}
+.u5 .exam{background:var(--white);color:var(--ink);border-radius:var(--radius);padding:clamp(22px,3.4vw,38px);margin-top:26px}
+.u5 .exam .q-prog{display:flex;gap:6px;margin-bottom:20px}
+.u5 .exam .q-prog i{flex:1;height:6px;border-radius:var(--pill);background:rgba(2,32,40,.12);transition:.3s}
+.u5 .exam .q-prog i.done{background:var(--teal)}
+.u5 .exam .q-prog i.cur{background:var(--coral)}
+.u5 .exam .qn{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.09em;font-size:12px;color:var(--coral);margin-bottom:8px}
+.u5 .exam .qt{font-size:clamp(17px,2vw,21px);font-weight:500;margin-bottom:18px;line-height:1.4}
+.u5 .opt{display:block;width:100%;text-align:left;background:var(--sand);color:var(--ink);border:2px solid transparent;
+  border-radius:12px;padding:14px 18px;margin-bottom:10px;font-size:15px;transition:.15s}
+.u5 .opt:hover{border-color:var(--sky)}
+.u5 .opt.is-correct{background:var(--teal);color:var(--white);border-color:var(--teal)}
+.u5 .opt.is-wrong{background:var(--coral);color:var(--white);border-color:var(--coral)}
+.u5 .opt:disabled{cursor:default}
+.u5 .exam .expl{display:none;border-left:3px solid var(--teal);padding:6px 0 6px 14px;font-size:14px;color:rgba(2,32,40,.8);margin:6px 0 14px}
+.u5 .exam .expl.on{display:block;animation:fadein .3s ease}
+.u5 .exam .nextq{display:none;font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:14px;
+  background:var(--ink);color:var(--sand);border:2px solid var(--ink);border-radius:var(--pill);padding:11px 22px;transition:.2s}
+.u5 .exam .nextq.on{display:inline-block}
+.u5 .exam .nextq:hover{background:var(--coral);border-color:var(--coral);color:var(--white)}
+.u5 .exam-final{display:none;text-align:center;padding:14px 0 6px}
+.u5 .exam-final.on{display:block;animation:fadein .5s ease}
+.u5 .exam-final .bignum{font-family:var(--font-display);font-weight:900;font-size:clamp(60px,9vw,110px);line-height:.8;color:var(--teal)}
+.u5 .exam-final p{margin-top:12px;font-size:16px}
+.u5 .exam-final .ray{width:34px;height:34px;color:var(--coral);margin:0 auto 10px}
+.u5 .quest-steps{counter-reset:qs;display:grid;gap:14px;margin-top:26px}
+.u5 .qstep{display:grid;grid-template-columns:64px 1fr;gap:18px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:20px 22px}
+@media(max-width:600px){.u5 .qstep{grid-template-columns:44px 1fr}}
+.u5 .qstep .qn{counter-increment:qs;font-family:var(--font-display);font-weight:900;font-size:clamp(38px,5vw,54px);line-height:.8;color:var(--coral)}
+.u5 .qstep .qn::before{content:counter(qs)}
+.u5 .qstep h4{font-family:var(--font-body);font-weight:500;font-size:17px;color:var(--ice);margin-bottom:6px}
+.u5 .qstep p{font-size:14.5px;color:rgba(255,255,255,.85)}
+.u5 .qstep .sub{margin-top:8px;font-size:13.5px;color:var(--sand)}
+.u5 .bonus{margin-top:26px;background:var(--coral);color:var(--ink);border-radius:var(--radius);
+  padding:clamp(20px,3vw,30px);display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+@media(max-width:600px){.u5 .bonus{grid-template-columns:1fr}}
+.u5 .bonus .ray{width:38px;height:38px;color:var(--ink)}
+.u5 .bonus h4{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:20px;margin-bottom:8px}
+.u5 .bonus p{font-size:15px}
+.u5 .bonus .ways{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media(max-width:700px){.u5 .bonus .ways{grid-template-columns:1fr}}
+.u5 .way{background:var(--white);border-radius:12px;padding:14px 16px}
+.u5 .way b{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:14px;color:var(--teal);display:block;margin-bottom:5px}
+.u5 .way span{font-size:13.5px;color:var(--ink)}
+.u5 .crit{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:clamp(20px,3vw,30px);margin-top:26px}
+.u5 .crit ul{list-style:none;display:grid;gap:10px;margin-top:12px}
+.u5 .crit li{font-size:14.5px;padding-left:17px;position:relative;color:rgba(255,255,255,.88)}
+.u5 .crit li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--ice)}
+.u5 .hwform{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:clamp(20px,3vw,30px)}
+.u5 .hwform label{display:block;font-family:var(--font-display);font-weight:500;text-transform:uppercase;
+  letter-spacing:.08em;font-size:12px;color:var(--ice);margin:16px 0 7px}
+.u5 .hwform input[type=text],.u5 .hwform input[type=url],.u5 .hwform textarea{width:100%;background:rgba(255,255,255,.06);
+  border:1.5px solid rgba(255,255,255,.2);border-radius:12px;color:var(--white);font-family:var(--font-body);
+  font-size:15px;padding:13px 15px;transition:.2s}
+.u5 .hwform input:focus,.u5 .hwform textarea:focus{outline:none;border-color:var(--ice);background:rgba(255,255,255,.09)}
+.u5 .hwform textarea{min-height:190px;resize:vertical;line-height:1.55}
+.u5 .hwform ::placeholder{color:rgba(255,255,255,.35)}
+.u5 .fmt{display:flex;gap:8px;flex-wrap:wrap}
+.u5 .fmt label{margin:0;cursor:pointer}
+.u5 .fmt input{position:absolute;opacity:0;pointer-events:none}
+.u5 .fmt span{display:inline-block;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;
+  font-size:12px;color:var(--white);border:1.5px solid rgba(255,255,255,.25);border-radius:var(--pill);padding:10px 16px;transition:.2s}
+.u5 .fmt label:hover span{border-color:var(--ice)}
+.u5 .fmt input:checked+span{background:var(--coral);border-color:var(--coral);color:var(--white)}
+.u5 .hw-send{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:.03em;font-size:15px;
+  background:var(--coral);color:var(--white);border:2px solid var(--coral);border-radius:var(--pill);
+  padding:13px 26px;margin-top:20px;transition:.2s}
+.u5 .hw-send:hover{background:var(--white);color:var(--coral)}
+.u5 .hw-send:disabled{opacity:.5;pointer-events:none}
+.u5 .hw-status{display:none;margin-top:14px;border-radius:12px;padding:13px 16px;font-size:14.5px}
+.u5 .hw-status.ok{display:block;background:rgba(2,107,131,.45);border:1px solid var(--teal);color:var(--white);animation:fadein .4s ease}
+.u5 .hw-status.err{display:block;background:rgba(255,115,119,.14);border:1px solid var(--coral);color:var(--coral);animation:fadein .4s ease}
+.u5 footer{background:var(--coral);color:var(--ink);padding:34px 0}
+.u5 footer .row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.u5 footer .fbrand{font-family:var(--font-display);font-weight:900;font-size:20px;color:var(--sand);display:flex;align-items:center;gap:8px}
+.u5 footer .fbrand .ray{width:18px;height:18px;color:var(--sand)}
+.u5 footer .slogan{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:12px}
+/* --- урок 5: вписываем полноширинные секции в оверлей --- */
+.u5{margin:0;--u5tx:var(--white);--u5tx2:rgba(255,255,255,.75);--u5acc:var(--ice)}
+.lesson.light .u5{--u5tx:var(--ink);--u5tx2:rgba(2,32,40,.72);--u5acc:var(--teal)}
+.u5 .sec{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding-left:0;padding-right:0}
+.u5 .wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+/* --- форма сдачи урока 5 --- */
+.dz5-lbl{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:12px;color:var(--ice);margin:16px 0 8px}
+.lesson.light .dz5-lbl{color:var(--teal)}
+.dz5-fmt{display:flex;gap:16px;flex-wrap:wrap}
+.dz5-fmt label{display:inline-flex;align-items:center;gap:8px;font-size:15px;color:var(--white);cursor:pointer}
+.lesson.light .dz5-fmt label{color:var(--ink)}
+.dz5-fmt input{accent-color:var(--coral)}
+.dz5 .dz-task{font-size:16px;line-height:1.6;color:var(--white);margin-bottom:6px}
+.lesson.light .dz5 .dz-task{color:var(--ink)}
+.dz5 .btn{margin-top:16px}
+/* --- урок 5: светлая тема --- */
+.lesson.light .u5 .sec--ink{background:var(--sand);color:var(--ink)}
+.lesson.light .u5 .sec--ink h2,.lesson.light .u5 .sec--ink h3,.lesson.light .u5 .sec--ink h4{color:var(--ink)}
+.lesson.light .u5 .sec--ink .section-label{color:var(--teal)}
+.lesson.light .u5 .card,.lesson.light .u5 .fact,.lesson.light .u5 .rule,.lesson.light .u5 .flip__b,
+.lesson.light .u5 .lstep,.lesson.light .u5 .gs-row,.lesson.light .u5 .lchip,.lesson.light .u5 .fd-step,
+.lesson.light .u5 .sp-panel,.lesson.light .u5 .rt-box,.lesson.light .u5 .tabpane,.lesson.light .u5 .exam,
+.lesson.light .u5 .crit,.lesson.light .u5 .frame,.lesson.light .u5 .prompt,.lesson.light .u5 .qbox,
+.lesson.light .u5 .box,.lesson.light .u5 .load-box,.lesson.light .u5 .goal-box{background:var(--white);border-color:rgba(2,32,40,.14);color:var(--ink)}
+.lesson.light .u5 .tab{color:var(--teal);border-color:rgba(2,32,40,.2)}
+.lesson.light .u5 .tab.is-on{background:var(--coral);border-color:var(--coral);color:var(--white)}
+.lesson.light .u5 .opt{background:var(--white);color:var(--ink);border-color:rgba(2,32,40,.16)}
+.lesson.light .u5 .copybtn,.lesson.light .u5 .tab.is-on,.lesson.light .u5 .exam .nextq{color:var(--white)}
+.lesson.light .u5 .sec--ink p,.lesson.light .u5 .sec--ink li,.lesson.light .u5 .sec--ink span,
+.lesson.light .u5 .sec--ink td,.lesson.light .u5 .sec--ink figcaption{color:inherit}
+
+
 /* --- урок 4 · светлая тема: доводка контраста --- */
 .lesson.light .u4 .dim,.lesson.light .u4 .qstep,.lesson.light .u4 .rotafig,
 .lesson.light .u4 .oath,.lesson.light .u4 .tk-verdict,.lesson.light .u4 .legend .mark,
@@ -1312,6 +1733,686 @@ body.light .hw-item .p3-input{background:var(--white);color:var(--ink);border-co
 </section>
 
 <!-- ДЗ-хаб -->
+<template id="tpl-u5">
+<div class="u5">
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="raysym5" viewBox="0 0 32 32">
+    <path d="M17.3614 10.1152L16.9537 1H15.0418L14.6341 10.1152L13.6492 10.4564L7.96936 3.31314L6.40294 4.46971L11.4026 12.0207C12.9411 14.3338 17.4987 13.0077 17.3614 10.1152Z" fill="currentColor"/>
+    <path d="M22.0221 15.4904L30.5258 12.2932L29.9464 10.4564L21.2045 12.9048L20.5608 12.0464L25.5561 4.40105L24.0541 3.31315L18.3742 10.4221C16.7156 12.5314 19.2669 16.544 22.0221 15.4904Z" fill="currentColor"/>
+    <path d="M11.4434 20.0136L6.37727 27.5646L7.94154 28.7212L13.6214 21.5779L14.6406 21.9169L15.0483 31H16.9538L17.3615 21.9169C17.4988 18.9923 13.042 17.5975 11.4434 20.0136Z" fill="currentColor"/>
+    <path d="M10.7975 12.9047L2.02345 10.4564L1.44409 12.2932L9.98212 15.4904L9.94779 16.5439L1.44409 19.7068L2.02345 21.5436L10.8318 19.1296C13.6214 18.3807 13.587 13.6879 10.7975 12.9047Z" fill="currentColor"/>
+    <path d="M18.3829 21.6123L24.0627 28.6934L25.627 27.5368L20.5587 19.9858L21.2024 19.1275L29.9786 21.5415L30.5558 19.7047L22.02 16.5419C19.2669 15.5248 16.5439 19.2949 18.3829 21.6123Z" fill="currentColor"/>
+  </symbol>
+</svg>
+<section class="sec sec--ink" id="u5-legend">
+  <div class="wrap">
+    <p class="section-label u5rev">Акт I · Легенда</p>
+    <h2 class="u5rev">Щит, на котором<br>ещё нет герба</h2>
+    <div class="legend-grid">
+      <div class="legend">
+        <p class="u5rev">За оружейной Камелота был двор, о котором менестрели молчат: там не звенела слава, там семь лет подряд звенело одно и то же упражнение. Мальчишку, которого привозили ко двору, не сажали сразу в седло и не давали меча. Ему давали <span class="mark">чистый щит</span> — гладкое дерево без единой краски — и говорили: этот щит ты носишь, пока не заслужишь, что на нём написать.</p>
+        <p class="u5rev">Учили сразу тремя дорогами, и ни одну не откладывали на потом. Рука: доспех, конь, клинок, узел, костёр под дождём. Голова: законы королевства, счёт припасов, чтение следа, чужой язык, счёт дней до половодья. Сердце: кому помогать первым, когда слово дороже победы, где проходит граница, за которую рыцарь не идёт даже ради выигрыша. Мастера двора знали простую вещь: <span class="mark">сильная рука при пустой голове — это наёмник, а холодное сердце при умелой руке опаснее любого дракона.</span></p>
+        <p class="u5rev">Порядок был скучен и неотменяем. Один час, одно и то же время, малыми шагами. Наставник сперва делал сам и вслух проговаривал каждое движение — даже то, где сомневался. Потом клал свою ладонь поверх чужой и вёл. Потом отходил на шаг и молчал, как бы криво ни выходило. А раз в неделю оруженосец возвращался к тому, что учил месяц назад, — не потому что забыл, а потому что двор знал: умение, к которому не возвращаются, рассыпается тише всего.</p>
+        <p class="u5rev">И был день герба. Краску на щит клали не после первой победы и не по числу прожитых зим. Её клали, когда оруженосец мог поставить рядом младшего и передать ему ремесло так, что тот повторял. Так двор не терял ни одного умения за поколение: <span class="mark">каждый, кто научился, обязан был научить.</span></p>
+        <div class="oath u5rev">
+          <p class="t"><svg class="ray" style="width:18px;height:18px"><use href="#raysym5"/></svg>Устав двора</p>
+          <p>Каждый день понемногу и в одном порядке. Рука, голова и сердце — вместе, не по очереди. Сделай сам вслух, потом веди руку, потом отойди и молчи. Возвращайся к пройденному, пока не перестанет рассыпаться. Герб получает тот, кто научил другого.</p>
+        </div>
+      </div>
+      <figure class="shieldfig u5rev u5d1">
+        <svg viewBox="0 0 420 420" role="img" aria-label="Чистый щит и три круга обучения: рука, голова, сердце">
+          <circle cx="210" cy="210" r="176" fill="none" stroke="var(--sand)" stroke-opacity=".14" stroke-width="1"/>
+          <g class="ring-spin">
+            <circle cx="210" cy="210" r="176" fill="none" stroke="var(--coral)" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="3 12"/>
+          </g>
+          <circle cx="210" cy="34" r="7" fill="var(--ice)"/>
+          <circle cx="362" cy="298" r="7" fill="var(--ice)"/>
+          <circle cx="58" cy="298" r="7" fill="var(--ice)"/>
+          <text x="210" y="20" text-anchor="middle" font-family="Cera Condensed,Arial Narrow,sans-serif" font-weight="500" font-size="13" fill="var(--ice)" letter-spacing="2">РУКА</text>
+          <text x="372" y="330" text-anchor="middle" font-family="Cera Condensed,Arial Narrow,sans-serif" font-weight="500" font-size="13" fill="var(--ice)" letter-spacing="2">ГОЛОВА</text>
+          <text x="52" y="330" text-anchor="middle" font-family="Cera Condensed,Arial Narrow,sans-serif" font-weight="500" font-size="13" fill="var(--ice)" letter-spacing="2">СЕРДЦЕ</text>
+          <path class="draw" d="M210 76 330 116v104c0 76-55 124-120 148-65-24-120-72-120-148V116z" fill="rgba(239,235,204,.05)" stroke="var(--sand)" stroke-opacity=".8" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M210 118 292 146v74c0 52-37 85-82 101-45-16-82-49-82-101v-74z" fill="none" stroke="var(--coral)" stroke-opacity=".45" stroke-width="1.6" stroke-dasharray="7 8"/>
+          <g transform="translate(180,190)" class="pulse"><svg width="60" height="60" viewBox="0 0 32 32"><use href="#raysym5" style="color:var(--coral)"/></svg></g>
+        </svg>
+        <figcaption>Герб появится позже · сначала три круга</figcaption>
+      </figure>
+    </div>
+    <div class="legend-bridge u5rev">
+      <svg class="ray"><use href="#raysym5"/></svg>
+      <p>Дальше — то самое ремесло двора, только без коней и краски: как собрать обучение, после которого человек делает работу сам. Пять частей теории, восемь интерактивов — и испытание, где ты соберёшь свой урок.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ АКТ II · УРОК · ЧАСТЬ 1 ============ -->
+<section class="sec sec--sand" id="u5-lesson">
+  <div class="wrap">
+    <p class="section-label u5rev">Акт II · Урок · часть 1</p>
+    <h2 class="u5rev">Обучение начинается<br>не с материала</h2>
+    <p class="lede u5rev">Оно начинается с одной строчки: <b>что человек будет делать после</b>. Если эту строчку нельзя увидеть глазами — это не цель, а пожелание. «Разбирается в программах» не проверишь ничем. «За две минуты определяет, входит ли услуга в программу, и называет ограничение» — проверишь на первом же обращении.</p>
+
+    <div class="facts">
+      <div class="fact u5rev">
+        <span class="bignum">1</span>
+        <p class="cap">навык на один урок</p>
+        <p class="note">Не «программы ДМС», а «понять, входит ли услуга». Широкая тема разваливается на практике: человек вроде слушал всё и не умеет ничего.</p>
+      </div>
+      <div class="fact u5rev u5d1">
+        <span class="bignum">15<span style="font-size:.4em"> мин</span></span>
+        <p class="cap">рабочая длина блока</p>
+        <p class="note">Короткий блок раз в два дня переносится в работу лучше, чем трёхчасовой тренинг раз в квартал. И его реально провести на смене.</p>
+      </div>
+      <div class="fact u5rev u5d2">
+        <span class="bignum">8<span style="font-size:.4em"> из 10</span></span>
+        <p class="cap">обучений меряют только «понравилось»</p>
+        <p class="note">Понравилось ли — единственное, что обычно спрашивают. Применяет ли человек это на линии, проверяют единицы.</p>
+      </div>
+    </div>
+
+    <!-- ИНТЕРАКТИВ 1 -->
+    <div class="card-w u5rev" id="goalSort">
+      <p class="card-t"><svg class="ray"><use href="#raysym5"/></svg>Знание или действие</p>
+      <p class="card-s">Шесть формулировок цели урока. Отметь, что перед тобой: <b>знание</b> (нельзя увидеть со стороны) или <b>действие</b> (видно и проверяемо). Потом нажми «Проверить».</p>
+
+      <div class="gs-row" data-ans="know">
+        <span class="txt">Оператор знает, чем лимит отличается от франшизы.</span>
+        <span class="gs-btns"><button type="button" data-v="know">Знание</button><button type="button" data-v="do">Действие</button></span>
+        <span class="why">Знание. «Знает» происходит в голове — со стороны не видно. Переверни в действие: «на кейсе объясняет клиенту разницу своими словами и называет сумму к оплате».</span>
+      </div>
+      <div class="gs-row" data-ans="do">
+        <span class="txt">По запросу клиента находит услугу в программе и называет остаток лимита по гарантийным письмам.</span>
+        <span class="gs-btns"><button type="button" data-v="know">Знание</button><button type="button" data-v="do">Действие</button></span>
+        <span class="why">Действие. Видно на любом обращении: нашёл или не нашёл, назвал или не назвал. По такой цели легко собрать и урок, и задание к нему.</span>
+      </div>
+      <div class="gs-row" data-ans="know">
+        <span class="txt">Оператор понимает логику программы страхования.</span>
+        <span class="gs-btns"><button type="button" data-v="know">Знание</button><button type="button" data-v="do">Действие</button></span>
+        <span class="why">Знание, да ещё и широкое. «Понимает логику» — это не одна цель, а десяток. Разбей на конкретные развилки и возьми одну.</span>
+      </div>
+      <div class="gs-row" data-ans="do">
+        <span class="txt">На пограничном кейсе задаёт три проверочных вопроса до того, как ответить клиенту.</span>
+        <span class="gs-btns"><button type="button" data-v="know">Знание</button><button type="button" data-v="do">Действие</button></span>
+        <span class="why">Действие. Отличная цель: она называет и что делать, и когда. Такое видно в записи разговора и в переписке.</span>
+      </div>
+      <div class="gs-row" data-ans="know">
+        <span class="txt">Оператор ознакомлен с регламентом согласований.</span>
+        <span class="gs-btns"><button type="button" data-v="know">Знание</button><button type="button" data-v="do">Действие</button></span>
+        <span class="why">Знание, причём самое коварное: «ознакомлен» — это про подпись, а не про работу. После такой цели обучение считается сделанным, а ошибки остаются.</span>
+      </div>
+      <div class="gs-row" data-ans="do">
+        <span class="txt">Формулирует отказ так, что клиент понимает причину и следующий шаг.</span>
+        <span class="gs-btns"><button type="button" data-v="know">Знание</button><button type="button" data-v="do">Действие</button></span>
+        <span class="why">Действие. Проверяется по тексту ответа и по реакции клиента. Заодно видно, чему учить дальше, если не получилось.</span>
+      </div>
+
+      <button class="actbtn" id="gsCheck" type="button">Проверить</button>
+      <button class="ghostbtn" id="gsReset" type="button">Сбросить</button>
+      <div class="verdict" id="gsVerdict"></div>
+    </div>
+
+    <p class="note u5rev" style="max-width:700px">Правило на всю оставшуюся часть урока: сначала строчка «после урока человек …», и только потом слайды, примеры и всё остальное.</p>
+  </div>
+</section>
+
+<!-- ============ ЧАСТЬ 2 ============ -->
+<section class="sec sec--ink">
+  <div class="wrap">
+    <p class="section-label u5rev">Акт II · Урок · часть 2</p>
+    <h2 class="u5rev">Показал · вместе · сам</h2>
+    <p class="lede u5rev">Самая частая ошибка звучит невинно: «я им всё объяснил». Объяснение — это про твою голову. Навык переходит только через руки. Ремесло держится на трёх опорах, и порядок у них жёсткий.</p>
+
+    <div class="pillars">
+      <div class="pillar u5rev">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="15" r="3"/></svg></div>
+        <h4>Разобранный пример</h4>
+        <p>Ты решаешь настоящую задачу целиком и вслух — вместе с сомнениями, тупиками и проверками. Не «вот алгоритм», а «смотри, как я думаю». Новичку это экономит месяцы: он видит не только шаги, но и логику выбора.</p>
+        <span class="src">В исследованиях — worked example</span>
+      </div>
+      <div class="pillar u5rev u5d1">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h6M4 12h6M4 17h6"/><path d="M15 7h5M15 12h5" stroke-dasharray="2 3"/><path d="M15 17h5" stroke-dasharray="2 3"/></svg></div>
+        <h4>Выцветающие опоры</h4>
+        <p>Следующий пример разбираете вместе, но один шаг ты убираешь — его достраивает человек. Потом два. Потом остаётся голая задача. Опоры снимаются постепенно и с конца, а не разом.</p>
+        <span class="src">В исследованиях — faded examples</span>
+      </div>
+      <div class="pillar u5rev u5d2">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v6"/><path d="M5 12a7 7 0 1 0 14 0"/><path d="M9 20h6"/></svg></div>
+        <h4>Сам — и сразу отклик</h4>
+        <p>Человек решает новую задачу один, ты молчишь, даже если выходит криво. Разбор — сразу после, а не «на следующей неделе». Без отклика повторение закрепляет ошибку.</p>
+        <span class="src">Постепенная передача ответственности, Pearson &amp; Gallagher, 1983</span>
+      </div>
+    </div>
+
+    <!-- ИНТЕРАКТИВ 2 -->
+    <div class="faded u5rev" id="fadedGame">
+      <p class="card-t"><svg class="ray"><use href="#raysym5"/></svg>Как опоры выцветают</p>
+      <p class="card-s">Один и тот же кейс на трёх стадиях. Переключай режим и смотри, что остаётся человеку.<br><b>Кейс:</b> клиент просит записать его на профилактическую гигиену.</p>
+      <div class="modes">
+        <button class="mode on" type="button" data-mode="0">Показываю</button>
+        <button class="mode" type="button" data-mode="1">Делаем вместе</button>
+        <button class="mode" type="button" data-mode="2">Делаешь сам</button>
+      </div>
+      <div class="fd-hint" id="fdHint">Ты решаешь кейс целиком и вслух. Человек не отвечает — он слушает, как ты думаешь. Обрати внимание: проговариваются и сомнения тоже.</div>
+      <div class="fd-steps">
+        <div class="fd-step" data-lvl="easy"><span class="n"></span><span class="say">Открываю карточку пациента: смотрю цвет и читаю комментарий.<span class="think">«Цвет и комментарий — первое, что смотрю. Там половина ответа ещё до программы.»</span></span></div>
+        <div class="fd-step" data-lvl="easy"><span class="n"></span><span class="say">Открываю программу и проверяю, входит ли профилактическая гигиена.<span class="think">«Входит — это ещё не “можно записывать”. Дальше смотрю лимит.»</span></span></div>
+        <div class="fd-step" data-lvl="hard"><span class="n"></span><span class="say">Иду в CRM и проверяю лимит по гарантийным письмам.<span class="think">«Вот здесь и ошибаются чаще всего: услуга в программе есть, а лимит уже почти выбран.»</span></span></div>
+        <div class="fd-step" data-lvl="hard"><span class="n"></span><span class="say">Подбираю ближайшую доступную клинику: смотрю цвет клиники и нужна ли скриптовая.<span class="think">«Ближайшая — не значит подходящая. Цвет и скриптовая решают, можно туда вообще или нет.»</span></span></div>
+        <div class="fd-step" data-lvl="easy"><span class="n"></span><span class="say">Звоню в клинику и записываю на услугу.<span class="think">«Записываю сам. Не отправляю клиента звонить и договариваться.»</span></span></div>
+        <div class="fd-step" data-lvl="easy"><span class="n"></span><span class="say">Сообщаю клиенту: куда и когда записан — и что после чистки лимит по программе на неё будет исчерпан.<span class="think">«Про исчерпанный лимит говорю сразу. Иначе клиент узнает об этом в следующий раз — и это будет неприятный сюрприз.»</span></span></div>
+      </div>
+      <div class="verdict mid on" id="fdNote" style="background:rgba(2,32,40,.06);border:1px solid rgba(2,32,40,.14)">Опоры снимают не подряд, а там, где человек уже справляется. На сложных шагах остаёшься рядом дольше — именно их и надо запомнить.</div>
+    </div>
+
+    <div class="cols2" style="margin-top:26px;align-items:start">
+      <div class="agenda u5rev">
+        <h3 style="color:var(--u5acc);font-size:22px">Честная сноска про часы</h3>
+        <p style="font-size:14.5px;color:var(--u5tx2)">«Десять тысяч часов» — красивая, но сильно преувеличенная идея. По мета-анализу 2014 года объём практики объясняет лишь малую часть различий в результатах: в образовании — около 4%, в профессиях — меньше 1%. Остальное — качество задач, отклик и то, кто рядом.</p>
+        <p style="font-size:14.5px;color:var(--u5tx);margin-top:12px">Вывод для тебя простой: не гонись за количеством часов обучения. Гонись за тем, чтобы каждая попытка была на границе умения и получала быстрый отклик.</p>
+      </div>
+      <div class="agenda u5rev u5d1">
+        <h3 style="color:var(--u5acc);font-size:22px">И отдельно — про ветеранов</h3>
+        <p style="font-size:14.5px;color:var(--u5tx2)">Пошаговый разбор помогает новичку и мешает опытному. У ветерана уже есть своя схема, и подробная инструкция заставляет его сверять её с твоей — это лишняя работа, раздражение и ощущение, что его держат за новичка.</p>
+        <p style="font-size:14.5px;color:var(--u5tx);margin-top:12px">Опытному — сразу задачу посложнее и вопрос «как бы ты это объяснил новичку». Заодно получишь готовый материал: он объяснит на своём языке лучше, чем ты на методическом.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЧАСТЬ 3 ============ -->
+<section class="sec sec--coral">
+  <div class="wrap">
+    <p class="section-label u5rev">Акт II · Урок · часть 3</p>
+    <h2 class="u5rev">Не вали всё сразу</h2>
+    <p class="lede u5rev" style="color:var(--ink)">Когда человек «тупит» на обучении, дело обычно не в человеке, а в нарезке. Рабочая память удерживает мало кусков одновременно, а в нашей теме куски ещё и цепляются друг за друга: программа тянет лимит, лимит тянет франшизу, франшиза тянет исключения. Новичок держит в голове всю цепочку сразу — и тонет.</p>
+
+    <!-- ИНТЕРАКТИВ 3 -->
+    <div class="load u5rev" id="loadGame">
+      <p class="card-t"><svg class="ray"><use href="#raysym5"/></svg>Сколько положить в первый урок</p>
+      <p class="card-s">Собери первый урок для новичка: нажимай на то, что хочешь в него положить. Смотри на шкалу нагрузки.</p>
+      <div class="load-chips">
+        <button class="lchip" type="button">Что такое программа</button>
+        <button class="lchip" type="button">Как найти услугу в программе</button>
+        <button class="lchip" type="button">Цвет пациента и комментарий</button>
+        <button class="lchip" type="button">Лимит по гарантийным письмам</button>
+        <button class="lchip" type="button">Цвет клиники</button>
+        <button class="lchip" type="button">Нужна ли скриптовая</button>
+        <button class="lchip" type="button">Запись через звонок в клинику</button>
+        <button class="lchip" type="button">Как сказать про исчерпанный лимит</button>
+        <button class="lchip" type="button">Формулировка отказа</button>
+        <button class="lchip" type="button">Работа с возражением</button>
+      </div>
+      <p class="load-head"><span>Нагрузка на новичка</span><span id="loadWord">пусто</span></p>
+      <div class="load-meter">
+        <span class="track"><i class="fill" id="loadFill"></i></span>
+        <span class="cnt" id="loadCnt">0</span>
+      </div>
+      <div class="verdict on mid" id="loadVerdict" style="background:rgba(2,32,40,.06);border:1px solid rgba(2,32,40,.14)">Пока пусто. Возьми одну тему — ту, на которой чаще всего спотыкаются в реальных обращениях.</div>
+      <button class="ghostbtn" id="loadReset" type="button" style="margin-left:0">Собрать заново</button>
+    </div>
+
+    <div class="cols2" style="margin-top:30px;align-items:start">
+      <div class="card-w u5rev" style="margin-top:0">
+        <p class="card-t"><svg class="ray"><use href="#raysym5"/></svg>Три вещи, которые грузят зря</p>
+        <ul class="co-list" style="margin-top:6px">
+          <li><svg class="ray"><use href="#raysym5"/></svg><span><b>Два источника рядом.</b> Таблица лимитов в одном окне, список клиник в другом, регламент в третьем — и человек тратит силы не на решение, а на переключение. Собери в один экран или один алгоритм.</span></li>
+          <li><svg class="ray"><use href="#raysym5"/></svg><span><b>Одно и то же дважды.</b> Ты читаешь вслух ровно тот текст, который у человека на слайде. Мозг обрабатывает оба потока и устаёт зря. Либо схема плюс твой голос, либо текст — но не дубль.</span></li>
+          <li><svg class="ray"><use href="#raysym5"/></svg><span><b>Красивое, но лишнее.</b> Забавная история не по теме, эффектная картинка «для оживления», три анекдота из практики. Внимание уходит туда, а не на навык.</span></li>
+        </ul>
+      </div>
+      <div class="card-w u5rev u5d1" style="margin-top:0">
+        <p class="card-t"><svg class="ray"><use href="#raysym5"/></svg>Порядок нарезки темы</p>
+        <p class="card-s">Если тема большая — вот последовательность, в которой она не разваливается. По одному куску за подход.</p>
+        <div class="hbars" id="chunkChart" data-chart>
+          <div class="hbar"><span class="hl"><span>1 · Карточка пациента: цвет и комментарий</span><b>1</b></span><span class="track"><i class="fill" data-w="16" style="background:var(--teal)"></i></span></div>
+          <div class="hbar"><span class="hl"><span>2 · Входит ли услуга в программу</span><b>2</b></span><span class="track"><i class="fill" data-w="32" style="background:var(--teal)"></i></span></div>
+          <div class="hbar"><span class="hl"><span>3 · Лимит по гарантийным письмам в CRM</span><b>3</b></span><span class="track"><i class="fill" data-w="48" style="background:var(--coral)"></i></span></div>
+          <div class="hbar"><span class="hl"><span>4 · Подбор клиники: цвет и скриптовая</span><b>4</b></span><span class="track"><i class="fill" data-w="64" style="background:var(--coral)"></i></span></div>
+          <div class="hbar"><span class="hl"><span>5 · Запись: звонок в клинику</span><b>5</b></span><span class="track"><i class="fill" data-w="80" style="background:var(--teal)"></i></span></div>
+          <div class="hbar"><span class="hl"><span>6 · Что и как сказать клиенту</span><b>6</b></span><span class="track"><i class="fill" data-w="100" style="background:var(--coral)"></i></span></div>
+        </div>
+        <p class="chart-src">Длина полосы — не важность, а глубина погружения: каждый следующий кусок опирается на предыдущий.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЧАСТЬ 4 ============ -->
+<section class="sec sec--sand">
+  <div class="wrap">
+    <p class="section-label u5rev">Акт II · Урок · часть 4</p>
+    <h2 class="u5rev">Чтобы не рассыпалось</h2>
+    <p class="lede u5rev">Один раз не считается. Через неделю после отличного обучения половина деталей исчезает — это нормальная работа памяти, а не халатность людей. Спасают две вещи, и обе бесплатные: <b>возвращаться по расписанию</b> и <b>вспоминать, а не перечитывать</b>.</p>
+
+    <!-- ИНТЕРАКТИВ 4 -->
+    <div class="spacing u5rev" id="spacing">
+      <p class="card-t"><svg class="ray"><use href="#raysym5"/></svg>График возвратов</p>
+      <p class="card-s">Нажми на точку — увидишь, что делать в этот день. Возвраты короткие: одна-две минуты внутри планёрки.</p>
+      <svg viewBox="0 0 640 190" role="img" aria-label="Шкала интервальных повторений: дни 0, 1, 3, 7, 21">
+        <line x1="40" y1="120" x2="600" y2="120" stroke="rgba(2,32,40,.2)" stroke-width="2"/>
+        <path d="M40 60 Q 150 108 260 118 T 600 128" fill="none" stroke="var(--coral)" stroke-opacity=".45" stroke-width="2" stroke-dasharray="5 6"/>
+        <text x="40" y="46" font-family="Cera Condensed,Arial Narrow,sans-serif" font-weight="500" font-size="12" fill="rgba(2,32,40,.55)" letter-spacing="1.4">БЕЗ ВОЗВРАТОВ ПАМЯТЬ ПАДАЕТ ТАК</text>
+        <g class="sp-dot on" data-i="0" tabindex="0" role="button" aria-label="День 0"><circle class="hit" cx="60" cy="120" r="13" fill="var(--teal)"/><text x="60" y="152" text-anchor="middle">0</text></g>
+        <g class="sp-dot" data-i="1" tabindex="0" role="button" aria-label="День 1"><circle class="hit" cx="150" cy="120" r="13" fill="var(--teal)"/><text x="150" y="152" text-anchor="middle">1</text></g>
+        <g class="sp-dot" data-i="2" tabindex="0" role="button" aria-label="День 3"><circle class="hit" cx="265" cy="120" r="13" fill="var(--teal)"/><text x="265" y="152" text-anchor="middle">3</text></g>
+        <g class="sp-dot" data-i="3" tabindex="0" role="button" aria-label="День 7"><circle class="hit" cx="400" cy="120" r="13" fill="var(--teal)"/><text x="400" y="152" text-anchor="middle">7</text></g>
+        <g class="sp-dot" data-i="4" tabindex="0" role="button" aria-label="День 21"><circle class="hit" cx="570" cy="120" r="13" fill="var(--teal)"/><text x="570" y="152" text-anchor="middle">21</text></g>
+        <text x="320" y="180" text-anchor="middle" font-family="Cera Condensed,Arial Narrow,sans-serif" font-weight="500" font-size="12" fill="rgba(2,32,40,.6)" letter-spacing="1.6">ДНИ ПОСЛЕ ОБУЧЕНИЯ</text>
+      </svg>
+      <div class="sp-panel" id="spPanel"></div>
+    </div>
+
+    <div class="cols2" style="margin-top:26px;align-items:start">
+      <div class="chartbox u5rev" data-chart style="margin-top:0">
+        <p class="ct">Что сильнее: перечитать или вспомнить</p>
+        <p class="cs">Размер эффекта по мета-анализам — насколько приём улучшает результат по сравнению с обычным повторным чтением. Выше 0,5 в образовании считается заметным.</p>
+        <div class="hbars">
+          <div class="hbar"><span class="hl"><span>Вспоминание без подсказки</span><b>0,50–0,61</b></span><span class="track"><i class="fill" data-w="92" style="background:var(--teal)"></i></span></div>
+          <div class="hbar"><span class="hl"><span>Разнесённые по дням повторы</span><b>0,28</b></span><span class="track"><i class="fill" data-w="46" style="background:var(--coral)"></i></span></div>
+          <div class="hbar"><span class="hl"><span>Перечитывание материала</span><b>0</b></span><span class="track"><i class="fill" data-w="3" style="background:rgba(2,32,40,.35)"></i></span></div>
+        </div>
+        <p class="chart-src">Rowland, 2014 (g = 0,50); Adesope и др., 2017 (g = 0,61); мета-анализ интервалов, 2025 (g = 0,28). Эффект сильнее, когда материал сложный и когда после ответа сразу дают разбор.</p>
+      </div>
+      <div class="card-w u5rev u5d1" style="margin-top:0">
+        <p class="card-t"><svg class="ray"><use href="#raysym5"/></svg>Как звучит возврат</p>
+        <p class="card-s">Не «давайте вспомним, что мы проходили», а конкретный вопрос, на который надо ответить самому и вслух. Тридцать секунд — и хватит.</p>
+        <ul class="co-list">
+          <li><svg class="ray"><use href="#raysym5"/></svg><span>«Клиент просит записать его на гигиену. Назови три проверки до записи.»</span></li>
+          <li><svg class="ray"><use href="#raysym5"/></svg><span>«Где смотришь лимит по гарантийным письмам и что делаешь, если он почти выбран?»</span></li>
+          <li><svg class="ray"><use href="#raysym5"/></svg><span>«Что меняет цвет клиники и когда нужна скриптовая? Пример из своей смены.»</span></li>
+        </ul>
+        <div class="verdict on mid" style="background:rgba(2,32,40,.06);border:1px solid rgba(2,32,40,.14)">Важное условие: после ответа — сразу правильный вариант. Вспоминание без разбора закрепляет и ошибки тоже.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЧАСТЬ 5 ============ -->
+<section class="sec sec--ink">
+  <div class="wrap">
+    <p class="section-label u5rev">Акт II · Урок · часть 5</p>
+    <h2 class="u5rev">Каркас на пятнадцать минут</h2>
+    <p class="lede u5rev">Всё, что выше, складывается в один короткий блок, который можно провести прямо на смене. Пять шагов, пятнадцать минут, один навык. Этот же каркас ты используешь в испытании — и по нему же можно собирать урок в текстовом виде.</p>
+
+    <div class="cols2" style="margin-top:26px;align-items:start">
+      <div class="agenda u5rev">
+        <h3 style="color:var(--u5acc);font-size:22px">Шаблон блока</h3>
+        <ol>
+          <li><span><b>Зачем это тебе</b> — одна фраза про пользу для самого человека, а не для отчётности. «Разберёшься — меньше эскалаций и спокойнее разговоры.» <span class="tm">1 минута</span></span></li>
+          <li><span><b>Возврат</b> — один вопрос по прошлой теме, ответ по памяти, сразу сверка. <span class="tm">2 минуты</span></span></li>
+          <li><span><b>Разобранный пример</b> — решаешь реальный кейс вслух целиком, включая сомнения. <span class="tm">5 минут</span></span></li>
+          <li><span><b>Вместе</b> — второй кейс, но шаги называют они; ты только спрашиваешь «что проверяем первым и почему». <span class="tm">4 минуты</span></span></li>
+          <li><span><b>Сам и фокус</b> — третий кейс решает один человек, остальные слушают. Финал — фраза дня: что все проверяют на этой смене. <span class="tm">3 минуты</span></span></li>
+        </ol>
+        <button class="copybtn" id="copyFrame" type="button">Скопировать шаблон</button>
+      </div>
+
+      <div>
+        <!-- ИНТЕРАКТИВ 5 -->
+        <div class="ratio u5rev u5d1" style="margin-top:0">
+          <p class="card-t" style="color:var(--u5tx)"><svg class="ray"><use href="#raysym5"/></svg>Сколько теории в блоке</p>
+          <p class="card-s" style="color:var(--u5tx2)">Подвигай ползунок: сколько времени ты объясняешь, а сколько люди решают сами.</p>
+          <div class="bars">
+            <div class="rt-row"><span class="who">Теория</span><span class="rt-track"><i class="rt-fill rt-fill--th" id="rtTh" style="width:30%"></i></span><span class="pct" id="rtThPct">30%</span></div>
+            <div class="rt-row"><span class="who">Практика</span><span class="rt-track"><i class="rt-fill rt-fill--pr" id="rtPr" style="width:70%"></i></span><span class="pct" id="rtPrPct">70%</span></div>
+          </div>
+          <input type="range" id="rtRange" min="0" max="100" step="5" value="30" aria-label="Доля теории в блоке">
+          <div class="rt-verdict" id="rtVerdict">Рабочее соотношение. Объяснения ровно столько, чтобы хватило начать, дальше — руки. Держись этого коридора.</div>
+        </div>
+
+        <div class="crit u5rev u5d2" style="margin-top:20px">
+          <h3 style="color:var(--u5acc);font-size:20px">Где взять кейсы</h3>
+          <ul>
+            <li>Типичный — то, что приходит каждый день.</li>
+            <li>Пограничный — услуга «почти входит», решение неочевидно.</li>
+            <li>Тот, где недавно ошиблись, — обязательно обезличенный: без имени оператора и клиента.</li>
+            <li>И один эталонный — как надо. Разбирать только провалы вредно: люди начинают прятать сложные обращения.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЧАСТЬ 6 ============ -->
+<section class="sec sec--sand">
+  <div class="wrap">
+    <p class="section-label u5rev">Акт II · Урок · часть 6</p>
+    <h2 class="u5rev">Как это устроено<br>у сильных</h2>
+    <p class="lede u5rev">Три компании, три разных мира — производство, айти и клиентский сервис. Приёмы у них похожи до скучного, и ни один не требует бюджета.</p>
+
+    <div class="tabs u5rev">
+      <button class="tab is-on" type="button" data-tab="toyota">Toyota</button>
+      <button class="tab" type="button" data-tab="google">Google</button>
+      <button class="tab" type="button" data-tab="zappos">Zappos</button>
+      <button class="tab" type="button" data-tab="common">Что общего</button>
+    </div>
+    <div class="tabpanes">
+      <div class="tabpane is-on" id="u5pane-toyota">
+        <div class="co-card">
+          <div class="co-head"><span class="co-name">Toyota</span><span class="co-what">Обучение на рабочем месте · четыре шага</span></div>
+          <ul class="co-list">
+            <li><svg class="ray"><use href="#raysym5"/></svg><span><b>Подготовь.</b> Успокой человека, выясни, что он уже умеет, объясни, зачем ему эта операция.</span></li>
+            <li><svg class="ray"><use href="#raysym5"/></svg><span><b>Покажи.</b> По одному важному шагу за раз, с объяснением ключевых моментов и причин. Правило прямо запрещает давать больше, чем человек способен усвоить.</span></li>
+            <li><svg class="ray"><use href="#raysym5"/></svg><span><b>Дай сделать.</b> Человек выполняет сам, наставник наблюдает и поправляет по ходу.</span></li>
+            <li><svg class="ray"><use href="#raysym5"/></svg><span><b>Сопровождай.</b> Проверяй, как идёт, поощряй вопросы, постепенно снижай поддержку.</span></li>
+          </ul>
+          <p class="co-quote">Метод придумали не в Toyota: он родился в США во время Второй мировой, когда за считанные месяцы надо было обучить на заводах миллионы новых рабочих. В Японию его привезли после войны — и там он прижился так, что стал основой обучения операторов.</p>
+          <p class="co-src">Источник: Training Within Industry — Job Instruction (TWI-JI).</p>
+        </div>
+      </div>
+      <div class="tabpane" id="u5pane-google">
+        <div class="co-card">
+          <div class="co-head"><span class="co-name">Google</span><span class="co-what">g2g · сотрудники учат сотрудников</span></div>
+          <ul class="co-list">
+            <li><svg class="ray"><use href="#raysym5"/></svg><span>Около <b>80%</b> всего внутреннего обучения ведут сами сотрудники, а не внешние тренеры и не отдельный учебный отдел.</span></li>
+            <li><svg class="ray"><use href="#raysym5"/></svg><span>Сеть добровольцев — более <b>6000</b> человек из всех подразделений. Они ведут занятия, берут наставничество один на один и собирают материалы.</span></li>
+            <li><svg class="ray"><use href="#raysym5"/></svg><span>Это дополнительная роль поверх основной работы, а не должность. Учит тот, кто делает работу руками, — поэтому примеры настоящие.</span></li>
+          </ul>
+          <p class="co-quote">Полезный вывод для команды из десяти человек: твой ветеран — не «ресурс, который надо разгрузить от обучения», а тот, кто должен его вести. Отдай ему одну-две темы во владение. Это одновременно признание статуса и снятие нагрузки с тебя.</p>
+          <p class="co-src">Источник: программа Googler-to-Googler (g2g).</p>
+        </div>
+      </div>
+      <div class="tabpane" id="u5pane-zappos">
+        <div class="co-card">
+          <div class="co-head"><span class="co-name">Zappos</span><span class="co-what">Онбординг в клиентском сервисе</span></div>
+          <ul class="co-list">
+            <li><svg class="ray"><use href="#raysym5"/></svg><span><b>Четыре недели</b> обучения на линии проходят все новички — включая инженеров, бухгалтеров и руководителей.</span></li>
+            <li><svg class="ray"><use href="#raysym5"/></svg><span>Сначала наблюдают за опытными, потом берут обращения сами — под коучингом, с разбором после.</span></li>
+            <li><svg class="ray"><use href="#raysym5"/></svg><span>Тем, кто остаётся в контактном центре, добавляют ещё <b>три недели</b>: всего семь до полной самостоятельности.</span></li>
+          </ul>
+          <p class="co-quote">Главное здесь не длительность, а принцип: сначала смотрю — потом делаю под присмотром — потом сам. И выпускают по готовности, а не по календарю: критерий — человек справляется с обращениями без помощи, а не «прошло четыре недели».</p>
+          <p class="co-src">Источник: описание программы обучения новичков Zappos (Customer Loyalty Team).</p>
+        </div>
+      </div>
+      <div class="tabpane" id="u5pane-common">
+        <div class="co-card">
+          <div class="co-head"><span class="co-name">Что общего</span><span class="co-what">Три совпадения из трёх</span></div>
+          <ul class="co-list">
+            <li><svg class="ray"><use href="#raysym5"/></svg><span><b>Учит тот, кто делает.</b> Не выделенный отдел, а практик рядом. Материал получается живым, а обучение — дешёвым.</span></li>
+            <li><svg class="ray"><use href="#raysym5"/></svg><span><b>Сначала показ, потом руки.</b> Ни у кого обучение не заканчивается объяснением. Везде есть фаза «делаешь сам, а я рядом».</span></li>
+            <li><svg class="ray"><use href="#raysym5"/></svg><span><b>Выход по готовности.</b> Момент «теперь работай один» определяется тем, что человек справляется, а не тем, что кончился срок.</span></li>
+          </ul>
+          <p class="co-quote">Ничего из этого не требует системы обучения, бюджета и методолога. Требуется только твоё время и договорённость с ветераном.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЧАСТЬ 7 ============ -->
+<section class="sec sec--ink">
+  <div class="wrap">
+    <p class="section-label u5rev">Акт II · Урок · часть 7</p>
+    <h2 class="u5rev">Как понять,<br>что сработало</h2>
+    <p class="lede u5rev">Четыре ступени, снизу вверх. Первая ничего не стоит и ничего не значит, четвёртая — то, ради чего всё затевалось. Большинство останавливается на первой. Тебе достаточно дойти до третьей.</p>
+
+    <!-- ИНТЕРАКТИВ 6 -->
+    <div class="ladder" id="ladder">
+      <div class="lstep u5rev" tabindex="0" role="button">
+        <span class="lv">1</span>
+        <div>
+          <h4>Понравилось</h4>
+          <p class="sub">Было полезно? Понятно объяснял?</p>
+          <div class="body">
+            <p>Меряется за минуту и почти ничего не говорит о навыке: интересное обучение легко забывается, а скучное — работает. Сюда упирается подавляющее большинство.</p>
+            <span class="tool">Инструмент: один вопрос в чат после блока. Не опрос на десять пунктов.</span>
+          </div>
+          <p class="tap">открыть</p>
+        </div>
+      </div>
+      <div class="lstep u5rev u5d1" tabindex="0" role="button">
+        <span class="lv">2</span>
+        <div>
+          <h4>Усвоил</h4>
+          <p class="sub">Может решить кейс здесь и сейчас?</p>
+          <div class="body">
+            <p>Проверяется не вопросом «что такое франшиза», а маленьким кейсом: дай ситуацию — пусть скажет, что проверит и что ответит клиенту.</p>
+            <span class="tool">Инструмент: 3 кейса в форме или устно на планёрке. Пять минут.</span>
+          </div>
+          <p class="tap">открыть</p>
+        </div>
+      </div>
+      <div class="lstep u5rev u5d2" tabindex="0" role="button">
+        <span class="lv">3</span>
+        <div>
+          <h4>Применяет на линии</h4>
+          <p class="sub">Делает так в реальных обращениях?</p>
+          <div class="body">
+            <p>Самая честная ступень и первая, где обучение может провалиться: человек всё понял, но в работе делает по-старому. Обычно потому, что нет напоминаний, подсказок под рукой и разбора.</p>
+            <span class="tool">Инструмент: оценка качества обращений через 2–4 недели — смотришь именно тот шаг, которому учил.</span>
+          </div>
+          <p class="tap">открыть</p>
+        </div>
+      </div>
+      <div class="lstep u5rev u5d3" tabindex="0" role="button">
+        <span class="lv">4</span>
+        <div>
+          <h4>Сдвинулась метрика</h4>
+          <p class="sub">Изменился результат команды?</p>
+          <div class="body">
+            <p>Твои три метрики — производительность, CSAT и качество. Плюс скорость выхода новичка на рабочий уровень. Сравнивать можно только с замером «до» и только с оговоркой: на метрику влияет ещё десяток вещей, кроме твоего урока.</p>
+            <span class="tool">Инструмент: одна таблица — дата обучения, замер «до», замер через 30 и 90 дней.</span>
+          </div>
+          <p class="tap">открыть</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict on mid u5rev" style="margin-top:24px;background:rgba(239,235,204,.08);border:1px solid rgba(239,235,204,.2);color:var(--u5tx);max-width:820px">
+      Минимум, который реально держать: <b>один кейс-чек сразу</b> после обучения, <b>один взгляд на качество</b> через месяц и <b>одна метрика</b> с замером «до». Всё остальное — когда появится время, которого не появится.
+    </div>
+
+    <h3 class="u5rev" style="margin-top:clamp(44px,6vw,70px);font-size:clamp(24px,3.4vw,38px)">Пять ошибок, которые<br>съедают результат</h3>
+    <p class="lede u5rev">Нажми на карточку — на обороте что делать и по какому признаку понять, что исправил.</p>
+
+    <div class="flips" id="flips">
+      <div class="flip u5rev" tabindex="0" role="button" aria-label="Ошибка: монолог вместо практики">
+        <div class="flip__in">
+          <div class="flip__f">
+            <div><span class="cat">Монолог<br>вместо практики</span><p class="look">Говоришь почти всё время, люди кивают, вопросов нет.</p></div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="hint">нажми</span><svg class="ray"><use href="#raysym5"/></svg></div>
+          </div>
+          <div class="flip__b">
+            <p class="fx">Что делать</p>
+            <p>Держать практику больше половины времени. Показал — вместе — сам. Если за пятнадцать минут никто ничего не решал, это была лекция.</p>
+            <p class="sig">Признак, что исправил: люди решают кейсы сами и спорят между собой, а не смотрят на тебя.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip u5rev u5d1" tabindex="0" role="button" aria-label="Ошибка: разбор при всех как наказание">
+        <div class="flip__in">
+          <div class="flip__f">
+            <div><span class="cat">Разбор<br>как наказание</span><p class="look">Ошибку конкретного человека разбираете при всей команде.</p></div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="hint">нажми</span><svg class="ray"><use href="#raysym5"/></svg></div>
+          </div>
+          <div class="flip__b">
+            <p class="fx">Что делать</p>
+            <p>Обезличивать кейс и обсуждать решение, а не человека. Сначала слово тому, кто вёл обращение: что сработало, что бы сделал иначе. Вина — не тема разбора.</p>
+            <p class="sig">Признак: люди сами приносят сложные и провальные обращения, не дожидаясь, пока ты найдёшь.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip u5rev u5d2" tabindex="0" role="button" aria-label="Ошибка: учить инструкции вместо логики">
+        <div class="flip__in">
+          <div class="flip__f">
+            <div><span class="cat">Инструкция<br>вместо логики</span><p class="look">«Делай по регламенту» — и человек теряется на пограничном кейсе.</p></div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="hint">нажми</span><svg class="ray"><use href="#raysym5"/></svg></div>
+          </div>
+          <div class="flip__b">
+            <p class="fx">Что делать</p>
+            <p>Учить критериям и разбирать серые зоны: почему здесь нужно согласование, а здесь нет. Заучивание фраз рассыпается на первом же нетиповом запросе.</p>
+            <p class="sig">Признак: человек верно решает кейс, которого не было в обучении, и объясняет решение своими словами.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip u5rev" tabindex="0" role="button" aria-label="Ошибка: всё сразу">
+        <div class="flip__in">
+          <div class="flip__f">
+            <div><span class="cat">Всё сразу</span><p class="look">За одно занятие — программы, лимиты, согласования и работа с возражениями.</p></div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="hint">нажми</span><svg class="ray"><use href="#raysym5"/></svg></div>
+          </div>
+          <div class="flip__b">
+            <p class="fx">Что делать</p>
+            <p>Один навык за подход, остальное — в следующие блоки. Лучше пять коротких встреч за две недели, чем один большой тренинг.</p>
+            <p class="sig">Признак: после блока человек может назвать одну вещь, которую сегодня применит на смене.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip u5rev u5d1" tabindex="0" role="button" aria-label="Ошибка: обучил и забыл">
+        <div class="flip__in">
+          <div class="flip__f">
+            <div><span class="cat">Обучил<br>и забыл</span><p class="look">Провёл занятие и вернулся к делам. Через месяц всё как раньше.</p></div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="hint">нажми</span><svg class="ray"><use href="#raysym5"/></svg></div>
+          </div>
+          <div class="flip__b">
+            <p class="fx">Что делать</p>
+            <p>Заранее положить в календарь возвраты: день 1, 3, 7, 21 — по одному вопросу. Плюс короткая памятка под рукой у оператора и упоминание нужного шага в разборах.</p>
+            <p class="sig">Признак: через месяц приём виден в реальных обращениях без твоих напоминаний.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip u5rev u5d2" tabindex="0" role="button" aria-label="Ошибка: только негативная обратная связь">
+        <div class="flip__in">
+          <div class="flip__f">
+            <div><span class="cat">Только<br>про промахи</span><p class="look">Разбираешь всё, что не так, и молчишь про то, что получилось.</p></div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="hint">нажми</span><svg class="ray"><use href="#raysym5"/></svg></div>
+          </div>
+          <div class="flip__b">
+            <p class="fx">Что делать</p>
+            <p>Называть конкретные удачи так же точно, как ошибки: не «молодец», а что именно сработало и почему. Люди повторяют то, что заметили.</p>
+            <p class="sig">Признак: на разборе звучат не только провалы, но и эталонные обращения — и их приносят сами операторы.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЭКЗАМЕН ============ -->
+<section class="sec sec--sand">
+  <div class="wrap">
+    <p class="section-label u5rev">Акт II · Проверка</p>
+    <h2 class="u5rev">Пять вопросов<br>перед испытанием</h2>
+    <p class="lede u5rev">Без подглядывания наверх — это и есть то самое вспоминание, о котором была четвёртая часть. Разбор появится сразу после ответа.</p>
+    <div class="exam u5rev" id="u5exam">
+      <div class="q-prog" id="u5examProg"></div>
+      <div id="u5examBody"></div>
+      <div class="exam-final" id="u5examFinal"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ АКТ III · ИСПЫТАНИЕ ============ -->
+<section class="sec sec--ink" id="u5-quest">
+  <div class="wrap">
+    <p class="section-label u5rev">Акт III · Испытание</p>
+    <h2 class="u5rev">Собери свой урок</h2>
+    <p class="lede u5rev">Герб получает тот, кто научил другого. Твоё испытание — собрать один короткий урок для своей команды и одно задание к нему. Как собирать — решаешь сам: руками или с ИИ. Отвечаешь за результат в любом случае ты.</p>
+
+    <div class="quest-steps">
+      <div class="qstep u5rev">
+        <span class="qn"></span>
+        <div>
+          <h4>Возьми один узкий навык</h4>
+          <p>Тот, где спотыкаются чаще всего и где ошибка дорого стоит. Не «программы ДМС», а одна развилка: проверить лимит по гарантийным письмам, подобрать клинику по цвету, сказать клиенту про исчерпанный лимит.</p>
+          <p class="sub">Проверка: навык умещается в одну фразу без слова «и».</p>
+        </div>
+      </div>
+      <div class="qstep u5rev">
+        <span class="qn"></span>
+        <div>
+          <h4>Напиши строчку результата</h4>
+          <p>«После урока человек …» — и дальше действие, которое видно со стороны. Если получилось «знает», «понимает», «ознакомлен» — переписывай.</p>
+          <p class="sub">Эта строчка потом станет критерием проверки задания.</p>
+        </div>
+      </div>
+      <div class="qstep u5rev">
+        <span class="qn"></span>
+        <div>
+          <h4>Собери по каркасу</h4>
+          <p>Зачем это человеку → разобранный пример вслух → тот же тип кейса вместе → новый кейс сам → три вопроса на возврат через неделю. Пятнадцать минут, не больше пяти новых элементов.</p>
+          <p class="sub">Шаблон каркаса — в пятой части урока, кнопка «Скопировать шаблон».</p>
+        </div>
+      </div>
+      <div class="qstep u5rev">
+        <span class="qn"></span>
+        <div>
+          <h4>Придумай одно задание</h4>
+          <p>Задание, где человек <b>делает</b>, а не вспоминает определение. Дай кейс — пусть решит и объяснит, что проверял. И сразу напиши критерий: по чему ты поймёшь, что получилось.</p>
+          <p class="sub">Одно задание, а не пять. Оно должно проверять ровно ту строчку результата из шага 2.</p>
+        </div>
+      </div>
+      <div class="qstep u5rev">
+        <span class="qn"></span>
+        <div>
+          <h4>Пиши сам или позови ИИ — на выбор</h4>
+          <p>ИИ не обязателен. Он полезен, когда не хочется смотреть на пустой лист: даёшь ему рамку и свой материал, получаешь черновик и правишь. Готовый промт — в карточке ниже, но работа без него засчитывается ровно так же.</p>
+          <p class="sub">Единственное жёсткое условие: <b>всё, что ИИ написал про наши программы, лимиты и клиники, ты перепроверяешь по документам сам.</b> Он ошибается уверенно — придумывает правила, которых нет, и цифры, которых не было.</p>
+        </div>
+      </div>
+      <div class="qstep u5rev">
+        <span class="qn"></span>
+        <div>
+          <h4>Оформи и открой доступ</h4>
+          <p>Два варианта — обычный текст или страница. Второй считается сильным бонусом: интерактивный урок люди проходят охотнее.</p>
+          <p class="sub">Главное — чтобы ссылка открывалась у любого коллеги, а не только у тебя.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus u5rev">
+      <svg class="ray"><use href="#raysym5"/></svg>
+      <div>
+        <h4>Куда положить готовое</h4>
+        <p>Проверь ссылку в режиме инкогнито — самая частая беда сдачи в том, что документ открывается только у автора.</p>
+        <div class="ways">
+          <div class="way">
+            <b>Текстовый формат</b>
+            <span>Google-документ. Открой доступ по ссылке на просмотр или комментирование — и пришли ссылку в форму ниже.</span>
+          </div>
+          <div class="way">
+            <b>HTML-страница · бонус</b>
+            <span>Загрузи файл на корпоративный Яндекс Диск или Google Диск, включи публичный доступ по ссылке и пришли её. Если собираешь страницу с ИИ — проси один самодостаточный HTML-файл, без папок рядом.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cols2" style="margin-top:26px;align-items:start">
+      <div class="agenda u5rev">
+        <h3 style="color:var(--u5acc);font-size:22px">Промт для ИИ · по желанию</h3>
+        <p style="font-size:14px;color:var(--u5tx2);margin-bottom:10px">Нужен, только если решил звать ИИ. Скопируй, подставь свой навык и материал, дальше правь ответ вопросами: «сократи», «дай второй кейс сложнее», «убери лишнее». Всё про наши программы и лимиты после этого сверь с документами.</p>
+        <div style="background:rgba(2,32,40,.5);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px;font-size:13.5px;color:var(--u5tx);line-height:1.55">
+          Ты — методист, помогаешь тимлиду поддержки собрать короткий урок для оператора ДМС.<br><br>
+          Навык: <b>[впиши]</b>.<br>
+          После урока человек должен уметь: <b>[действие]</b>.<br>
+          Материал и правила: <b>[вставь выдержки из регламента]</b>.<br><br>
+          Собери урок на 15 минут по каркасу: 1) зачем это оператору — одна фраза про его выгоду; 2) разобранный пример: реши учебный кейс от лица опытного оператора, проговаривая каждый шаг и сомнения; 3) тот же кейс с двумя пропущенными шагами — для разбора вместе; 4) новый кейс для самостоятельного решения; 5) три вопроса на вспоминание без подсказки.<br><br>
+          Ограничения: один навык, не больше пяти новых понятий, примеры только из ДМС, простой язык без англицизмов и канцелярита.<br><br>
+          В конце предложи одно задание, где человек выполняет действие, и критерий: по чему видно, что получилось.
+        </div>
+        <button class="copybtn" id="copyPrompt" type="button">Скопировать промт</button>
+      </div>
+</div>
+
+    <div class="crit u5rev">
+      <h3 style="color:var(--u5acc);font-size:20px">Как я буду смотреть работу</h3>
+      <ul>
+        <li>Навык узкий: одна развилка, а не тема целиком.</li>
+        <li>Результат сформулирован через действие, которое видно со стороны.</li>
+        <li>Есть разобранный пример с рассуждением вслух, а не только правило.</li>
+        <li>Есть место, где человек решает сам, и три вопроса на возврат.</li>
+        <li>Задание проверяет ровно заявленный результат, и к нему есть критерий.</li>
+        <li>Факты про программы, лимиты и клиники сверены с документами — независимо от того, писал ты сам или с ИИ.</li>
+        <li>Ссылка открывается у любого коллеги.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</div>
+</template>
+
 <template id="tpl-u4">
 <div class="u4">
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
@@ -2197,7 +3298,17 @@ L[2].nasbore='Питч и отработка возражения — в пар�
 L[2].p3={type:'dzsend',pitch:true,title:'Питч и возражение — в паре',lead:'Готовим не текст, а разговор. На сборе — вживую, вдвоём.'};
 L[2].dz={text:'Урок 3 · Питч своей инициативы + отработка возражения напарника в паре на сборе (запись встречи на видео).',ph:'https://…'};
 /* --- Уроки 4, 5, 6 — наполнение ещё не готово: показываем заглушку --- */
-L[4].soon=true; L[5].soon=true;
+L[5].soon=true;
+/* --- Урок 5: Оруженосец (интерактивная страница) --- */
+L[4].custom='lesson5';
+L[4].title='Оруженосец';
+L[4].tema='Обучение · передать навык';
+L[4].hook='Он послушал — или теперь умеет?';
+L[4].epi='Щит, на котором ещё нет герба.';
+L[4].zachem=['Урок о ремесле обучения: как передать навык так, чтобы человек начал делать, а не «послушал».','Дальше руками: цель через действие, разобранный пример, постепенная передача, возвраты и каркас на пятнадцать минут.'];
+L[4].nasbore='Разберём собранные уроки и проверим, что задание проверяет заявленный результат.';
+L[4].p3={type:'dz5',title:'Собери свой урок',lead:'Один навык, каркас на 15 минут — и задание, по которому видно, что получилось.'};
+L[4].dz={text:'Урок 5 · Собери обучающий блок на 15 минут по каркасу: один навык, цель через действие, разобранный пример, «вместе», «сам», возвраты. Пришли ссылку на урок и опиши навык, результат и задание с критерием.',ph:'НАВЫК: …\nПОСЛЕ УРОКА ЧЕЛОВЕК: …\n\nЗАДАНИЕ: …\nКРИТЕРИЙ, ЧТО ПОЛУЧИЛОСЬ: …'};
 /* --- Урок 4: Рыцари круглого стола (интерактивная страница) --- */
 L[3].custom='lesson4';
 L[3].tema='Команда · услышать выгорание на 1:1';
@@ -2428,6 +3539,266 @@ var L3PITCH=[
  ['Цена и срок','Что нужно, к какому числу.','«Пилот на одной группе две недели, логику объяснений пишу сам».'],
  ['Просьба','Конкретное действие руководителя.','«Прошу добро на пилот и доступ к выгрузке ответов».']
 ];
+/* ====== УРОК 5 · Оруженосец ====== */
+function renderUrok5(l){var t=document.getElementById('tpl-u5');return t?t.innerHTML:'';}
+function initUrok5(){
+  var box=urokbox.querySelector('.u5');if(!box)return;
+  var $=function(s){return box.querySelector(s)},$$=function(s){return [].slice.call(box.querySelectorAll(s))};
+
+  /* появление при скролле */
+  var io5=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io5.unobserve(e.target);}})},{threshold:.12,root:lesson});
+  $$('.u5rev').forEach(function(el){io5.observe(el)});
+
+  /* графики */
+  var cio=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(!e.isIntersecting)return;
+    e.target.querySelectorAll('.col').forEach(function(c){c.style.height=c.dataset.h+'%'});
+    e.target.querySelectorAll('.fill').forEach(function(f){f.style.width=f.dataset.w+'%'});
+    cio.unobserve(e.target);})},{threshold:.35,root:lesson});
+  $$('[data-chart]').forEach(function(el){cio.observe(el)});
+
+  /* 1 · знание или действие */
+  (function(){var g=$('#goalSort');if(!g)return;
+    var rows=[].slice.call(g.querySelectorAll('.gs-row')),verdict=$('#gsVerdict');
+    rows.forEach(function(r){r.querySelectorAll('.gs-btns button').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(r.classList.contains('done'))return;
+        r.querySelectorAll('.gs-btns button').forEach(function(x){x.classList.remove('on')});
+        b.classList.add('on');r.dataset.pick=b.dataset.v;});});});
+    var chk=$('#gsCheck');if(chk)chk.addEventListener('click',function(){
+      var right=0,un=0;
+      rows.forEach(function(r){
+        if(!r.dataset.pick){un++;return;}
+        r.classList.add('done');
+        if(r.dataset.pick===r.dataset.ans){r.classList.add('right');right++;}else r.classList.add('wrong');});
+      if(un){verdict.className='verdict on mid';verdict.textContent='Осталось незаполненных: '+un+'. Отметь все шесть — и проверим.';return;}
+      verdict.className='verdict on '+(right===6?'good':right>=4?'mid':'bad');
+      verdict.textContent=right===6?'Шесть из шести. Ты отличаешь цель от пожелания — значит, сможешь написать её для своего урока в испытании.'
+        :right>=4?right+' из 6. Подсказка на будущее: если фразу нельзя проверить, глядя на работу человека, это знание. Действие всегда отвечает на вопрос «что он сделает».'
+        :right+' из 6. Вернись к правилу: «знает», «понимает», «ознакомлен» — это про голову, увидеть нельзя. «Находит», «называет», «формулирует» — можно.';});
+    var rst=$('#gsReset');if(rst)rst.addEventListener('click',function(){
+      rows.forEach(function(r){r.classList.remove('done','right','wrong');delete r.dataset.pick;
+        r.querySelectorAll('.gs-btns button').forEach(function(x){x.classList.remove('on')});});
+      verdict.className='verdict';verdict.textContent='';});
+  })();
+
+  /* 2 · выцветающий пример */
+  (function(){var game=$('#fadedGame');if(!game)return;
+    var steps=[].slice.call(game.querySelectorAll('.fd-step'));
+    var hint=$('#fdHint'),note=$('#fdNote');
+    var texts=[
+      {h:'Ты решаешь кейс целиком и вслух. Человек не отвечает — он слушает, как ты думаешь. Обрати внимание: проговариваются и сомнения тоже.',
+       n:'Разобранный пример экономит новичку месяцы: он видит не только шаги, но и логику выбора между ними.'},
+      {h:'Лёгкие шаги человек делает сам — он их уже умеет. Ты остаёшься рядом на двух сложных: лимит по гарантийным письмам и подбор клиники. Их разбираете вместе, вслух.',
+       n:'Опоры снимают не подряд, а там, где человек уже справляется. На сложных шагах остаёшься рядом дольше — именно их и надо запомнить.'},
+      {h:'Остаётся голая задача. Человек ведёт кейс сам от начала до конца, ты молчишь — даже если выходит криво. Разбор сразу после.',
+       n:'Молчать тяжелее всего. Но если подсказать на середине, следующий кейс он снова будет ждать подсказки.'}];
+    function setMode(m){
+      game.querySelectorAll('.mode').forEach(function(b){b.classList.toggle('on',+b.dataset.mode===m)});
+      steps.forEach(function(s){var easy=s.dataset.lvl==='easy';var hide=(m===1&&easy)||(m===2);
+        s.classList.toggle('hidden',hide);s.classList.toggle('pair',m===1&&!easy);s.setAttribute('data-blank','делает сам');});
+      hint.textContent=texts[m].h;note.textContent=texts[m].n;}
+    game.querySelectorAll('.mode').forEach(function(b){b.addEventListener('click',function(){setMode(+b.dataset.mode)})});
+    setMode(0);
+  })();
+
+  /* 3 · счётчик перегрузки */
+  (function(){var game=$('#loadGame');if(!game)return;
+    var chips=[].slice.call(game.querySelectorAll('.lchip'));
+    var fill=$('#loadFill'),cnt=$('#loadCnt'),word=$('#loadWord'),verdict=$('#loadVerdict');
+    function paint(){
+      var n=game.querySelectorAll('.lchip.on').length;
+      cnt.textContent=n;fill.style.width=Math.min(n/6,1)*100+'%';
+      fill.style.background=n<=3?'var(--teal)':'var(--coral)';
+      chips.forEach(function(c){c.classList.toggle('over',n>3&&c.classList.contains('on'))});
+      var txt,w;
+      if(n===0){w='пусто';txt='Пока пусто. Возьми одну тему — ту, на которой чаще всего спотыкаются в реальных обращениях.';}
+      else if(n<=2){w='в норме';txt='Так и надо. Один-два куска за подход — человек успевает не только услышать, но и попробовать. Остальное уйдёт в следующие блоки.';}
+      else if(n===3){w='на грани';txt='Три — потолок для первого урока. Если куски связаны между собой (услуга тянет лимит, лимит тянет гарантийные письма), лучше остановиться на двух.';}
+      else if(n<=5){w='перегруз';txt='Перебор. Человек будет держать в голове всю цепочку сразу и потеряет её на первом же обращении. Отложи половину на завтра.';}
+      else{w='обвал';txt='Это уже не урок, а вводный курс. После такого занятия останется ощущение «было много всего» — и ноль применённого на смене.';}
+      word.textContent=w;
+      verdict.className='verdict on '+(n===0?'mid':n<=2?'good':n===3?'mid':'bad');
+      verdict.textContent=txt;}
+    chips.forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('on');paint();})});
+    var rs=$('#loadReset');if(rs)rs.addEventListener('click',function(){chips.forEach(function(c){c.classList.remove('on','over')});paint();});
+    paint();
+  })();
+
+  /* 4 · график возвратов */
+  (function(){var b=$('#spacing');if(!b)return;
+    var panel=$('#spPanel');
+    var data=[
+      {d:'День 0 · само обучение',p:'Разобранный пример, потом вместе, потом сам. В конце — одна фраза фокуса: что все проверяют на этой смене.',q:'«Сегодня до записи смотрим лимит по гарантийным письмам.»'},
+      {d:'День 1 · первый возврат',p:'Тридцать секунд в начале смены. Один вопрос по памяти, без подсказок и без материалов под рукой.',q:'«Назови три проверки до того, как записать клиента на гигиену.»'},
+      {d:'День 3 · второй возврат',p:'Короткий кейс на две строки. Не «что такое скриптовая», а «что сделаешь в этой ситуации».',q:'«Клиент просит гигиену, услуга в программе есть, лимит по гарантийным письмам почти выбран. Твои шаги?»'},
+      {d:'День 7 · третий возврат',p:'Попроси объяснить своими словами — как будто новичку. Объяснение другому вскрывает дыры лучше любого теста.',q:'«Объясни новичку, что меняет цвет клиники и когда нужна скриптовая.»'},
+      {d:'День 21 · проверка',p:'Дай пограничный кейс, которого не было в обучении. Решает верно — тема встала. Плывёт — возвращаешь один короткий блок.',q:'«Услуга в программе есть, но ближайшая клиника по цвету не подходит. Что говоришь клиенту?»'}];
+    var dots=[].slice.call(b.querySelectorAll('.sp-dot'));
+    function show(i){dots.forEach(function(d){d.classList.toggle('on',+d.dataset.i===i)});
+      panel.innerHTML='<p class="d">'+data[i].d+'</p><p>'+data[i].p+'<span class="q">'+data[i].q+'</span></p>';}
+    dots.forEach(function(d){d.addEventListener('click',function(){show(+d.dataset.i)});
+      d.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();show(+d.dataset.i);}});});
+    show(0);
+  })();
+
+  /* 5 · слайдер теория/практика */
+  (function(){var r=$('#rtRange');if(!r)return;var v=$('#rtVerdict');
+    function paint(){var t=+r.value;
+      $('#rtTh').style.width=t+'%';$('#rtPr').style.width=(100-t)+'%';
+      $('#rtThPct').textContent=t+'%';$('#rtPrPct').textContent=(100-t)+'%';
+      var cls,txt;
+      if(t<=10){cls='warn';txt='Почти без объяснения. Для ветерана нормально, для новичка — прыжок в воду: он будет угадывать, а не применять принцип.';}
+      else if(t<=40){cls='';txt='Рабочее соотношение. Объяснений ровно столько, чтобы хватило начать, дальше — руки. Держись этого коридора.';}
+      else if(t<=60){cls='warn';txt='Теория перевешивает. Урежь объяснение вдвое: то, что не поместилось, всё равно забудется до конца смены.';}
+      else{cls='bad';txt='Это лекция. Люди послушают, кивнут и уйдут работать по-старому — переноса в работу почти не будет.';}
+      v.className='rt-verdict '+cls;v.textContent=txt;}
+    r.addEventListener('input',paint);paint();
+  })();
+
+  /* 6 · вкладки */
+  $$('.tab').forEach(function(t){t.addEventListener('click',function(){
+    $$('.tab').forEach(function(x){x.classList.remove('is-on')});
+    $$('.tabpane').forEach(function(x){x.classList.remove('is-on')});
+    t.classList.add('is-on');
+    var p=$('#u5pane-'+t.dataset.tab);if(p)p.classList.add('is-on');});});
+
+  /* 7 · лестница уровней */
+  $$('.lstep').forEach(function(s){function tg(){s.classList.toggle('is-open');
+      var tap=s.querySelector('.tap');if(tap)tap.textContent=s.classList.contains('is-open')?'свернуть':'открыть';}
+    s.addEventListener('click',tg);
+    s.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg();}});});
+
+  /* 8 · флип-карточки */
+  $$('.flip').forEach(function(f){function tg(){f.classList.toggle('is-open')}
+    f.addEventListener('click',tg);
+    f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg();}});});
+
+  /* копирование шаблонов */
+  function bindCopy(id,text){var b=$('#'+id);if(!b)return;var orig=b.textContent;
+    b.addEventListener('click',function(){
+      function done(){b.classList.add('ok');b.textContent='Скопировано';setTimeout(function(){b.classList.remove('ok');b.textContent=orig},1800);}
+      try{navigator.clipboard.writeText(text).then(done,done);}catch(e){done();}});}
+  bindCopy('copyFrame',
+'ОБУЧАЮЩИЙ БЛОК — 15 МИНУТ\n'+
+'Навык (один): \n'+
+'После блока человек: \n\n'+
+'1. ЗАЧЕМ ЭТО ТЕБЕ (1 мин): \n'+
+'2. ВОЗВРАТ К ПРОШЛОМУ (2 мин) — вопрос по памяти: \n'+
+'3. РАЗОБРАННЫЙ ПРИМЕР ВСЛУХ (5 мин) — кейс: \n'+
+'   шаги и сомнения, которые проговариваю: \n'+
+'4. ВМЕСТЕ (4 мин) — второй кейс, шаги называют они: \n'+
+'5. САМ + ФОКУС (3 мин) — третий кейс: \n'+
+'   фраза дня: \n\n'+
+'ВОЗВРАТЫ: день 1 — вопрос: \n'+
+'          день 3 — кейс: \n'+
+'          день 7 — объяснить своими словами: \n'+
+'          день 21 — пограничный кейс: ');
+  bindCopy('copyPrompt',
+'Ты — методист, помогаешь тимлиду поддержки собрать короткий урок для оператора ДМС.\n\n'+
+'Навык: [впиши].\n'+
+'После урока человек должен уметь: [действие, которое видно со стороны].\n'+
+'Материал и правила: [вставь выдержки из регламента].\n\n'+
+'Собери урок на 15 минут по каркасу:\n'+
+'1) зачем это оператору — одна фраза про его выгоду;\n'+
+'2) разобранный пример: реши учебный кейс от лица опытного оператора, проговаривая каждый шаг и свои сомнения;\n'+
+'3) тот же кейс с двумя пропущенными шагами — для разбора вместе;\n'+
+'4) новый кейс для самостоятельного решения;\n'+
+'5) три вопроса на вспоминание без подсказки.\n\n'+
+'Ограничения: один навык, не больше пяти новых понятий, примеры только из ДМС, простой язык без англицизмов и канцелярита.\n\n'+
+'В конце предложи одно задание, где человек выполняет действие, и критерий: по чему видно, что получилось.');
+
+  /* экзамен */
+  (function(){var exam=$('#u5exam');if(!exam)return;
+    var Q=[
+      {q:'С чего начинается сборка урока?',
+       o:['Со строчки «после урока человек …» и действия, которое видно со стороны','С материала: собрать регламенты, примеры и слайды','С опроса команды, какая тема им интереснее'],
+       c:0,e:'Цель через действие задаёт сразу и содержание, и способ проверки. Без неё урок превращается в пересказ материала, а задание — в вопрос на память.'},
+      {q:'Ты разобрал кейс вслух от начала до конца. Что дальше?',
+       o:['Второй похожий кейс разбираете вместе: часть шагов называют они','Даёшь самостоятельную задачу — пример уже был, опоры не нужны','Переходишь к следующей теме, этот навык закрыт'],
+       c:0,e:'Опоры снимаются постепенно и с конца, а не разом. Между «посмотрел» и «сделал сам» всегда есть стадия «сделали вместе».'},
+      {q:'Новичок плывёт на теме, где сразу и программа, и лимит по гарантийным письмам, и цвет клиники. Скорее всего дело в…',
+       o:['Нарезке: слишком много связанных кусков за один раз','Мотивации: не старается вникнуть','Способностях: тема не для всех'],
+       c:0,e:'Эти куски цепляются друг за друга, и удерживать их одновременно тяжело физически. Не человек плохой — нарезка плохая. Разбей и дай по одному.'},
+      {q:'Как правильно вернуться к теме через неделю?',
+       o:['Задать вопрос, попросить ответ по памяти, сразу сверить','Ещё раз прислать памятку и попросить перечитать','Собрать всех и повторно рассказать материал'],
+       c:0,e:'Вспоминание без подсказки заметно сильнее перечитывания — в мета-анализах эффект около 0,5. Но разбор сразу после ответа обязателен, иначе закрепится ошибка.'},
+      {q:'Оператор четыре года на линии. Что сработает для него хуже всего?',
+       o:['Подробный пошаговый разбор с самого начала','Сложный пограничный кейс без подготовки','Просьба объяснить эту тему новичку своими словами'],
+       c:0,e:'У опытного уже есть своя схема, и подробная инструкция заставляет его сверять её с твоей — лишняя работа и раздражение. Ему — задачу посложнее и роль объясняющего.'}];
+    Q.forEach(function(item){var idx=item.o.map(function(_,i){return i});
+      for(var i=idx.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=idx[i];idx[i]=idx[j];idx[j]=t;}
+      item.o=idx.map(function(i){return item.o[i]});item.c=idx.indexOf(item.c);});
+    var cur=0,right=0;
+    var prog=$('#u5examProg'),body=$('#u5examBody'),fin=$('#u5examFinal');
+    if(!prog||!body||!fin)return;
+    prog.innerHTML='';
+    Q.forEach(function(){prog.appendChild(document.createElement('i'))});
+    function drawProg(){prog.querySelectorAll('i').forEach(function(i,n){i.className=n<cur?'done':n===cur?'cur':''})}
+    function render(){drawProg();var item=Q[cur];
+      body.innerHTML='<p class="qn">Вопрос '+(cur+1)+' из '+Q.length+'</p><p class="qt">'+item.q+'</p>'+
+        item.o.map(function(o,i){return '<button class="opt" type="button" data-i="'+i+'">'+o+'</button>'}).join('')+
+        '<p class="expl" id="u5qExpl">'+item.e+'</p><button class="nextq" type="button" id="u5qNext">'+(cur<Q.length-1?'Дальше':'К результату')+'</button>';
+      body.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){
+        var ok=+b.dataset.i===item.c;if(ok)right++;
+        body.querySelectorAll('.opt').forEach(function(x){x.disabled=true;if(+x.dataset.i===item.c)x.classList.add('is-correct')});
+        if(!ok)b.classList.add('is-wrong');
+        body.querySelector('#u5qExpl').classList.add('on');
+        body.querySelector('#u5qNext').classList.add('on');})});
+      body.querySelector('#u5qNext').addEventListener('click',function(){cur++;
+        if(cur<Q.length)render();
+        else{drawProg();body.innerHTML='';fin.className='exam-final on';
+          var verdict=right===Q.length?'Все пять. Каркас у тебя в голове — иди собирать свой урок.'
+            :right>=3?'Крепко. Спорные места подсвечены в разборах, остальное доберёшь на практике — переходи к испытанию.'
+            :'Стоит пройтись по частям 2 и 4 ещё раз: постепенная передача и возвраты. Без них урок не доедет до линии.';
+          fin.innerHTML='<svg class="ray"><use href="#raysym5"/></svg><div class="bignum">'+right+'/'+Q.length+'</div><p>'+verdict+'</p>';}});}
+    render();
+  })();
+}
+
+/* — сдача урока 5: формат + ссылка + описание уходят ОДНОЙ записью — */
+function renderDz5(i){var l=L[i];
+  return '<div class="p3-lead">'+(l.p3.lead||'')+'</div><h3 class="p3-title">'+(l.p3.title||'Испытание')+'</h3>'
+    +'<div class="dz5">'
+    +'<p class="dz-task">'+l.dz.text+'</p>'
+    +'<div class="dz5-lbl">Формат урока</div>'
+    +'<div class="dz5-fmt">'
+      +'<label><input type="radio" name="dz5fmt" value="Google-док" checked><span>Google-док</span></label>'
+      +'<label><input type="radio" name="dz5fmt" value="HTML-страница"><span>HTML-страница · бонус</span></label>'
+    +'</div>'
+    +'<div class="dz5-lbl">Ссылка на урок</div>'
+    +'<input class="p3-input" id="dz5link" type="url" inputmode="url" placeholder="https://…" aria-label="Ссылка на урок">'
+    +'<div class="dz5-lbl">Навык, строчка результата и текст задания</div>'
+    +'<textarea class="p3-input" id="dz5text" rows="6" placeholder="'+escq(l.dz.ph)+'" aria-label="Навык, результат и задание"></textarea>'
+    +'<button class="btn" id="dz5Send" type="button">Отправить коучу</button>'
+    +'<div class="p3-fb" id="dz5Fb" role="status" aria-live="polite" hidden></div></div>';
+}
+function setupDz5(i){
+  var link=document.getElementById('dz5link'),txt=document.getElementById('dz5text'),
+      btn=document.getElementById('dz5Send'),fb=document.getElementById('dz5Fb');
+  if(!btn)return;
+  var saved=LS.get('luchi_dz5',null);
+  if(saved){if(link)link.value=saved.link||'';if(txt)txt.value=saved.text||'';
+    var rr=document.querySelector('input[name="dz5fmt"][value="'+saved.fmt+'"]');if(rr)rr.checked=true;}
+  function store(){var f=document.querySelector('input[name="dz5fmt"]:checked');
+    LS.set('luchi_dz5',{fmt:f?f.value:'',link:link?link.value:'',text:txt?txt.value:''});}
+  [link,txt].forEach(function(el){if(el)el.addEventListener('input',store)});
+  document.querySelectorAll('input[name="dz5fmt"]').forEach(function(r){r.addEventListener('change',store)});
+  if(isSent(L[i].n))markSent(btn);
+  btn.addEventListener('click',function(){
+    var f=document.querySelector('input[name="dz5fmt"]:checked'),
+        lk=(link&&link.value||'').trim(), tx=(txt&&txt.value||'').trim();
+    if(!lk){fb.className='p3-fb';fb.textContent='Вставь ссылку на урок — коуч должен его открыть.';fb.hidden=false;return;}
+    if(tx.length<40){fb.className='p3-fb';fb.textContent='Опиши навык, результат и задание — пары строк мало.';fb.hidden=false;return;}
+    var combined='Формат: '+(f?f.value:'—')+'\nСсылка: '+lk+'\n\n'+tx;
+    ensureFio(function(fio){if(!fio)return;
+      setAns(L[i].n,combined);setSent(L[i].n,true);setDone(L[i].n,true);markSent(btn);
+      fb.className='p3-fb good';fb.textContent='Отправляю…';fb.hidden=false;
+      sendRecord({fio:fio,urok:L[i].n,vopros:L[i].dz.text,otvet:combined},function(s){
+        fb.textContent=s==='sent'?'Урок отправлен коучу ✓':'Сохранено, отправлю при сети.';});});
+  });
+}
+
 /* ====== УРОК 4 · Рыцари круглого стола ====== */
 function renderUrok4(l){var t=document.getElementById('tpl-u4');return t?t.innerHTML:'';}
 function initUrok4(){
@@ -2784,15 +4155,16 @@ function fillLesson(i){
     +'<div class="l-zachem">'+l.zachem.map(function(p){return '<p>'+p+'</p>'}).join('')+'</div>'
     +'<div class="l-nasbore"><b>НА ВСТРЕЧЕ</b>'+l.nasbore+'</div>'
     +'<button class="btn btn--ghost toUrok" type="button">↓ К уроку</button>';
-  urokbox.innerHTML=(l.custom==='lesson1')?renderUrok1(l):(l.custom==='lesson2')?renderUrok2(l):(l.custom==='lesson3')?renderUrok3(l):(l.custom==='lesson4')?renderUrok4(l)
+  urokbox.innerHTML=(l.custom==='lesson1')?renderUrok1(l):(l.custom==='lesson2')?renderUrok2(l):(l.custom==='lesson3')?renderUrok3(l):(l.custom==='lesson4')?renderUrok4(l):(l.custom==='lesson5')?renderUrok5(l)
     :('<div class="ublock reveal"><div class="ul">Приём</div><p>'+l.priem+'</p></div>'
       +acc('Как звучит','<div class="ba"><div class="card bad"><b>Оператор</b>'+l.before+'</div><div class="card good"><b>Капитан</b>'+l.after+'</div></div>')
       +acc('Инструмент','<div class="tool"><div class="code">'+l.tool+'</div><button class="btn btn--ice copyBtn" type="button">Копировать</button></div>'));
-  p3box.innerHTML='<div class="reveal">'+renderP3(i)+'</div>'+((l.p3.type==='sworddz'||l.p3.type==='dzsend'||l.p3.type==='mrl3q')?'':dzHTML(l));
+  p3box.innerHTML='<div class="reveal">'+renderP3(i)+'</div>'+((l.p3.type==='sworddz'||l.p3.type==='dzsend'||l.p3.type==='mrl3q'||l.p3.type==='dz5')?'':dzHTML(l));
   setupP3(i);
   initMrlCarousel();
   if(l.custom==='lesson3')initUrok3();
   if(l.custom==='lesson4')initUrok4();
+  if(l.custom==='lesson5')initUrok5();
   // восстановить ответ ДЗ + статус «сделано»
   p3box.querySelectorAll('[data-ans]').forEach(function(t){t.value=getAns(t.getAttribute('data-ans'))});
   var dn=p3box.querySelector('.dzDone');if(dn&&isDone(l.n))dn.textContent='Готово ✓';
@@ -2863,6 +4235,7 @@ function renderP3(i){
   if(p.type==='sworddz')return renderSwordDz(i);
   if(p.type==='dzsend')return p.pitch?renderPitchDz(i):renderDzSend(i);
   if(p.type==='mrl3q')return renderMrl3q(i);
+  if(p.type==='dz5')return renderDz5(i);
   var h='<div class="p3-lead">'+p.lead+'</div><h3 class="p3-title">'+p.title+'</h3>';
   if(p.type==='gate'){
     h+='<div class="gate"><div class="gate-sword" id="gSword">'+SWORDV+'</div><textarea class="p3-input" id="gIn" rows="2" placeholder="'+escq(p.ph)+'" aria-label="Твоя причина"></textarea><button class="btn" id="gBtn" type="button">Тянуть меч</button><div class="p3-fb" id="gFb" role="status" aria-live="polite" hidden></div></div>';
@@ -2899,6 +4272,8 @@ function setupP3(i){
       ensureFio(function(fio){if(!fio)return;setDone(L[i].n,true);setSent(L[i].n,true);markSent(R('#dzSendBtn'));fb.className='p3-fb good';fb.textContent='Отправляю…';fb.hidden=false;
         sendRecord({fio:fio,urok:L[i].n,vopros:L[i].dz.text,otvet:ans},function(s){fb.textContent=s==='sent'?'Отчёт отправлен ✓':'Сохранено, отправлю при сети.';});});
     });
+  }else if(p.type==='dz5'){
+    setupDz5(i);
   }else if(p.type==='mrl3q'){
     RA('.q1add').forEach(function(btn){btn.addEventListener('click',function(){
       var k=+btn.getAttribute('data-k'),src=p3box.querySelector('.q1a[data-k="'+k+'"]'),rep=R('#q1ans');
